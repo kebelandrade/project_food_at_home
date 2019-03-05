@@ -1,6 +1,26 @@
 from django.db import models
 
 
+class Usuario(models.Model):
+    id = models.AutoField(primary_key=True)
+    nombre = models.CharField(max_length=40)
+    apellidos = models.CharField(max_length=40)
+    nombre_usuario = models.CharField(max_length=15, unique=True)
+    telefono = models.CharField(max_length=8)
+    email = models.EmailField()
+
+
+class DireccionUsuario(models.Model):
+    id = models.AutoField(primary_key=True)
+    usuario = models.ForeignKey(Usuario, on_delete=models.PROTECT)
+    nombre = models.CharField(max_length=25)
+    direccion = models.CharField(max_length=150)
+
+
+class Transporte(models.Model):
+    id = models.AutoField(primary_key=True)
+    nombre = models.CharField(max_length=20)
+
 
 class Restaurante(models.Model):
     id = models.AutoField(primary_key=True)
@@ -24,6 +44,7 @@ class DireccionRestaurante(models.Model):
     latitud = models.FloatField()
     longitud = models.FloatField()
 
+
 class Empleado(models.Model):
     id = models.AutoField(primary_key=True)
     identidad = models.CharField(max_length=13, unique=True)
@@ -42,7 +63,6 @@ class Pedido(models.Model):
     direccion = models.ForeignKey(DireccionUsuario, on_delete=models.PROTECT)
     calificacion = models.IntegerField()
     precioPedido = models.DecimalField(max_digits=6,decimal_places=2)
-
 
 
 class Categoria(models.Model):
@@ -64,7 +84,6 @@ class BodyPedido(models.Model):
     plato = models.ForeignKey(Plato, on_delete=models.PROTECT)
     cantidad = models.IntegerField()
     precio = models.DecimalField(max_digits=6, decimal_places=2)
-
 
 
 class CalificacionRestaurante(models.Model):

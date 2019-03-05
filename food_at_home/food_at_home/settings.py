@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'food_at_home',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': 'andrade97',
         'HOST': '127.0.0.1'
     }
 }
