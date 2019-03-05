@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Usuario(models.Model):
     id = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=40)
@@ -18,27 +19,6 @@ class DireccionUsuario(models.Model):
     direccion = models.CharField(max_length=150)
     latitud = models.FloatField()
     longitud = models.FloatField()
-
-
-class Transporte(models.Model):
-    id = models.AutoField(primary_key=True)
-    nombre = models.CharField(max_length=20)
-
-
-class Usuario(models.Model):
-    id = models.AutoField(primary_key=True)
-    nombre = models.CharField(max_length=40)
-    apellidos = models.CharField(max_length=40)
-    nombre_usuario = models.CharField(max_length=15, unique=True)
-    telefono = models.CharField(max_length=8)
-    email = models.EmailField()
-
-
-class DireccionUsuario(models.Model):
-    id = models.AutoField(primary_key=True)
-    usuario = models.ForeignKey(Usuario, on_delete=models.PROTECT)
-    nombre = models.CharField(max_length=25)
-    direccion = models.CharField(max_length=150)
 
 
 class Transporte(models.Model):
