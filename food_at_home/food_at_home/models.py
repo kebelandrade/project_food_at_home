@@ -20,46 +20,89 @@ class Usuario(models.Model):
         'null': 'Por favor, proporcione un Nombre de Usuario.',
         'unique': 'El Nombre de Usuario ya existe.'
     })
-    password = models.CharField()
+    password = models.CharField(error_messages={
+        'blank': 'La contraseña no puede ir en blanco.',
+        'null': 'Por favor, proporcione una contraseña.'
+    })
     telefono = models.CharField(max_length=8, error_messages={
         'blank': 'No puede ir en blanco el Teléfono.',
         'max_length': 'El número de teléfono no puede llevar más de 8 dígitos.',
         'null': 'Por favor, proporcione un número de teléfono.'
     })
-    email = models.EmailField()
+    email = models.EmailField(error_messages={
+        'invalid': 'El correo está inválido.'
+    })
 
     def clean(self):
         if not self.nombre.isalpha() & self.apellidos.isalpha():
-            raise ValidationError("El nombre solo debe contener datos alfabeticos.")
+            raise ValidationError("El nombre y apellido solo debe contener datos alfabeticos.")
+
+        if not self.telefono.isnumeric():
+            raise ValidationError("El número de teléfono solo debe contener números.")
 
 
 class DireccionUsuario(models.Model):
     id = models.AutoField(primary_key=True)
     usario = models.ForeignKey('Usuario', on_delete=models.PROTECT)
-    nombre = models.CharField(max_length=25)
+    nombre = models.CharField(max_length=25, error_messages={
+        'blank': 'No puede ir en blanco el nombre.',
+        'max_length': 'No puede ir más 25 letras.',
+        'null': 'Por favor, proporcione un nombre.'
+    })
     ciudad = models.ForeignKey('Ciudad', on_delete=models.PROTECT)
-    direccion = models.CharField(max_length=150)
+    direccion = models.CharField(max_length=150, error_messages={
+        'blank': 'La dirección no puede ir en blanco.',
+        'max_length': 'No puede ir más 150 letras.',
+        'null': 'Por favor, proporcione una dirección.'
+    })
     latitud = models.FloatField()
     longitud = models.FloatField()
 
 
 class Transporte(models.Model):
     id = models.AutoField(primary_key=True)
-    nombre = models.CharField(max_length=20)
+    nombre = models.CharField(max_length=20, error_messages={
+        'blank': 'No puede ir en blanco el nombre.',
+        'max_length': 'No puede ir más 20 letras.',
+        'null': 'Por favor, proporcione un nombre.'
+    })
 
 
 class Restaurante(models.Model):
     id = models.AutoField(primary_key=True)
-    nombre = models.CharField(max_length=50)
-    telefono = models.CharField(max_length=8)
+    nombre = models.CharField(max_length=50, error_messages={
+        'blank': 'No puede ir en blanco el nombre.',
+        'max_length': 'No puede ir más 50 letras.',
+        'null': 'Por favor, proporcione un nombre.'
+    })
+    telefono = models.CharField(max_length=8, error_messages={
+        'blank': 'No puede ir en blanco el número de teléfono.',
+        'max_length': 'El número de teléfono no puede ser más de 8 dígitos.',
+        'null': 'Por favor, proporcione un número de teléfono.'
+    })
     estado = models.BooleanField(default=True)
-    calificacion = models.CharField()
+    calificacion = models.CharField(error_messages={
+        'blank': 'No puede ir en blanco la clasificación.',
+        'null': 'Por favor, proporcione una clasificación.'
+    })
     usuario = models.ForeignKey(Usuario, on_delete=models.PROTECT)
+
+    def clean(self):
+        if not self.telefono.isnumeric():
+            raise ValidationError("El número de teléfono solo puede contener números.")
 
 
 class Ciudad(models.Model):
     id = models.AutoField(primary_key=True)
-    nombre = models.CharField(max_length=30)
+    nombre = models.CharField(max_length=30, error_messages={
+        'blank': 'No puede ir en blanco el nombre.',
+        'max_length': 'No puede ir más 30 letras.',
+        'null': 'Por favor, proporcione un nombre.'
+    })
+
+    def clean(self):
+        if not self.nombre.isalpha():
+            raise ValidationError("El nombre de la ciudad solo debe contener datos alfanumericos.")
 
 
 class DireccionRestaurante(models.Model):
