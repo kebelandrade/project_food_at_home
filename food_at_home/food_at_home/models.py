@@ -1,14 +1,36 @@
 from django.db import models
+from django.core.exceptions import ValidationError
 
 
 class Usuario(models.Model):
     id = models.AutoField(primary_key=True)
-    nombre = models.CharField(max_length=40)
-    apellidos = models.CharField(max_length=40)
-    nombreUsuario = models.CharField(max_length=15, unique=True)
+    nombre = models.CharField(max_length=40, error_messages={
+        'blank': 'No puede ir en blanco el nombre.',
+        'max_length': 'El Nombre no puede ir más 40 letras.',
+        'null': 'Por favor, proporcione un nombre.'
+    })
+    apellidos = models.CharField(max_length=40, error_messages={
+        'blank': 'No puede ir en blanco el nombre.',
+        'max_length': 'No puede ir más 40 letras.',
+        'null': 'Por favor, proporcione un nombre.'
+    })
+    nombreUsuario = models.CharField(max_length=15, unique=True, error_messages={
+        'blank': 'El Nombre de Usuario no puede ir en blanco.',
+        'max_length': 'El Nombre de Usuario no puede ir más 15 letras.',
+        'null': 'Por favor, proporcione un Nombre de Usuario.',
+        'unique': 'El Nombre de Usuario ya existe.'
+    })
     password = models.CharField()
-    telefono = models.CharField(max_length=8)
+    telefono = models.CharField(max_length=8, error_messages={
+        'blank': 'No puede ir en blanco el Teléfono.',
+        'max_length': 'El número de teléfono no puede llevar más de 8 dígitos.',
+        'null': 'Por favor, proporcione un número de teléfono.'
+    })
     email = models.EmailField()
+
+    def clean(self):
+        if not self.nombre.isalpha() & self.apellidos.isalpha():
+            raise ValidationError("El nombre solo debe contener datos alfabeticos.")
 
 
 class DireccionUsuario(models.Model):
