@@ -2,6 +2,8 @@ from django.http import HttpResponse, JsonResponse
 from django.core.exceptions import ValidationError
 from food_at_home.food_at_home.models import Restaurante
 from django.core import serializers
+
+
 def crear_restaurante(request):
     errores = []
     exito = True
