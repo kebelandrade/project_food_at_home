@@ -1,6 +1,7 @@
 from django.http import HttpResponse, JsonResponse
 from django.core.exceptions import ValidationError
 from food_at_home.food_at_home.models import Usuario
+from django.core import serializers
 
 
 def crear_usuario(req):
@@ -24,8 +25,36 @@ def crear_usuario(req):
     })
 
 
-def actualizar_usuario(req):
-    pass
+def actualizar_usuario(req, id):
+    errores = []
+    exito = True
+    try:
+        usuario = Usuario.objects.filter(id=id).first()
+        usuario.nombre = req.POST.get('nombre', '')
+        usuario.apellidos = req.POST.get('apellido', '')
+        usuario.nombreUsuario = req.POST.get('nombreUsuario', '')
+        usuario.password = req.POST.get("password", '')
+        usuario.email = req.POST.get("email", '')
+        usuario.full_clean()
+        usuario.save()
+    except ValidationError as e:
+        errores = e.messages
+        exito = False
+    return JsonResponse({
+        'exito': exito,
+        'errores': errores
+    })
+
+
+def ver_usuario(request):
+    if 'nombre' in request.GET:
+        usuario = serializers.serialize("json",
+                                     Usuario.objects.filter(
+                                         nombre__icontains=request.GET['nombre']
+                                     ))
+    else:
+        usuario = serializers.serialize("json", Usuario.objects.all())
+    return HttpResponse(usuario, content_type='application/json')
 
 
 def eliminar_usuario(req):
