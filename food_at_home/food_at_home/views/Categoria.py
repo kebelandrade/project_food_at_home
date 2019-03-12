@@ -3,6 +3,7 @@ from django.core.exceptions import ValidationError
 from food_at_home.food_at_home.models import Categoria
 from django.core import serializers
 
+
 def crear_categoria(request):
     errores = []
     exito = True
@@ -12,12 +13,13 @@ def crear_categoria(request):
         nuevo_empleado.full_clean()
         nuevo_empleado.save()
     except ValidationError as e:
-        errores= e.messages
+        errores = e.messages
         exito = False
     return JsonResponse({
         'exito': exito,
         'errores': errores
     })
+
 
 def ver_categoria(request):
     if 'nombre' in request.GET:
@@ -25,6 +27,7 @@ def ver_categoria(request):
     else:
         categoria = serializers.serialize("json", Categoria.objects.all())
     return HttpResponse(categoria, content_type="application/json")
+
 
 def actualizar_categoria(request, id):
     errores = []
