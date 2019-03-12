@@ -3,6 +3,7 @@ from django.core.exceptions import ValidationError
 from food_at_home.food_at_home.models import Plato
 from django.core import serializers
 
+
 def crear_plato(request):
     errores = []
     exito = True
@@ -23,6 +24,7 @@ def crear_plato(request):
         'errores': errores
     })
 
+
 def ver_plato(request, id):
     plato = Plato.objects.filter(categoria=id).first()
     return JsonResponse({
@@ -32,6 +34,7 @@ def ver_plato(request, id):
         'precio': plato.precio,
         'img': plato.img
     })
+
 
 def actualizar_plato(request, id):
     errores = []

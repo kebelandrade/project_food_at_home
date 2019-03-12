@@ -24,12 +24,14 @@ def crear_restaurante(request):
         'errores': errores
     })
 
+
 def ver_restaurante(request):
     if 'nombre' in request.GET:
         restaurante = serializers.serialize("json", Restaurante.objects.filter(nombre__icontains=request.GET['nombre']))
     else:
         restaurante = serializers.serialize("json", Restaurante.objects.all())
     return HttpResponse(restaurante, content_type="application/json")
+
 
 def actualizar_restaurante(request, id):
     errores = []
@@ -47,6 +49,7 @@ def actualizar_restaurante(request, id):
         'Exito': exito,
         'Errores': errores
     })
+
 
 def crear_direccion(request):
     errores = []
@@ -69,12 +72,14 @@ def crear_direccion(request):
         'errores': errores
     })
 
+
 def ver_direcciones(request):
     if 'id' in request.GET:
         direccion = serializers.serialize("json", DireccionRestaurante.objects.filter(nombre__icontains=request.GET['id']))
     else:
         direccion = serializers.serialize("json", DireccionRestaurante.objects.all())
     return HttpResponse(direccion, content_type="application/json")
+
 
 def actualizar_direcciones(request, id):
     errores = []

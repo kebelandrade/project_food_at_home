@@ -3,6 +3,7 @@ from django.core.exceptions import ValidationError
 from food_at_home.food_at_home.models import Empleado
 from django.core import serializers
 
+
 def crear_empleado(request):
     errores = []
     exito = True
@@ -24,12 +25,14 @@ def crear_empleado(request):
         'errores': errores
     })
 
+
 def actualizar_empleado(request, id):
     if 'nombre' in request.GET:
         empleado = serializers.serialize("json", Empleado.objects.filter(nombre__icontains=request.GET['nombre']))
     else:
         empleado = serializers.serialize("json", Empleado.objects.all())
     return HttpResponse(empleado, content_type="application/json")
+
 
 def actualizar_empleado(request, id):
     errores = []

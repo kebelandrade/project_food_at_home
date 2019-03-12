@@ -144,6 +144,7 @@ class Empleado(models.Model):
             raise ValidationError("La identidad debe ser de 13 dígitos")
     estado = models.BooleanField()
 
+
 class Pedido(models.Model):
     id = models.AutoField(primary_key=True)
     transporte = models.ForeignKey(Transporte, on_delete=models.PROTECT)
