@@ -17,7 +17,7 @@ def crear_plato(request):
         nuevo_plato.full_clean()
         nuevo_plato.save()
     except ValidationError as e:
-        errores= e.messages
+        errores = e.messages
         exito = False
     return JsonResponse({
         'exito': exito,

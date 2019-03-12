@@ -17,7 +17,7 @@ def crear_restaurante(request):
         nuevo_restaurante.full_clean()
         nuevo_restaurante.save()
     except ValidationError as e:
-        errores= e.messages
+        errores = e.messages
         exito = False
     return JsonResponse({
         'exito': exito,

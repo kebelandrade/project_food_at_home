@@ -13,7 +13,7 @@ def crear_ciudad(request):
         nueva_ciudad.full_clean()
         nueva_ciudad.save()
     except ValidationError as e:
-        errores= e.messages
+        errores = e.messages
         exito = False
     return JsonResponse({
         'exito': exito,

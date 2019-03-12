@@ -18,7 +18,7 @@ def crear_empleado(request):
         nuevo_empleado.full_clean()
         nuevo_empleado.save()
     except ValidationError as e:
-        errores= e.messages
+        errores = e.messages
         exito = False
     return JsonResponse({
         'exito': exito,
@@ -34,7 +34,7 @@ def actualizar_empleado(request, id):
     return HttpResponse(empleado, content_type="application/json")
 
 
-def actualizar_empleado(request, id):
+def actualizar_empleados(request, id):
     errores = []
     exito = True
     try:
