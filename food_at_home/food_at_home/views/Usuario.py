@@ -1,6 +1,6 @@
 from django.http import HttpResponse, JsonResponse
 from django.core.exceptions import ValidationError
-from food_at_home.food_at_home.models import Usuario
+from food_at_home.models import Usuario
 
 
 def crear_usuario(req):
@@ -9,6 +9,10 @@ def crear_usuario(req):
     try:
         nuevo_usuario = Usuario()
         nuevo_usuario.nombre = req.POST.get('nombre', None)
+        nuevo_usuario.apellidos = req.POST.get('apellido', None)
+        nuevo_usuario.nombreUsuario = req.POST.get('nombreUsuario', None)
+        nuevo_usuario.password = req.POST.get("password", None)
+        nuevo_usuario.email = req.POST.get("email", None)
         nuevo_usuario.full_clean()
         nuevo_usuario.save()
     except ValidationError as e:
