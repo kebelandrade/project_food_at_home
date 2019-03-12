@@ -2,6 +2,7 @@ from django.db import models
 from django.core.exceptions import ValidationError
 from django.core.validators import *
 import datetime
+from .validaciones import *
 
 
 class Usuario(models.Model):
@@ -10,37 +11,31 @@ class Usuario(models.Model):
         'blank': 'No puede ir en blanco el nombre.',
         'max_length': 'El Nombre no puede ir más 40 caracteres.',
         'null': 'Por favor, proporcione un nombre.'
-    })
+    }, validators=[validar_alfa])
     apellidos = models.CharField(max_length=40, error_messages={
         'blank': 'No puede ir en blanco el nombre.',
         'max_length': 'No puede ir más 40 caracteres.',
         'null': 'Por favor, proporcione un nombre.'
-    })
+    }, validators=[validar_alfa])
     nombreUsuario = models.CharField(max_length=15, unique=True, error_messages={
         'blank': 'El Nombre de Usuario no puede ir en blanco.',
         'max_length': 'El Nombre de Usuario no puede ir más 15 caracteres.',
         'null': 'Por favor, proporcione un Nombre de Usuario.',
         'unique': 'El Nombre de Usuario ya existe.'
     })
-    password = models.CharField(error_messages={
+    password = models.CharField(max_length=20 ,error_messages={
         'blank': 'La contraseña no puede ir en blanco.',
-        'null': 'Por favor, proporcione una contraseña.'
+        'null': 'Por favor, proporcione una contraseña.',
+        'max_length': 'La contraseña no puede ser mayor de 20 caracteres'
     })
     telefono = models.CharField(max_length=8, error_messages={
         'blank': 'No puede ir en blanco el Teléfono.',
         'max_length': 'El número de teléfono no puede llevar más de 8 dígitos.',
         'null': 'Por favor, proporcione un número de teléfono.'
-    })
+    }, validators=[validar_telefono])
     email = models.EmailField(validators=[
         EmailValidator("El correo es inválido.")
     ])
-
-    def clean(self):
-        if not self.nombre.isalpha() or self.apellidos.isalpha():
-            raise ValidationError("El nombre y apellido solo debe contener datos alfabeticos.")
-
-        if not self.telefono.isnumeric():
-            raise ValidationError("El número de teléfono solo debe contener números.")
 
 
 class DireccionUsuario(models.Model):
@@ -50,7 +45,7 @@ class DireccionUsuario(models.Model):
         'blank': 'No puede ir en blanco el nombre.',
         'max_length': 'No puede ir más 25 caracteres.',
         'null': 'Por favor, proporcione un nombre.'
-    })
+    }, validators=[validar_alfa])
     ciudad = models.ForeignKey('Ciudad', on_delete=models.PROTECT)
     direccion = models.CharField(max_length=150, error_messages={
         'blank': 'La dirección no puede ir en blanco.',
@@ -81,7 +76,7 @@ class Restaurante(models.Model):
         'blank': 'No puede ir en blanco el número de teléfono.',
         'max_length': 'El número de teléfono no puede ser más de 8 dígitos.',
         'null': 'Por favor, proporcione un número de teléfono.'
-    })
+    }, validators=[validar_telefono])
     estado = models.BooleanField(default=True)
     calificacion = models.IntegerField(max_length=1, error_messages={
         'null': 'Por favor, proporcione una clasificación.'
@@ -91,10 +86,6 @@ class Restaurante(models.Model):
     ])
     usuario = models.ForeignKey(Usuario, on_delete=models.PROTECT)
 
-    def clean(self):
-        if not self.telefono.isnumeric():
-            raise ValidationError("El número de teléfono y la calificación del restaueante solo puede contener números.")
-
 
 class Ciudad(models.Model):
     id = models.AutoField(primary_key=True)
@@ -102,11 +93,7 @@ class Ciudad(models.Model):
         'blank': 'No puede ir en blanco el nombre.',
         'max_length': 'No puede ir más 30 caracteres.',
         'null': 'Por favor, proporcione un nombre.'
-    })
-
-    def clean(self):
-        if not self.nombre.isalpha():
-            raise ValidationError("El nombre de la ciudad solo debe contener datos alfabeticos.")
+    }, validators=[validar_alfa])
 
 
 class DireccionRestaurante(models.Model):
@@ -128,40 +115,32 @@ class Empleado(models.Model):
         'blank': 'No puede ir en blanco la identidad.',
         'null': 'Por favor, proporcione una identidad.',
         'unique': 'La identida ya está en uso.'
-    })
+    }, validators=[validar_telefono])
     nombre_completo = models.CharField(max_length=50, error_messages={
         'blank': 'No puede ir en blanco el nombre completo.',
         'max_length': 'El Nombre completo no puede ir más 50 letras.',
         'null': 'Por favor, proporcione un nombre.'
-    })
+    }, validators=[validar_alfa])
     usuario = models.CharField(max_length=15, unique=True, error_messages={
         'blank': 'No puede ir en blanco el campo usuario.',
         'max_length': 'El usuario no puede llevar más 15 caracteres.',
         'null': 'Por favor, proporcione un usuario.',
         'unique': 'El usuario ya existe.'
     })
-    password = models.CharField(error_messages={
+    password = models.CharField(max_length=20 , error_messages={
         'blank': 'No puede ir en blanco la contraseña.',
-        'null': 'Por favor, proporcione una contraseña.'
+        'null': 'Por favor, proporcione una contraseña.',
+        'max_length': 'La contraseña no puede ser mayor de 20 caracteres'
     })
     telefono = models.CharField(max_length=8, error_messages={
         'blank': 'No puede ir en blanco el número de teléfono.',
         'max_length': 'El número de teléfono no puede ser más de 8 dígitos.',
         'null': 'Por favor, proporcione un número de teléfono.'
-    })
+    }, validators=[validar_telefono])
 
     def clean(self):
-        if not self.identidad.isnumeric():
-            raise ValidationError("La identidad del empleado no puede llevar letras.")
-
         if not len(self.identidad) == 13:
             raise ValidationError("La identidad debe ser de 13 dígitos")
-
-        if not self.nombre_completo.isalpha():
-            raise ValidationError("El nombre completo del empleado no puede llevar números.")
-
-        if not self.telefono.isnumeric():
-            raise ValidationError("El número de teléfono del empleado no puede llevar letras ni guiones.")
 
 
 class Pedido(models.Model):
@@ -171,17 +150,17 @@ class Pedido(models.Model):
     usuario = models.ForeignKey(Usuario, on_delete=models.PROTECT)
     fecha_pedido = models.DateTimeField()
     direccion = models.ForeignKey(DireccionUsuario, on_delete=models.PROTECT)
-    calificacion = models.CharField(max_length=5, error_messages={
-        'max_length': 'La calificación no debe de ser mayor de 5.',
-    })
+    calificacion = models.IntegerField(max_length=1, error_messages={
+        'null': 'Por favor, proporcione una clasificación.'
+    }, validators=[
+        MinValueValidator(1, "El valor debe ser mayor a 1."),
+        MaxValueValidator(5, "El valor máximo es de 5.")
+    ])
     precioPedido = models.DecimalField(max_digits=6,decimal_places=2, validators=[
         MinValueValidator(0.01, message="El precio no puede ser menor a cero")
     ])
 
     def clean(self):
-        if not self.calificacion.isnumeric():
-            raise ValidationError("La calificación del pedido solo puede contener números")
-
         if self.fecha_pedido.timestamp() <= datetime.datetime.now().timestamp():
             raise ValidationError("La fecha del pedido debe ser mayor a la actual.")
 
@@ -192,7 +171,7 @@ class Categoria(models.Model):
         'blank': 'No puede ir en blanco el nombre.',
         'max_length': 'No puede ir más 20 caracteres.',
         'null': 'Por favor, proporcione un nombre.'
-    })
+    }, validators=[validar_alfa])
 
 
 class Plato(models.Model):
@@ -228,10 +207,12 @@ class BodyPedido(models.Model):
 
 class CalificacionRestaurante(models.Model):
     restaurante = models.ForeignKey(Restaurante, on_delete=models.PROTECT)
-    calificacion = models.IntegerField(error_messages={
-        'blank': 'No puede dejar vacío el campo de cantidad.',
-        'null': 'Por favor, proporcione una cantidad.'
-    })
+    calificacion = models.IntegerField(max_length=1, error_messages={
+        'null': 'Por favor, proporcione una clasificación.'
+    }, validators=[
+        MinValueValidator(1, "El valor debe ser mayor a 1."),
+        MaxValueValidator(5, "El valor máximo es de 5.")
+    ])
     observacion = models.CharField(max_length=250, error_messages={
         'max_length': 'La observación no puede llevar más de 250 caracteres.'
     })
