@@ -1,6 +1,6 @@
 from django.http import HttpResponse, JsonResponse
 from django.core.exceptions import ValidationError
-from food_at_home.food_at_home.models import Restaurante
+from food_at_home.food_at_home.models import Restaurante, DireccionRestaurante
 from django.core import serializers
 
 
@@ -48,3 +48,46 @@ def actualizar_restaurante(request, id):
         'Errores': errores
     })
 
+def crear_direccion(request):
+    errores = []
+    exito = True
+    try:
+        nueva_direccion = DireccionRestaurante()
+        nueva_direccion.id = request.POST.get('id_restaurante', None)
+        nueva_direccion.ciudad = request.POST.get('id_ciudad', None)
+        nueva_direccion.ubicacion = request.POST.get('ubicacion', None)
+        nueva_direccion.latitud = request.POST.get('latitud', None)
+        nueva_direccion.longitud = request.POST.get('longitud')
+        nueva_direccion.estado = request.POST.get(True, None)
+        nueva_direccion.full_clean()
+        nueva_direccion.save()
+    except ValidationError as e:
+        errores = e.messages
+        exito = False
+    return JsonResponse({
+        'exito': exito,
+        'errores': errores
+    })
+
+def ver_direcciones(request):
+    if 'id' in request.GET:
+        direccion = serializers.serialize("json", DireccionRestaurante.objects.filter(nombre__icontains=request.GET['id']))
+    else:
+        direccion = serializers.serialize("json", DireccionRestaurante.objects.all())
+    return HttpResponse(direccion, content_type="application/json")
+
+def actualizar_direcciones(request, id):
+    errores = []
+    exito = True
+    try:
+        direccion = DireccionRestaurante.objects.filter(restaurante=id).first()
+        direccion.estador = request.POST.get['estado','']
+        direccion.full_clean()
+        direccion.save()
+    except ValidationError as e:
+        errores = e.messages
+        exito = False
+    return JsonResponse({
+        'Exito': exito,
+        'Errores': errores
+    })

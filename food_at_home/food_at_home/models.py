@@ -107,6 +107,7 @@ class DireccionRestaurante(models.Model):
     })
     latitud = models.FloatField()
     longitud = models.FloatField()
+    estado = models.BooleanField()
 
 
 class Empleado(models.Model):
@@ -141,7 +142,7 @@ class Empleado(models.Model):
     def clean(self):
         if not len(self.identidad) == 13:
             raise ValidationError("La identidad debe ser de 13 dígitos")
-
+    estado = models.BooleanField()
 
 class Pedido(models.Model):
     id = models.AutoField(primary_key=True)
