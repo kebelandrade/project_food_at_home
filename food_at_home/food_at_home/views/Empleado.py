@@ -28,7 +28,7 @@ def actualizar_empleado(request, id):
     if 'nombre' in request.GET:
         empleado = serializers.serialize("json", Empleado.objects.filter(nombre__icontains=request.GET['nombre']))
     else:
-        empleadp = serializers.serialize("json", Empleado.objects.all())
+        empleado = serializers.serialize("json", Empleado.objects.all())
     return HttpResponse(empleado, content_type="application/json")
 
 def actualizar_empleado(request, id):
