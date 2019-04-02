@@ -1,0 +1,254 @@
+/*Index*/
+* a:hover{
+    text-decoration: none;
+}
+body{
+    margin:0;
+    padding: 0;
+    background-color: #e6e7e8;
+}
+/*Encabezado de pagina*/
+#encabezado{
+    display: flex;
+    min-height: 350px;
+    background-color: #343a40;
+}
+/*Buscador*/
+#buscador{
+    top: 20px;
+    display: flex;
+    width: 80%;
+    min-height: 50px;
+    margin: auto;
+}
+/*Secciones de pagina*/
+#secciones{
+    display: flex;
+    min-height: 580px;
+}
+
+#Restaurante-pizza{
+    margin: auto;
+    height: 500px;
+    background-image: url("../img/pizza.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    position: relative;
+    box-shadow: 0px 0px 16px #888;
+
+}
+#Restaurante-pizza:before{
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 500px;
+    opacity: .7;
+    background-color: #000;
+    position: absolute;
+    border-radius: 5px;
+}
+
+#Restaurante-pizza h1, p, div, hr, button{
+    position: relative;
+}
+
+#Restaurante-hamburguesa{
+    margin: auto;
+    height: 500px;
+    background-image: url("../img/hamburguesa.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    position: relative;
+    box-shadow: 0px 0px 16px #888;
+
+}
+#Restaurante-hamburguesa:before{
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 500px;
+    opacity: .7;
+    background-color: #000;
+    position: absolute;
+    border-radius: 5px;
+}
+
+#Restaurante-hamburguesa h1, p, div, hr, button{
+    position: relative;
+}
+
+#Restaurante-pollo{
+    margin: auto;
+    height: 500px;
+    background-image: url("../img/pollo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    position: relative;
+    box-shadow: 0px 0px 16px #888;
+
+}
+#Restaurante-pollo:before{
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 500px;
+    opacity: .7;
+    background-color: #000;
+    position: absolute;
+    border-radius: 5px;
+}
+
+#Restaurante-pollo h1, p, div, hr, button{
+    position: relative;
+}
+
+#Restaurante-sandwich{
+    margin: auto;
+    height: 500px;
+    background-image: url("../img/sandwich.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    position: relative;
+    box-shadow: 0px 0px 16px #888;
+
+}
+#Restaurante-sandwich:before{
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 500px;
+    opacity: .7;
+    background-color: #000;
+    position: absolute;
+    border-radius: 5px;
+}
+
+#Restaurante-sandwich h1, p, div, hr, button{
+    position: relative;
+}
+#Restaurante-sopa{
+    margin: auto;
+    height: 500px;
+    background-image: url("../img/sopa.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    position: relative;
+    box-shadow: 0px 0px 16px #888;
+
+}
+#Restaurante-sopa:before{
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 500px;
+    opacity: .7;
+    background-color: #000;
+    position: absolute;
+    border-radius: 5px;
+}
+
+#Restaurante-sopa h1, p, div, hr, button{
+    position: relative;
+}
+
+#Restaurante-comedor{
+    margin: auto;
+    height: 500px;
+    background-image: url("../img/buffet.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    position: relative;
+    box-shadow: 0px 0px 16px #888;
+
+}
+#Restaurante-comedor:before{
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 500px;
+    opacity: .7;
+    background-color: #000;
+    position: absolute;
+    border-radius: 5px;
+}
+
+#Restaurante-comedor h1, p, div, hr, button{
+    position: relative;
+}
+/*Formulario Login*/
+#form{
+    width: 30%;
+    margin: auto;
+    padding-bottom: 25px;
+}
+#logo{
+    width: 20%;
+    height: 50px;
+    margin: auto;
+    font-size: 60px;
+}
+
+
+/*Pie de pagina*/
+#pie{
+    display: flex;
+    min-height: 250px;
+    background-color: #343a40;
+    color: #e6e7e8;
+    justify-content: center;
+    padding: 10px 0 10px 0;
+}
+#pie-hijo{
+    width: 25%;
+    min-height: 100%;
+    margin-right: 10px;
+    border-right: 2px solid #e6e7e8;
+    justify-items: center;
+}
+#pie-hijo-cont{
+    width: 90%;
+    min-height: 100%;
+    margin: auto;
+}
+#pie-hijo-cont #mapa{
+    width: 100%;
+    height: 200px;
+    margin: auto;
+}
+#pie-hijo-cont a{
+    color: #fff;
+}
+#pie-hijo-cont h4{
+    border-bottom: #e6e7e8 1px solid;
+    width: 60%;
+}
+#pie-hijo-cont p{
+    text-align: justify;
+}
+
+#pie-hijo:last-child{
+    margin-right: 0;
+    border-right: 0;
+}
+
+#copy{
+    background-color: #343a40;
+    display: flex;
+    justify-content: center;
+    color: #e6e7e8;
+}
+#op:hover{
+    color: #343a40;
+}
