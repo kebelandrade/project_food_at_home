@@ -15,13 +15,47 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views.Usuario import *
-from .views.Index import *
-
+from .views.usuario import *
+from .views.empleado import *
+from .views.restaurante import *
+from .views.index import *
 
 
 urlpatterns = [
+    # Index
     path('', inicio),
+    # Usuario
     path('usuario/crear', crear_usuario),
+    path('usuario/actualizar/<int:id>', actualizar_usuario),
+    path('usuario/ver_usuario/<int:id>', ver_usuario),
+    path('usuario/eliminar_usuario/<int:id>', eliminar_usuario),
+    # Empleados
+    path('empleado/crear_empleado', crear_empleado),
+    path('empleado/actualizar_empleado/<int:id>', actualizar_empleado),
+    path('empleado/act_empleados', actualizar_empleados),
+    # Restaurante
+    path('restaurante/crear',),
+    path('',),
+    path('',),
+    path('',),
+    path('',),
+    path('',),
+    path('',),
+    path('',),
+    path('',),
+    path('',),
+    path('',),
+    path('',),
+    path('',),
+    path('',),
+    path('',),
+    path('',),
+    path('',),
+    path('',),
+    path('',),
+    path('',),
+    path('',),
+    path('',),
+    path('',),
     path('admin/', admin.site.urls),
 ]
