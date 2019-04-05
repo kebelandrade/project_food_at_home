@@ -284,3 +284,7 @@ body{
 #op:hover{
     color: #343a40;
 }
+
+#formulario input {
+    border-radius: 10px;
+}

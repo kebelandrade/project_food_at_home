@@ -26,7 +26,7 @@ urlpatterns = [
     path('', inicio),
     path('login/login.html', login),
     path('Index.html', inicio),
-    path('login/Usuario_Nuevo.html', usuario_nuevo),
+    path('login/crear.html', usuario_nuevo),
     path('cliente/inicio_usuario_cliente.html', iniciousuario),
     path('cliente/configuracion_cliente.html', configuracion),
     # Usuario

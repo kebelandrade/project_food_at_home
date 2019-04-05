@@ -34,7 +34,8 @@
     </div>
 </nav>
 <section id="secciones">
-    <form action="" id="form">
+    <form action="" method="post" id="form">
+        {% csrf_token %}
         <div class="form-group">
             <div class="mx-auto icon-user" id="logo">
 

@@ -195,7 +195,7 @@ class Plato(models.Model):
     img = models.FileField(max_length=100)
 
 
-class BodyPedido(models.Model):
+class CuerpoPedido(models.Model):
     pedido = models.ForeignKey(Pedido, on_delete=models.PROTECT)
     plato = models.ForeignKey(Plato, on_delete=models.PROTECT)
     cantidad = models.IntegerField(error_messages={
