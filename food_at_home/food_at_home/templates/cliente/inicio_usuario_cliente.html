@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio Usuario Cliente</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../css/estilos.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="shortcut icon" href="../../img/icon.png">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <a class="navbar-brand" href="../../Index.html">Foot at Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link icon-home" href="../../Index.html">   Inicio<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle icon-list" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Sesión
+                </a>
+                <div class="dropdown-menu navbar-dark bg-dark" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item nav-link icon-users" href="" id="op">   Nombre de Usuario</a>
+                    <a class="dropdown-item nav-link icon-exit" href="../login/login.html" id="op">   Cerrar Sesión</a>
+                    <a class="dropdown-item nav-link icon-wrench" href="configuracion_cliente.html" id="op">   Configuración</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div id="buscador">
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dirección</button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Primera dirección</a>
+                <a class="dropdown-item" href="#">Segunda Dirección</a>
+                <a class="dropdown-item" href="#">Tercera Dirección</a>
+                <div role="separator" class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Separated link</a>
+            </div>
+        </div>
+        <input type="text" class="form-control" aria-label="Text input with dropdown button">
+</div>
+</div>
+<section id="secciones">
+    <div class="jumbotron" id="Restaurante-pizza">
+        <h1 class="display-4">Pizzerias</h1>
+        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+        <hr class="my-4">
+        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal-pizza" id="btncomidas">
+            Pizzeria
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal-pizza" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel-pizza" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel-pizza">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p  style="color: #000;"><a href="#" role="button" class="btn btn-secondary popover-test" title="Popover title" data-content="Popover body content is set in this attribute.">button</a> triggers a popover on click.</p>
+                        <p  style="color: #000;"><a href="#" role="button" class="btn btn-secondary popover-test" title="Popover title" data-content="Popover body content is set in this attribute.">button</a> triggers a popover on click.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-dark">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="secciones">
+    <div class="jumbotron" id="Restaurante-hamburguesa">
+        <h1 class="display-4">Hamburgueserias</h1>
+        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+        <hr class="my-4">
+        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal-hamburguesa" id="btncomidas">
+            Hamburgueseria
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal-hamburguesa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel-hamburguesa" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel-hamburguesa">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                        <div class="modal-body">
+                            <p  style="color: #000;"><a href="#" role="button" class="btn btn-secondary popover-test" title="Popover title" data-content="Popover body content is set in this attribute.">button</a> triggers a popover on click.</p>
+                        </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-dark">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="secciones">
+    <div class="jumbotron" id="Restaurante-pollo">
+        <h1 class="display-4">Pollerias</h1>
+        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+        <hr class="my-4">
+        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal-pollo" id="btncomidas">
+            Pollerias
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal-pollo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel-pollo" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel-pollo">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p  style="color: #000;"><a href="#" role="button" class="btn btn-secondary popover-test" title="Popover title" data-content="Popover body content is set in this attribute.">button</a> triggers a popover on click.</p>
+                        <p  style="color: #000;"><a href="#" role="button" class="btn btn-secondary popover-test" title="Popover title" data-content="Popover body content is set in this attribute.">button</a> triggers a popover on click.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-dark">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="secciones">
+    <div class="jumbotron" id="Restaurante-sandwich">
+        <h1 class="display-4">Sandwicherias </h1>
+        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+        <hr class="my-4">
+        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal-sandwich" id="btncomidas">
+            Sandwicherias
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal-sandwich" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel-sandwich" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel-sandwich">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p  style="color: #000;"><a href="#" role="button" class="btn btn-secondary popover-test" title="Popover title" data-content="Popover body content is set in this attribute.">button</a> triggers a popover on click.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-dark">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="secciones">
+    <div class="jumbotron" id="Restaurante-sopa">
+        <h1 class="display-4">Soperias</h1>
+        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+        <hr class="my-4">
+        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal-sopa" id="btncomidas">
+            Soperias
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal-sopa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel-sopa" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel-sopa">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p  style="color: #000;"><a href="#" role="button" class="btn btn-secondary popover-test" title="Popover title" data-content="Popover body content is set in this attribute.">button</a> triggers a popover on click.</p>
+                        <p  style="color: #000;"><a href="#" role="button" class="btn btn-secondary popover-test" title="Popover title" data-content="Popover body content is set in this attribute.">button</a> triggers a popover on click.</p>
+                        <p  style="color: #000;"><a href="#" role="button" class="btn btn-secondary popover-test" title="Popover title" data-content="Popover body content is set in this attribute.">button</a> triggers a popover on click.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-dark">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="secciones">
+    <div class="jumbotron" id="Restaurante-comedor">
+        <h1 class="display-4">Comedores</h1>
+        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+        <hr class="my-4">
+        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModalScrollable-comedores">
+            Launch demo modal
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalScrollable-comedores" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle-comedores" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalScrollableTitle-comedores">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p><a href="#" role="button" class="btn btn-secondary popover-test" title="Popover title" data-content="Popover body content is set in this attribute.">button</a> triggers a popover on click.</p>
+                        <p><a href="#" role="button" class="btn btn-secondary popover-test" title="Popover title" data-content="Popover body content is set in this attribute.">button</a> triggers a popover on click.</p>
+                        <p><a href="#" role="button" class="btn btn-secondary popover-test" title="Popover title" data-content="Popover body content is set in this attribute.">button</a> triggers a popover on click.</p>
+                        <p><a href="#" role="button" class="btn btn-secondary popover-test" title="Popover title" data-content="Popover body content is set in this attribute.">button</a> triggers a popover on click.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-light">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer id="pie">
+    <div id="pie-hijo">
+        <div id="pie-hijo-cont">
+            <h4><a href="" class="icon-map"></a>    Direccion</h4>
+            <iframe id="mapa" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15358.97825969192!2d-86.80696949999998!3d15.7646464!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f69a9dd970b9c43%3A0xd59eb5c763a6cdb7!2sUniversidad+Cat%C3%B3lica+de+Honduras!5e0!3m2!1ses-419!2shn!4v1553818221201!5m2!1ses-419!2shn" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+        </div>
+    </div>
+    <div id="pie-hijo">
+        <div id="pie-hijo-cont">
+            <h4><a href="" class="icon-library"></a>    Food at Home</h4>
+            <br>
+            <p>Somos una empresa comprometida con la meta de que tengas tus alimentos favoritos en casa, en el momento en el que lo deseas, justo cuando lo solicites y justo  donde lo solicites, otras empresas pudieron  dejar te un mal sabor de boca pero  Food at Home re</p>
+        </div>
+    </div>
+    <div id="pie-hijo">
+        <div id="pie-hijo-cont">
+            <h4><a href="" class="icon-address-book"></a>   Contactos</h4>
+            <br>
+            <p><a href="mailto:foodathome45@gmail.com" class="icon-mail">   foodathome45@gmail.com</a></p>
+            <p><a href="" class="icon-whatsapp">   +504 8828-4520</a></p>
+            <p><a href="" class="icon-facebook2">   Food at Home</a></p>
+            <p><a href="" class="icon-instagram">   @Food_at_Home</a></p>
+        </div>
+    </div>
+</footer>
+<div id="copy">
+    <p>Food at Home Derechos Reservados &copy; 2019</p>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
