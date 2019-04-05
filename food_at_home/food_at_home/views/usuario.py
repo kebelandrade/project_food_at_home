@@ -2,6 +2,14 @@ from django.http import HttpResponse, JsonResponse
 from django.core.exceptions import ValidationError
 from ..models import Usuario
 from django.core import serializers
+from django.shortcuts import render
+
+def iniciousuario(request):
+    return render(request, 'cliente/inicio_usuario_cliente.html')
+
+def configuracion(request):
+    return render(request, 'cliente/configuracion_cliente.html')
+
 
 
 def crear_usuario(req):

@@ -26,6 +26,13 @@ body{
     display: flex;
     min-height: 580px;
 }
+#btncomidas{
+    min-width: 15%;
+}
+
+.modal-body p{
+    color: #000;
+}
 
 #Restaurante-pizza{
     margin: auto;
@@ -129,6 +136,7 @@ body{
     background-color: #000;
     position: absolute;
     border-radius: 5px;
+
 }
 
 #Restaurante-sandwich h1, p, div, hr, button{
@@ -199,6 +207,30 @@ body{
     margin: auto;
     font-size: 60px;
 }
+/*Scroll*/
+#scroll{
+    width: 80%;
+    min-height: 500px;
+    margin: auto;
+    overflow-y: scroll;
+    overflow-x:unset;
+}
+
+.titulo{
+    width: 80%;
+    display: flex;
+    margin: auto;
+}
+.primero{
+    width: 80%;
+    text-align: center;
+}
+.segundo{
+    display: table-cell;
+    vertical-align: middle
+}
+
+
 
 
 /*Pie de pagina*/
