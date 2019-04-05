@@ -1,6 +1,6 @@
 from django.http import HttpResponse, JsonResponse
 from django.core.exceptions import ValidationError
-from food_at_home.food_at_home.models import Restaurante, DireccionRestaurante
+from ..models import Restaurante, DireccionRestaurante
 from django.core import serializers
 
 
