@@ -19,11 +19,12 @@ from .views.usuario import *
 from .views.empleado import *
 from .views.restaurante import *
 from .views.index import *
-
+from .views.login import *
 
 urlpatterns = [
     # Index
     path('', inicio),
+    path('login/login.html', login),
     # Usuario
     path('usuario/crear', crear_usuario),
     path('usuario/actualizar/<int:id>', actualizar_usuario),
