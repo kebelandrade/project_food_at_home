@@ -4,6 +4,13 @@ from django.core.validators import *
 import datetime
 from .validaciones import *
 
+class TipoUsuario(models.Model):
+    id = models.AutoField(primary_key=True)
+    nombre = models.CharField(max_length=20, error_messages={
+        'blank': 'No puede ir en blanco el nombre.',
+        'max_length': 'El Nombre no puede ir más de 20 caracteres.',
+        'null': 'Por favor, proporcione un nombre.'
+    })
 
 class Usuario(models.Model):
     id = models.AutoField(primary_key=True)
@@ -36,6 +43,7 @@ class Usuario(models.Model):
     email = models.EmailField(validators=[
         EmailValidator("El correo es inválido.")
     ])
+    tipo_usuario = models.ForeignKey(TipoUsuario, on_delete=models.PROTECT)
 
 
 class DireccionUsuario(models.Model):
@@ -45,7 +53,7 @@ class DireccionUsuario(models.Model):
         'blank': 'No puede ir en blanco el nombre.',
         'max_length': 'No puede ir más 25 caracteres.',
         'null': 'Por favor, proporcione un nombre.'
-    }, validators=[validar_alfa])   
+    }, validators=[validar_alfa])
     ciudad = models.ForeignKey('Ciudad', on_delete=models.PROTECT)
     direccion = models.CharField(max_length=150, error_messages={
         'blank': 'La dirección no puede ir en blanco.',
