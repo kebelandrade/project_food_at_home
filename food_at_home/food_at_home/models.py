@@ -45,7 +45,6 @@ class Usuario(models.Model):
     ])
     tipo_usuario = models.ForeignKey(TipoUsuario, on_delete=models.PROTECT)
 
-
 class DireccionUsuario(models.Model):
     id = models.AutoField(primary_key=True)
     usuario = models.ForeignKey(Usuario, on_delete=models.PROTECT)
@@ -229,3 +228,8 @@ class BitacoraEmpleado(models.Model):
     precio = models.DecimalField(max_digits=6, decimal_places=2, validators=[
         MinValueValidator(0.01, message="El precio no puede ser menor a cero")
     ])
+
+class Promocion(models.Model):
+    id = models.AutoField(primary_key=True)
+    nombre = models.CharField(max_length=50)
+    descripcion = models.CharField(max_length=250)
