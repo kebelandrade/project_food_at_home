@@ -285,8 +285,29 @@ body{
     color: #343a40;
 }
 
-#formulario input {
-    border-radius: 10px;
-    box-shadow: 2px 15px 25px;
-    padding: 80px;
+#contnav{
+    width: 15%;
+    min-height: 697px;
+    background-color: #9daab4;
+
+}
+
+#navadmin{
+    background-color: #9daab4;
+
+}
+
+#navadmin li:hover{
+    background-color: #343a40;
+}
+
+#navadmin li a{
+    color: #fff;
+}
+
+#workspace{
+    width: 82%;
+    height: 625px;
+    margin: -660px auto auto 255px;
+    box-shadow: 0 0 10px rgba(126, 126, 126, 0.47);
 }
