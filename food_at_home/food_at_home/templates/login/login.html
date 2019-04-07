@@ -34,7 +34,8 @@
     </div>
 </nav>
 <section id="secciones">
-    <form action="POST" id="form">
+    <form action="" method="post" id="form">
+        {% csrf_token %}
         <div class="form-group">
             <div class="icon-user" id="logo">
 
@@ -53,8 +54,8 @@
             <input type="checkbox" class="form-check-input" id="exampleCheck1">
             <label class="form-check-label" for="exampleCheck1">Recordar mi Usuario y Contraseña</label>
         </div>
-        <a href="../cliente/inicio_usuario_cliente.html" class="btn btn-dark icon-enter">   Ingresar</a>
-        <a href="Usuario_Nuevo.html" class="btn btn-dark icon-user-plus">   No tengo una cuenta aun!</a>
+        <input type="submit" class="btn btn-dark icon-enter" value="Ingresar">
+        <a href="crear.html" class="btn btn-dark icon-user-plus">   No tengo una cuenta aun!</a>
     </form>
 </section>
 <footer id="pie">

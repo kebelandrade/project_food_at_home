@@ -9,10 +9,10 @@
 </head>
 <body>
 <div class="d-flex justify-content-center">
-    <form action="" method="post">
+    <form action="login.html" >
     {% csrf_token %}
     <div class="form-group" id="formulario" >
-        {{ new.as_p }}
+        {{ new.as_p}}
     </div>
 
     <input type="submit" value="Enviar Datos" class="btn btn-primary">

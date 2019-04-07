@@ -8,3 +8,8 @@ class Newusr(forms.Form):
     password = forms.CharField(widget=forms.TextInput, required=True)
     telefono = forms.CharField(widget=forms.TextInput, required=True)
     email = forms.EmailField(widget=forms.TextInput, required=True)
+
+
+class Login(forms.Form):
+    nombreUsuario = forms.CharField(widget=forms.TextInput, required=True)
+    password = forms.CharField(widget=forms.TextInput, required=True)

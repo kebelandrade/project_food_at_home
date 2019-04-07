@@ -78,9 +78,7 @@ class Restaurante(models.Model):
         'null': 'Por favor, proporcione un número de teléfono.'
     }, validators=[validar_telefono])
     estado = models.BooleanField(default=True)
-    calificacion = models.IntegerField(max_length=1, error_messages={
-        'null': 'Por favor, proporcione una clasificación.'
-    }, validators=[
+    calificacion = models.IntegerField(validators=[
         MinValueValidator(1, "El valor debe ser mayor a 1."),
         MaxValueValidator(5, "El valor máximo es de 5.")
     ])
@@ -152,9 +150,7 @@ class Pedido(models.Model):
     usuario = models.ForeignKey(Usuario, on_delete=models.PROTECT)
     fecha_pedido = models.DateTimeField()
     direccion = models.ForeignKey(DireccionUsuario, on_delete=models.PROTECT)
-    calificacion = models.IntegerField(max_length=1, error_messages={
-        'null': 'Por favor, proporcione una clasificación.'
-    }, validators=[
+    calificacion = models.IntegerField(validators=[
         MinValueValidator(1, "El valor debe ser mayor a 1."),
         MaxValueValidator(5, "El valor máximo es de 5.")
     ])
@@ -195,7 +191,7 @@ class Plato(models.Model):
     img = models.FileField(max_length=100)
 
 
-class CuerpoPedido(models.Model):
+class BodyPedido(models.Model):
     pedido = models.ForeignKey(Pedido, on_delete=models.PROTECT)
     plato = models.ForeignKey(Plato, on_delete=models.PROTECT)
     cantidad = models.IntegerField(error_messages={
@@ -209,9 +205,7 @@ class CuerpoPedido(models.Model):
 
 class CalificacionRestaurante(models.Model):
     restaurante = models.ForeignKey(Restaurante, on_delete=models.PROTECT)
-    calificacion = models.IntegerField(max_length=1, error_messages={
-        'null': 'Por favor, proporcione una clasificación.'
-    }, validators=[
+    calificacion = models.IntegerField(validators=[
         MinValueValidator(1, "El valor debe ser mayor a 1."),
         MaxValueValidator(5, "El valor máximo es de 5.")
     ])

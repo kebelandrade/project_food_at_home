@@ -7,7 +7,7 @@ from django.shortcuts import render_to_response
 
 
 def login(request):
-    return render_to_response(request, 'login/login.html')
+    return render(request, 'login/login.html')
 
 def form(request):
     return render(request, 'formulario.html')
