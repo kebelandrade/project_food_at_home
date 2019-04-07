@@ -287,4 +287,6 @@ body{
 
 #formulario input {
     border-radius: 10px;
+    box-shadow: 2px 15px 25px;
+    padding: 80px;
 }

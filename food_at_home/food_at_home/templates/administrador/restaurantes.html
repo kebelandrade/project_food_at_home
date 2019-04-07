@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Datos del Restaurante</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <form action="" class="">
+            <div class="form-row">
+                <div class="col-md">
+                    <label for="NombreRestaurante">Nombre del Restaurante</label>
+                    <input type="text" class="form-control" placeholder="Nombre del Restaurante" id="NombreRestaurante" required>
+                    <small>Campo Obligatorio!</small>
+                </div>
+            </div>
+              <br>
+            <div class="form-row">
+                <div class="col-md">
+                    <label for="TelefonoRestaurante">Telefono del Restaurante</label>
+                    <input type="url" class="form-control" placeholder="Nombre del Restaurante" id="TelefonoRestaurante" required>
+                    <small>Campo Obligatorio!</small>
+                </div>
+            </div>
+              <br>
+            <div class="for-row">
+                      <label for="inputState">Categoria</label>
+                      <select id="inputState" class="form-control">
+                        <option selected></option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                      </select>
+                    <small>Campo Obligatorio!</small>
+            </div>
+            <div class="modal-footer">
+                <input type="submit" class="btn btn-secondary" data-dismiss="modal" value="Cancelar">
+                <input type="submit" class="btn btn-dark" value="Enviar">
+            </div>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+    <div class="flex-row">
+        <div class="d-flex p-3 bd-highlight">
+            <h1>Restaurantes</h1>
+        </div>
+        <div class="d-flex p-3 flex-row-reverse bd-highlight">
+            <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModal">
+                Registrar Restaurante
+            </button>
+        </div>
+    </div>
+    <div class="flex-row">
+        <table class="table">
+          <thead class="thead-dark" style="text-align: center">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Telefono</th>
+              <th scope="col">Estado</th>
+              <th scope="col">Calificacion</th>
+            </tr>
+          </thead>
+          <tbody style="text-align: center">
+            <tr>
+              <th scope="row">1</th>
+              <td>Pizza Hut</td>
+              <td>+504 9487-2598</td>
+              <td>
+                  <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                    <label class="custom-control-label" for="customSwitch1"></label>
+                  </div>
+              </td>
+              <td style="text-align: center">0</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Burguer King</td>
+              <td>+504 9487-2598</td>
+              <td>
+                  <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="customSwitch2">
+                    <label class="custom-control-label" for="customSwitch2"></label>
+                  </div>
+              </td>
+              <td style="text-align: center">5</td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>
