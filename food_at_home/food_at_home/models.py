@@ -11,12 +11,12 @@ class Usuario(models.Model):
         'blank': 'No puede ir en blanco el nombre.',
         'max_length': 'El Nombre no puede ir más 40 caracteres.',
         'null': 'Por favor, proporcione un nombre.'
-    }, validators=[validar_alfa])
+    })
     apellidos = models.CharField(max_length=40, error_messages={
         'blank': 'No puede ir en blanco el nombre.',
         'max_length': 'No puede ir más 40 caracteres.',
         'null': 'Por favor, proporcione un nombre.'
-    }, validators=[validar_alfa])
+    })
     nombreUsuario = models.CharField(max_length=15, unique=True, error_messages={
         'blank': 'El Nombre de Usuario no puede ir en blanco.',
         'max_length': 'El Nombre de Usuario no puede ir más 15 caracteres.',
@@ -32,7 +32,7 @@ class Usuario(models.Model):
         'blank': 'No puede ir en blanco el Teléfono.',
         'max_length': 'El número de teléfono no puede llevar más de 8 dígitos.',
         'null': 'Por favor, proporcione un número de teléfono.'
-    }, validators=[validar_telefono])
+    })
     email = models.EmailField(validators=[
         EmailValidator("El correo es inválido.")
     ])
@@ -45,7 +45,7 @@ class DireccionUsuario(models.Model):
         'blank': 'No puede ir en blanco el nombre.',
         'max_length': 'No puede ir más 25 caracteres.',
         'null': 'Por favor, proporcione un nombre.'
-    }, validators=[validar_alfa])
+    }, validators=[validar_alfa])   
     ciudad = models.ForeignKey('Ciudad', on_delete=models.PROTECT)
     direccion = models.CharField(max_length=150, error_messages={
         'blank': 'La dirección no puede ir en blanco.',
@@ -227,4 +227,3 @@ class BitacoraEmpleado(models.Model):
     precio = models.DecimalField(max_digits=6, decimal_places=2, validators=[
         MinValueValidator(0.01, message="El precio no puede ser menor a cero")
     ])
-

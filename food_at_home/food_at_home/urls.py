@@ -20,13 +20,14 @@ from .views.empleado import *
 from .views.restaurante import *
 from .views.index import *
 from .views.login import *
+from django.conf.urls import url
 
 urlpatterns = [
     # Index
     path('', inicio),
     path('login/login.html', login),
-    path('Index.html', inicio),
-    path('login/crear.html', usuario_nuevo),
+    path('Index.html', inicio ),
+    path('login/crear.html', usuario_nuevo), #esta url muestra el formualario para crear el usuario
     path('cliente/inicio_usuario_cliente.html', iniciousuario),
     path('cliente/configuracion_cliente.html', configuracion),
     # Usuario
@@ -41,4 +42,9 @@ urlpatterns = [
     # Restaurante
     path('restaurante/crear', crear_restaurante),
     path('admin/', admin.site.urls),
+
+    path('formulario.html', form, name='formulario'),
+    path('save_usuario', guardar_user, name='save'),
+    # path('guardar_user', guardar_user),
+    # url(r'^guardar_user/', guardar_user),
 ]
