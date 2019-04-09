@@ -12,6 +12,7 @@ def inicio(request):
 def login(request):
     return render(request, 'login/login.html')
 
+
 def verificar(req):
     errores = []
     exito = True
