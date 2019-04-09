@@ -296,6 +296,10 @@ body{
     background-color: #9daab4;
 
 }
+#navadmin li{
+    background-color: #9daab4;
+    transition: .1s;
+}
 
 #navadmin li:hover{
     background-color: #343a40;
