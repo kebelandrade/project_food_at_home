@@ -26,7 +26,7 @@
                     Sesión
                 </a>
                 <div class="dropdown-menu navbar-dark bg-dark" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item nav-link icon-enter" href="login.html" id="op">   registro</a>
+                    <a class="dropdown-item nav-link icon-enter" href="{% url "login" %}" id="op">   registro</a>
                     <a class="dropdown-item nav-link icon-wrench" href="#" id="op">   Ayuda</a>
                 </div>
             </li>
@@ -34,7 +34,7 @@
     </div>
 </nav>
 <section id="secciones">
-    <form action="" method="post" id="form">
+    <form action="{% url "verificar" %}" method="post" id="form">
         {% csrf_token %}
         <div class="form-group">
             <div class="icon-user" id="logo">
@@ -43,16 +43,12 @@
         </div>
         <div class="form-group">
             <label for="exampleInputEmail1">Correo Electronico o Nombre de Usuario</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese Correo o Nombre de Usuario">
+            <input type="email" class="form-control" name="correo" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese Correo o Nombre de Usuario">
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Contaseña</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña" autocomplete="off">
-        </div>
-        <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Recordar mi Usuario y Contraseña</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="contra" placeholder="Contraseña" autocomplete="off">
         </div>
         <input type="submit" class="btn btn-dark icon-enter" value="Ingresar">
         <a href="crear.html" class="btn btn-dark icon-user-plus">   No tengo una cuenta aun!</a>
