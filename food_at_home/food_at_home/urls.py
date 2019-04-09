@@ -36,6 +36,7 @@ urlpatterns = [
     path('usuario/ver_usuario/<int:id>', ver_usuario),
     path('usuario/eliminar_usuario/<int:id>', eliminar_usuario),
     # Empleados
+    path('administrador/Empleado.html', gestion_empleado),
     path('empleado/crear_empleado', crear_empleado),
     path('empleado/actualizar_empleado/<int:id>', actualizar_empleado),
     path('empleado/act_empleados', actualizar_empleados),

@@ -2,6 +2,10 @@ from django.http import HttpResponse, JsonResponse
 from django.core.exceptions import ValidationError
 from ..models import Empleado
 from django.core import serializers
+from django.shortcuts import render
+
+def gestion_empleado(request):
+    return render(request, 'administrador/Empleado.html')
 
 
 def crear_empleado(request):
