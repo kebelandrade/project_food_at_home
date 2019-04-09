@@ -21,12 +21,16 @@ from .views.restaurante import *
 from .views.index import *
 # from .views.login import *
 from django.conf.urls import url
+from .views.administrador import *
 # willaims
 
 urlpatterns = [
+
     # Index
     path('', inicio, name='index'),
     path('login', login, name='login'),
+    #administrador
+    path('administrador/index', index, name='admiIndex' ),
     # path('verificar', verificar, name="verificar"),
     path('login/crear.html', usuario_nuevo), #esta url muestra el formualario para crear el usuario
     path('cliente/inicio_usuario_cliente.html', iniciousuario),
