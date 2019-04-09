@@ -4,7 +4,7 @@ from django.core.validators import *
 import datetime
 from .validaciones import *
 
-
+#willaism daniel santos
 class Usuario(models.Model):
     id = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=40, error_messages={
@@ -36,7 +36,7 @@ class Usuario(models.Model):
     email = models.EmailField(validators=[
         EmailValidator("El correo es inválido.")
     ])
-    
+
 
 class DireccionUsuario(models.Model):
     id = models.AutoField(primary_key=True)

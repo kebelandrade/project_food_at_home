@@ -21,8 +21,7 @@ def verificar(req):
 
     try:
         usuario = Usuario.objects.filter(['email','password'])
-        for usuario in user:
-            pass
+        
 
         # correo2 = usuario['email']
         # if usuario.email == correo and usuario.password == password:
