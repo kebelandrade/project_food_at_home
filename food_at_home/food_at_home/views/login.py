@@ -28,7 +28,7 @@ def inicio_sesion(request):
         "login_user": login_user,
     }
 
-    return render(request, 'login/ingresar.html', log)
+    return render(request, 'login/mostrar.html', log)
 
 
 def usuario_nuevo(request):
