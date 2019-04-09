@@ -36,6 +36,7 @@ class Usuario(models.Model):
     email = models.EmailField(validators=[
         EmailValidator("El correo es inválido.")
     ])
+    
 
 
 class DireccionUsuario(models.Model):

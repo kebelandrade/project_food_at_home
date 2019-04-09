@@ -4,48 +4,59 @@ from ..models import Usuario
 from django.http import HttpResponse, JsonResponse
 from django.core.exceptions import ValidationError
 from django.core import serializers
-from django.template.response import TemplateResponse
+from django.template.response import *
+from django.template import *
 
 def inicio(request):
     return render(request, 'Index.html')
 
 def login(request):
-    return render(request, 'login/login.html')
 
-def verificar(req):
     errores = []
     exito = True
-    pagina = 'login/login.html'
-    correo = req.POST.get('correo')
-    password = req.POST.get('contra')
 
-    try:
-        usuario = Usuario.objects.filter(['email','password'])
-        
+    correo = request.POST.get('correo')
+    password = request.POST.get('contra')
+    validar = request.POST.get('validar')
 
-        # correo2 = usuario['email']
-        # if usuario.email == correo and usuario.password == password:
-        #     if tipo_usuario == 1:
-        #         exito = True
-        #         pagina = 'administrador/empleado.html'
-    except Exception as e:
-        errores = e.messages
+    if validar == 'si':
+        usuario = Usuario.objects.all().filter(email="correo",password="password")
+
+    else:
         exito = False
-        pagina = 'login/login.html'
 
-    if exito == True:
-        return JsonResponse({
-            'exito': exito,
-            'errores': errores,
-            'pagina': pagina,
-            'correo': correo,
-            'password': password,
-            # 'correo2': us
-            # 'password2': usuario.password
-            })
-    elif exito == False:
-        return JsonResponse({
-            'exito': exito,
-            'errores': errores,
-            'pagina': pagina
-            })
+    if exito == False:
+        return render(request, 'login/login.html')
+    elif exito == True:
+        return render(request, 'administrador/empleado.html')
+
+# def verificar(req):
+#     errores = []
+#     exito = True
+#     correo = req.POST.get('correo')
+#     password = req.POST.get('contra')
+#
+#
+#     try:
+#         usuario = Usuario.objects.filter(['email','password'])
+#
+#
+#         # correo2 = usuario['email']
+#         # if usuario.email == correo and usuario.password == password:
+#         #     if tipo_usuario == 1:
+#         #         exito = True
+#         #         pagina = 'administrador/empleado.html'
+#     except Exception as e:
+#         errores = e.messages
+#         exito = False
+#         pagina = 'login/login.html'
+#
+#     if exito == True:
+#         return render(req,'login/login.html')
+#
+#     elif exito == False:
+#         return JsonResponse({
+#             'exito': exito,
+#             'errores': errores,
+#             'pagina': pagina
+#             })
