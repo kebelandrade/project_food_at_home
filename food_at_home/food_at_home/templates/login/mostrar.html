@@ -6,11 +6,8 @@
     <title>Iniciar Sesión</title>
 </head>
 <body>
-<form action="" method="post">
-    {% csrf_token %}
-    {{ login_user.as_p }}
-    <input type="submit" value="Ingresar" >
-</form>
+
+    {{ JsonResponse }}
 
 </body>
 </html>
