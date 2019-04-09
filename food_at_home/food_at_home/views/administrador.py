@@ -9,3 +9,7 @@ from django.template import *
 
 def index(request):
     return render(request, "administrador/root.html")
+
+
+def gestionUsuarios(request):
+    return render(request, "administrador/Empleado.html")
