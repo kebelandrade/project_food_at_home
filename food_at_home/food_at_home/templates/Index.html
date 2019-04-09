@@ -1,5 +1,5 @@
 {% load static %}
-
+<!-- willaism -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,14 +23,14 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link icon-home" href="Index.html">   Inicio<span class="sr-only">(current)</span></a>
+                <a class="nav-link icon-home" href="{% url 'index' %}">   Inicio<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle icon-list" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Sesión
                 </a>
                 <div class="dropdown-menu navbar-dark bg-dark" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item nav-link icon-enter" href="login/ingresar.html" id="op">   registro</a>
+                    <a class="dropdown-item nav-link icon-enter" href="{% url "login" %}" id="op">   registro</a>
                     <a class="dropdown-item nav-link icon-wrench" href="#" id="op">   Ayuda</a>
                 </div>
             </li>
