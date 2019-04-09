@@ -1,7 +1,7 @@
 <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle">Datos del Empleado</h5>
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -10,44 +10,51 @@
                             <form>
                                   <div class="form-row">
                                     <div class="form-group col-md-6">
-                                      <label for="inputIdentidad">Identidad</label>
-                                      <input type="text" class="form-control" id="inputIdentidad" placeholder="0101199804392">
+                                      <label>Nombre</label>
+                                      <input type="text" class="form-control" id="nombre">
                                     </div>
                                     <div class="form-group col-md-6">
-                                      <label for="inputUsuario">Nombre de Usuario</label>
-                                      <input type="text" class="form-control" id="inputUsuario" placeholder="IvanGodoy24">
+                                      <label for="inputPassword4">Password</label>
+                                      <input type="password" class="form-control" id="password">
                                     </div>
                                   </div>
-                                  <div class="form-group">
-                                    <label for="inputAddress">Nombre Completo</label>
-                                    <input type="text" class="form-control" id="inputAddress" placeholder="Ivan Edgardo Godoy Munguia">
-                                  </div>
-                                <div class="form-row">
-                                  <div class="form-group col-md-4">
-                                    <label for="inputAddress">Contrseña</label>
-                                    <input type="password" class="form-control" id="inputAddress" placeholder="Contraseña">
-                                  </div>
-                                  <div class="form-group col-md-4">
-                                    <label for="inputAddress">Verificar Contrseña</label>
-                                    <input type="password" class="form-control" id="inputAddress" placeholder="Contraseña">
-                                  </div>
-                                  <div class="form-group col-md-4">
-                                    <label for="inputAddress2">telefono</label>
-                                    <div class="input-group mb-3">
-                                      <div class="input-group-prepend">
-                                        <span class="input-group-text">+</span>
-                                        <span class="input-group-text">504</span>
-                                      </div>
-                                      <input type="text" class="form-control" placeholder="9454-2903" aria-label="Dollar amount (with dot and two decimal places)">
+                                  <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                      <label >identidad</label>
+                                      <input type="text" class="form-control" id="identidad">
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                      <label for="inputState">State</label>
+                                      <select id="inputState" class="form-control">
+                                        <option selected>Choose...</option>
+                                        <option>...</option>
+                                      </select>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                      <label for="inputZip">Zip</label>
+                                      <input type="text" class="form-control" id="inputZip">
                                     </div>
                                   </div>
-                                </div>
                                   <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Limpiar</button>
-                                        <button type="button" class="btn btn-dark">Guardar</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-dark">Send message</button>
                                   </div>
                             </form>
                       </div>
 
             </div>
         </div>
+
+        <script>
+            $('#modalNewEmpleado').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget);
+                var nombre = button.data('nombre');
+                var id = button.data('id');
+                var password = button.data('password');
+                var identidad = button.data('identidad');
+                var modal = $(this);
+                modal.find('.modal-body #nombre').val(nombre);
+                modal.find('.modal-body #password').val(password);
+                modal.find('.modal-body #identidad').val(identidad);
+            })
+        </script>
