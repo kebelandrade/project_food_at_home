@@ -32,6 +32,8 @@ urlpatterns = [
     # administrador
     path('administrador/index', index, name='admiIndex' ),
     path('administrador/gestion-usuarios', gestionUsuarios, name='gestionUsuarios'),
+    path('administrador/gestion-restaurante', gestionRestaurante, name='gestionRestaurante'),
+    path('administrador/gestion-Ciudades', gestionCiudades, name='gestionCiudades'),
     # path('verificar', verificar, name="verificar"),
     path('login/crear.html', usuario_nuevo), # esta url muestra el formualario para crear el usuario
     path('cliente/inicio_usuario_cliente.html', iniciousuario),
