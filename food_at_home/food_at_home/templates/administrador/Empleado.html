@@ -26,6 +26,7 @@
                   <th scope="col">Nombre Completo</th>
                   <th scope="col">Telefono</th>
                   <th scope="col">Estado</th>
+                  <th scope="col">Usuario</th>
                   <th scope="col">Gestión</th>
                 </tr>
               </thead>
@@ -34,12 +35,24 @@
 
                 {% for empleado in empleados %}
                 <tr>
-                  <td>{% empleado.identidad %}</td>
-                  <td>Ivan Edgardo Godoy Munguia</td>
-                  <td>+504 9454-2903</td>
-                  <td><span class="badge badge-light">Activo</span></td>
+                  <td>{{ empleado.identidad}}</td>
+                  <td>{{ empleado.nombre_completo}}</td>
+                  <td>{{ empleado.telefono}}</td>
+                  {% if empleado.estado == 1 %}
+                    <td><span class="badge badge-light"></span>Activo</td>
+                  {% else %}
+                    <td><span class="badge badge-light"></span>Inactivo</td>
+                  {% endif %}
+                  <td>{{empleado.usuario}}</td>
                   <td>
-                      <button type="button" class="btn btn-light" data-toggle="modal"  data-target="#modalNewEmpleado"><span class="icon-pen"></span></button>
+                      <a type="button" class="btn btn-light" data-toggle="modal"  data-target="#modalNewEmpleado"
+                      data-id="{{empleado.id}}"
+                      data-nombre="{{empleado.nombre_completo}}"
+                      data-telefono="{{empleado.telefono}}"
+                      data-estado="{{empleado.estado}}"
+                      data-identidad="{{empleado.identidad}}"
+                      data-password="{{empleado.password}}"
+                      ><span class="icon-pen"></span></a>
                   </td>
                 </tr>
                   {% endfor %}
