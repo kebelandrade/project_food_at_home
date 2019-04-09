@@ -29,15 +29,15 @@ urlpatterns = [
     # Index
     path('', inicio, name='index'),
     path('login', login, name='login'),
-    #administrador
+    # administrador
     path('administrador/index', index, name='admiIndex' ),
     path('administrador/gestion-usuarios', gestionUsuarios, name='gestionUsuarios'),
     # path('verificar', verificar, name="verificar"),
-    path('login/crear.html', usuario_nuevo), #esta url muestra el formualario para crear el usuario
+    path('login/crear.html', usuario_nuevo), # esta url muestra el formualario para crear el usuario
     path('cliente/inicio_usuario_cliente.html', iniciousuario),
     path('cliente/configuracion_cliente.html', configuracion),
     path('administrador/root.html', root),
-    path('administrador/Empleado.html', empleado),
+    # path('administrador/Empleado.html', empleado),
     # Usuario
     path('usuario/crear', crear_usuario),
     path('usuario/actualizar/<int:id>', actualizar_usuario),

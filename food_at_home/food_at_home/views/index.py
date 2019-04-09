@@ -35,7 +35,7 @@ def login(request):
         response = redirect('administrador/index')
         return response
 
-# def verificar(req):
+   # def verificar(req):
 #     errores = []
 #     exito = True
 #     correo = req.POST.get('correo')

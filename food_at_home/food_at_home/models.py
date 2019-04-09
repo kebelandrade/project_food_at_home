@@ -4,7 +4,8 @@ from django.core.validators import *
 import datetime
 from .validaciones import *
 
-#willaism daniel santos
+
+# willaism daniel santos
 class Usuario(models.Model):
     id = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=40, error_messages={
@@ -23,7 +24,7 @@ class Usuario(models.Model):
         'null': 'Por favor, proporcione un Nombre de Usuario.',
         'unique': 'El Nombre de Usuario ya existe.'
     })
-    password = models.CharField(max_length=20 ,error_messages={
+    password = models.CharField(max_length=20, error_messages={
         'blank': 'La contraseña no puede ir en blanco.',
         'null': 'Por favor, proporcione una contraseña.',
         'max_length': 'La contraseña no puede ser mayor de 20 caracteres'
@@ -36,7 +37,13 @@ class Usuario(models.Model):
     email = models.EmailField(validators=[
         EmailValidator("El correo es inválido.")
     ])
-    
+    tipoUsuario = models.IntegerField(validators=[
+        MinValueValidator(2, "El valor debe ser mayor a 2."),
+        MaxValueValidator(3, "El valor máximo es de 3.")
+    ], default='SOME STRING', error_messages={
+        'blank': 'No puede ir en blanco el Teléfono.',
+        'null': 'Por favor, proporcione un número de teléfono.'
+    })
 
 
 class DireccionUsuario(models.Model):
@@ -223,7 +230,12 @@ class BitacoraEmpleado(models.Model):
         MinValueValidator(0.01, message="El precio no puede ser menor a cero")
     ])
 
+
 class Promocion(models.Model):
     id = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=50)
     descripcion = models.CharField(max_length=250)
+
+
+
+

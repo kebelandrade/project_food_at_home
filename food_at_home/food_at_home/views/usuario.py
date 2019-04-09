@@ -9,14 +9,14 @@ from django.shortcuts import render_to_response
 def login(request):
     return render(request, 'login/login.html')
 
+
 def form(request):
     return render(request, 'formulario.html')
+
 
 def iniciousuario(request):
     return render(request, 'cliente/inicio_usuario_cliente.html')
 
-def empleado(request):
-    return render(request, 'administrador/Empleado.html')
 
 def guardar_user(req):
     # if request.is_ajax:
@@ -68,7 +68,6 @@ def guardar_user(req):
         'exito': exito,
         'errores': errores
     })
-
 
 
 def configuracion(request):
