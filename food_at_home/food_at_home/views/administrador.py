@@ -6,10 +6,13 @@ from django.core.exceptions import ValidationError
 from django.core import serializers
 from django.template.response import *
 from django.template import *
+from ..models import Ciudad
+
 
 def index(request):
     return render(request, "administrador/root.html")
 
 
 def gestionUsuarios(request):
-    return render(request, "administrador/Empleado.html")
+    empleados = serializers.serialize("json", Empleado.objects.all())
+    return render(request, 'administrador/Empleado.html',{'empleados':empleados})
