@@ -14,8 +14,8 @@ def index(request):
 
 
 def gestionUsuarios(request):
-    empleados = serializers.serialize("json", Empleado.objects.all())
-    return render(request, 'administrador/Empleado.html',{'empleados':empleados})
+    empleados = Empleado.objects.all()
+    return TemplateResponse(request, 'administrador/Empleado.html',{'empleados':empleados})
 
 def gestionRestaurante(request):
     return render(request, 'administrador/Restaurantes.html')
