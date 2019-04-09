@@ -15,7 +15,7 @@
 <div class="navbar navbar-expand-lg navbar-dark bg-dark d-flex justify-content-center sticky-top">
     <div class="p-2 flex-grow-1 bd-highlight">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{% url "admiIndex"%}">
                 <img src="{% static 'img/icon.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
                 Food at Home
             </a>
@@ -45,7 +45,7 @@
 <div class="row" style="height: 625px; padding: 0; margin: 0">
     <div class="col-2 bg-dark">
         <div class="nav flex-column nav-pills bg-dark" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-            <a class="nav-link text-light" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"><span class="icon-users"></span> Gestión de Usuarios</a>
+            <a href="{% url "gestionUsuarios" %}" class="nav-link text-light" id="v-pills-home-tab"  role="tab" aria-controls="v-pills-home" aria-selected="true"><span class="icon-users"></span> Gestión de Usuarios</a>
             <a class="nav-link text-light" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><span class="icon-location"></span> Gestión de Ciudades</a>
             <a class="nav-link text-light" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false"> <span class="icon-office"></span> Gestión de Restaurante</a>
         </div>
@@ -54,26 +54,8 @@
         <div style="height: 610px; width: 100%;">
             {% block workspace %}
             <div id="workspace">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, quaerat.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, quaerat.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, quaerat.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, quaerat.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, quaerat.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, quaerat.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, quaerat.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, quaerat.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, quaerat.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, quaerat.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, quaerat.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, quaerat.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, quaerat.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, quaerat.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, quaerat.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, quaerat.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, quaerat.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, quaerat.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, quaerat.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae, quaerat.</p>
+                <p>Este es el index del administrador</p>
+
             </div>
             {% endblock %}
         </div>
