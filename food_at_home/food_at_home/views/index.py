@@ -7,6 +7,9 @@ from django.core import serializers
 from django.template.response import *
 from django.template import *
 
+def root(request):
+    return render(request, 'administrador/root.html')
+
 def inicio(request):
     return render(request, 'Index.html')
 
