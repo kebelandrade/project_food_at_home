@@ -35,6 +35,8 @@ urlpatterns = [
     path('login/crear.html', usuario_nuevo), #esta url muestra el formualario para crear el usuario
     path('cliente/inicio_usuario_cliente.html', iniciousuario),
     path('cliente/configuracion_cliente.html', configuracion),
+    path('administrador/root.html', root),
+    path('administrador/Empleado.html', empleado),
     # Usuario
     path('usuario/crear', crear_usuario),
     path('usuario/actualizar/<int:id>', actualizar_usuario),

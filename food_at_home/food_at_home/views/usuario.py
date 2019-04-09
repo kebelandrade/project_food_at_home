@@ -15,6 +15,9 @@ def form(request):
 def iniciousuario(request):
     return render(request, 'cliente/inicio_usuario_cliente.html')
 
+def empleado(request):
+    return render(request, 'administrador/Empleado.html')
+
 def guardar_user(req):
     # if request.is_ajax:
     #     r_nombre = request.GET.get('nombre')

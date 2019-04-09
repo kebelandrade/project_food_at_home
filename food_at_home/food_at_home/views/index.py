@@ -8,6 +8,9 @@ from django.template.response import *
 from django.template import *
 from django.shortcuts import redirect
 
+def root(request):
+    return render(request, 'administrador/root.html')
+
 def inicio(request):
     return render(request, 'Index.html')
 
