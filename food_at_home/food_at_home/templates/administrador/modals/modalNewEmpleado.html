@@ -1,7 +1,7 @@
 <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle">Datos del Empleado</h5>
+                    <h5 class="modal-title" id="titulo"></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -10,26 +10,26 @@
                             <form>
                                   <div class="form-row">
                                     <div class="form-group col-md-6">
-                                      <label for="inputIdentidad">Nombre</label>
-                                      <input type="text" class="form-control" id="inputIdentidad" placeholder="0101199804392">
+                                      <label for="identidad">Identidad</label>
+                                      <input type="text" class="form-control" id="identidad" placeholder="0101199804392">
                                     </div>
                                     <div class="form-group col-md-6">
-                                      <label for="inputUsuario">Nombre de Usuario</label>
-                                      <input type="text" class="form-control" id="inputUsuario" placeholder="IvanGodoy24">
+                                      <label for="usuario">Nombre de Usuario</label>
+                                      <input type="text" class="form-control" id="usuario" placeholder="IvanGodoy24">
                                     </div>
                                   </div>
                                   <div class="form-group">
-                                    <label for="inputAddress">Nombre Completo</label>
-                                    <input type="text" class="form-control" id="inputAddress" placeholder="Ivan Edgardo Godoy Munguia">
+                                    <label for="inputNombre">Nombre Completo</label>
+                                    <input id="nombre" type="text" class="form-control"  placeholder="Ivan Edgardo Godoy Munguia">
                                   </div>
                                 <div class="form-row">
                                   <div class="form-group col-md-4">
-                                    <label for="inputAddress">Contrseña</label>
-                                    <input type="password" class="form-control" id="inputAddress" placeholder="Contraseña">
+                                    <label for="password">Contrseña</label>
+                                    <input id="password"  type="text" class="form-control">
                                   </div>
                                   <div class="form-group col-md-4">
-                                    <label for="inputAddress">Verificar Contrseña</label>
-                                    <input type="password" class="form-control" id="inputAddress" placeholder="Contraseña">
+                                    <label for="password">Verificar Contrseña</label>
+                                    <input id="password" type="text" class="form-control" >
                                   </div>
                                   <div class="form-group col-md-4">
                                     <label for="inputAddress2">telefono</label>
@@ -38,7 +38,7 @@
                                         <span class="input-group-text">+</span>
                                         <span class="input-group-text">504</span>
                                       </div>
-                                      <input type="text" class="form-control" placeholder="9454-2903" aria-label="Dollar amount (with dot and two decimal places)">
+                                      <input id="telefono" type="text" class="form-control" placeholder="9454-2903">
                                     </div>
                                   </div>
                                 </div>
@@ -55,13 +55,18 @@
         <script>
             $('#modalNewEmpleado').on('show.bs.modal', function (event) {
                 var button = $(event.relatedTarget);
+                var usuario = button.data('usuario');
                 var nombre = button.data('nombre');
                 var id = button.data('id');
                 var password = button.data('password');
                 var identidad = button.data('identidad');
+                var telefono = button.data('telefono');
                 var modal = $(this);
+                modal.find('.modal-body #usuario').val(usuario);
                 modal.find('.modal-body #nombre').val(nombre);
                 modal.find('.modal-body #password').val(password);
                 modal.find('.modal-body #identidad').val(identidad);
+                modal.find('.modal-body #telefono').val(telefono);
+                modal.find('.modal-header #titulo').html('Editando los datos del Usuario ' + usuario);
             })
         </script>
