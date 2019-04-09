@@ -12,44 +12,13 @@
     <title>{% block titulo %}Root{% endblock %}</title>
 </head>
 <body>
-<div class="navbar navbar-expand-lg navbar-dark bg-dark d-flex justify-content-center sticky-top">
-    <div class="p-2 flex-grow-1 bd-highlight">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="{% url "admiIndex"%}">
-                <img src="{% static 'img/icon.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
-                Food at Home
-            </a>
-            <div class="collapse navbar-collapse" id="navbarNav">\
-
-            </div>
-        </nav>
-    </div>
-    <div class="p-2 bd-highlight">
-        <ul class="nav nav-pills">
-            <li class="nav-item dropdown">
-                <a class="dropdown-toggle btn btn-dark border border-light text-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><span class="icon-user"></span> Usuario</a>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#"><span class="icon-cogs"></span> Configuración</a>
-                    <a class="dropdown-item" href="#"><span class="icon-user-tie"></span> Ayuda</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#"><span class="icon-exit"></span> Salir</a>
-                </div>
-            </li>
-        </ul>
-    </div>
-    <div class="p-2 bd-highlight">
-        <p style="color: transparent;"> homah</p>
-    </div>
-
-</div>
+{% block foo %}
+{% include "administrador/componentes/menuAdmin.html" %}
+{% endblock %}
 <div class="row" style="height: 625px; padding: 0; margin: 0">
-    <div class="col-2 bg-dark">
-        <div class="nav flex-column nav-pills bg-dark" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-            <a href="{% url "gestionUsuarios" %}" class="nav-link text-light" id="v-pills-home-tab"  role="tab" aria-controls="v-pills-home" aria-selected="true"><span class="icon-users"></span> Gestión de Usuarios</a>
-            <a class="nav-link text-light" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><span class="icon-location"></span> Gestión de Ciudades</a>
-            <a class="nav-link text-light" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false"> <span class="icon-office"></span> Gestión de Restaurante</a>
-        </div>
-    </div>
+  {% block fooi %}
+  {% include "administrador/componentes/opcionesMenu.html" %}
+  {% endblock %}
     <div class="col-10 bg-light">
         <div style="height: 610px; width: 100%;">
             {% block workspace %}
