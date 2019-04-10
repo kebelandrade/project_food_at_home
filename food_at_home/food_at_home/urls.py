@@ -29,6 +29,7 @@ urlpatterns = [
     # Index
     path('', inicio, name='index'),
     path('login', login, name='login'),
+    path('restaurante-recientes', recientes)
     # administrador
     path('administrador/index', index, name='admiIndex' ),
     path('administrador/gestion-usuarios', gestionUsuarios, name='gestionUsuarios'),
