@@ -12,7 +12,11 @@ def root(request):
     return render(request, 'administrador/root.html')
 
 def inicio(request):
+
     return render(request, 'Index.html')
+
+def recintes(request):
+    pass
 
 def login(request):
 
