@@ -14,8 +14,35 @@
 <header id="encabezado">
 
 </header>
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+<div class="navbar navbar-expand-lg navbar-dark bg-dark d-flex justify-content-center sticky-top">
+    <div class="p-2 flex-grow-1 bd-highlight">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <img src="{% static 'img/icon.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
+                Food at Home
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="p-2 bd-highlight">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link rounded-sm" href="#">Registrarse <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link btn btn-dark border border-light" href="#">Registrate</a>
+            </li>
+        </ul>
+    </div>
+</div>
+{% comment %}<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <a class="navbar-brand" href="Index.html">Food at Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -36,7 +63,7 @@
             </li>
         </ul>
     </div>
-</nav>
+</nav>{% endcomment %}
 <section id="secciones">
 
 </section>

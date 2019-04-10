@@ -23,8 +23,8 @@ def login(request):
     password = request.POST.get('contra')
     validar = request.POST.get('validar')
 
-    if validar == 'si':
-        usuario = Usuario.objects.all().filter(email="correo",password="password")
+    if request.method == 'POST':
+        usuario = Usuario.objects.all().filter(email=correo,password=password)
         exito = True
     else:
         exito = False
