@@ -1,0 +1,32 @@
+<div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="titulo">Creacion de Nueva Categoria</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                      <div class="modal-body">
+                            <form action="{% url "saveCategoria" %}" method="post">
+                              {% csrf_token %}
+                                  <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                      <label for="identidad">Nombre</label>
+                                      <input type="text" class="form-control" id="nombre" name="nombre">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                      <label for="usuario">descripcion</label>
+                                      <input type="text" class="form-control" id="descripcion" name="descripcion">
+                                    </div>
+                                  </div>
+                                  <div class="form-group">
+                                    <input id="img" type="file" class="form-control"  name="img">
+                                  </div>
+                                  <div class="modal-footer">
+                                    <input type="submit" class="btn btn-dark" name="" value="Guardar Categoria">
+                                  </div>
+                            </form>
+                      </div>
+
+            </div>
+        </div>

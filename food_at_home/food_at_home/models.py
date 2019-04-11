@@ -178,7 +178,12 @@ class Categoria(models.Model):
         'max_length': 'No puede ir más 20 caracteres.',
         'null': 'Por favor, proporcione un nombre.'
     }, validators=[validar_alfa])
+<<<<<<< HEAD
     
+=======
+    img = models.CharField(max_length=250, default="")
+    descripcion = models.CharField(max_length=40, default="")
+>>>>>>> ec6574d18aab3735a26726a4dd1ddddad5d42221
 
 
 class Plato(models.Model):
