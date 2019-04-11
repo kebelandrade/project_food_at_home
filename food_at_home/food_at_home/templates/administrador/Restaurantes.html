@@ -1,0 +1,16 @@
+{% extends 'administrador/root.html' %}
+{% load static %}
+
+{% block titulo %} Gestión de los Empleados{% endblock %}
+
+{% block workspace %}
+
+<a type="button" class="btn btn-light" data-toggle="modal"  data-target="#modalNewCategoria">Nueva Categoria</a>
+
+<div class="modal fade" id="modalNewCategoria" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    {% block newCategoria %}
+    {% include "administrador/modals/modalNewCategoria.html" %}
+    {% endblock %}
+</div>
+
+{% endblock%}
