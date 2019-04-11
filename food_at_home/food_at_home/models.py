@@ -178,7 +178,7 @@ class Categoria(models.Model):
         'max_length': 'No puede ir más 20 caracteres.',
         'null': 'Por favor, proporcione un nombre.'
     }, validators=[validar_alfa])
-    img = models.CharField(max_length=250, default="")
+    img = models.ImageField()
     descripcion = models.CharField(max_length=40, default="")
 
 
