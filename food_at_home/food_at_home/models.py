@@ -178,6 +178,7 @@ class Categoria(models.Model):
         'max_length': 'No puede ir más 20 caracteres.',
         'null': 'Por favor, proporcione un nombre.'
     }, validators=[validar_alfa])
+    
 
 
 class Plato(models.Model):
@@ -235,7 +236,3 @@ class Promocion(models.Model):
     id = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=50)
     descripcion = models.CharField(max_length=250)
-
-
-
-
