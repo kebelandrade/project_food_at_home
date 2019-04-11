@@ -13,12 +13,14 @@ def index(request):
     return render(request, "administrador/root.html")
 
 
-def gestionUsuarios(request):
+def gestion_usuarios(request):
     empleados = Empleado.objects.all()
-    return TemplateResponse(request, 'administrador/Empleado.html',{'empleados':empleados})
+    return TemplateResponse(request, 'administrador/Empleado.html', {'empleados': empleados})
 
-def gestionRestaurante(request):
+
+def gestion_restaurante(request):
     return render(request, 'administrador/Restaurantes.html')
 
-def gestionCiudades(request):
+
+def gestion_ciudades(request):
     return render(request, 'administrador/ciudad.html')

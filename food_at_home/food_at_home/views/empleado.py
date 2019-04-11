@@ -4,6 +4,7 @@ from ..models import Empleado
 from django.core import serializers
 from django.shortcuts import render
 
+
 def gestion_empleado(request):
     return render(request, 'administrador/Empleado.html')
 
