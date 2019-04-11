@@ -1,12 +1,13 @@
 from django.shortcuts import render
 from django.shortcuts import render_to_response
-from ..models import Usuario
+from ..models import Usuario, Restaurante, Categoria
 from django.http import HttpResponse, JsonResponse
 from django.core.exceptions import ValidationError
 from django.core import serializers
 from django.template.response import *
 from django.template import *
 from django.shortcuts import redirect
+
 
 def root(request):
     return render(request, 'administrador/root.html')
@@ -15,8 +16,10 @@ def inicio(request):
 
     return render(request, 'Index.html')
 
-def recintes(request):
-    pass
+def categorias(request):
+    categorias = serializers.serialize("json",Categoria.objects.all())
+    res = HttpResponse(categorias, content_type="application/json")
+    return res
 
 def login(request):
 
