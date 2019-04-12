@@ -7,7 +7,7 @@
                     </button>
                 </div>
                       <div class="modal-body">
-                            <form action="{% url "saveCategoria" %}" method="post">
+                            <form action="{% url "saveCategoria" %}" method="post" enctype="multipart/form-data">
                               {% csrf_token %}
                                   <div class="form-row">
                                     <div class="form-group col-md-6">
