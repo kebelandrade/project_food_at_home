@@ -7,7 +7,8 @@ from django.core import serializers
 from django.template.response import *
 from django.template import *
 from ..models import Empleado
-
+from django.conf import settings
+from django.core.files.storage import FileSystemStorage
 
 def index(request):
     return render(request, "administrador/root.html")
@@ -26,19 +27,22 @@ def gestion_ciudades(request):
     return render(request, 'administrador/ciudad.html')
 
 def saveCategoria(request):
-    # errores = []
-    # exito = True
-    # try:
-    #     nueva_categoria = Categoria()
-    #     nuevo_categoria.nombre = req.POST.get('nombre', None)
-    #     nuevo_usuario.apellidos = req.POST.get('apellido', None)
-    #     nuevo_usuario.full_clean()
-    #     nuevo_usuario.save()
-    # except ValidationError as e:
-    #     errores = e.messages
-    #     exito = False
-    # return JsonResponse({
-    #     'exito': exito,
-    #     'errores': errores
-    # })
-    return "hola"
+    errores = []
+    exito = True
+    img = []
+    try:
+        nueva_categoria = Categoria()
+        nueva_categoria.nombre = request.POST.get('nombre', None)
+        file = request.FILES['img']
+        fs = FileSystemStorage(location='/media/photos')
+        filename = fs.save(nueva_categoria.img, file)
+        nueva_categoria.descripcion = request.POST.get('descripcion', None)
+        nueva_categoria.full_clean()
+        nueva_categoria.save()
+    except ValidationError as e:
+        errores = e.messages
+        exito = False
+    return JsonResponse({
+        'exito': exito,
+        'errores': errores,
+    })
