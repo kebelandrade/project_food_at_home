@@ -5,6 +5,7 @@ from django.http import HttpResponseRedirect
 from ..form import Newusr, Login
 from django.contrib.auth import authenticate, login
 
+
 def inicio_sesion(request):
     login_user = Login(request.POST or None)
 

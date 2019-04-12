@@ -10,6 +10,7 @@ from ..models import Empleado
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
 
+
 def index(request):
     return render(request, "administrador/root.html")
 
@@ -26,7 +27,8 @@ def gestion_restaurante(request):
 def gestion_ciudades(request):
     return render(request, 'administrador/ciudad.html')
 
-def saveCategoria(request):
+
+def save_categoria(request):
     errores = []
     exito = True
     img = []

@@ -31,7 +31,7 @@ urlpatterns = [
     path('login', login, name='login'),
     path('categorias', categorias),
     # administrador
-    path('administrador/index', index, name='admiIndex' ),
+    path('administrador/index', index, name='admiIndex'),
     path('administrador/gestion-usuarios', gestion_usuarios, name='gestionUsuarios'),
     path('administrador/gestion-restaurante', gestion_restaurante, name='gestionRestaurante'),
     path('administrador/gestion-Ciudades', gestion_ciudades, name='gestionCiudades'),

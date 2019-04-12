@@ -12,14 +12,18 @@ from django.shortcuts import redirect
 def root(request):
     return render(request, 'administrador/root.html')
 
+
 def inicio(request):
 
     return render(request, 'Index.html')
 
+
 def categorias(request):
-    categorias = serializers.serialize("json",Categoria.objects.all())
+    cats = categorias()
+    cats = serializers.serialize("json", Categoria.objects.all())
     res = HttpResponse(categorias, content_type="application/json")
     return res
+
 
 def login(request):
 
@@ -36,13 +40,14 @@ def login(request):
     else:
         exito = False
 
-    if exito == False:
+    if not exito:
         return render(request, 'login/login.html')
-    elif exito == True:
+    elif exito:
         response = redirect('administrador/index')
         return response
 
-   # def verificar(req):
+
+# def verificar(req):
 #     errores = []
 #     exito = True
 #     correo = req.POST.get('correo')
