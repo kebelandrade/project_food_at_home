@@ -1,4 +1,5 @@
 from django import forms
+from .models import Categoria
 
 
 class Newusr(forms.Form):
@@ -13,3 +14,8 @@ class Newusr(forms.Form):
 class Login(forms.Form):
     nombreUsuario = forms.CharField(widget=forms.TextInput, required=True)
     password = forms.CharField(widget=forms.TextInput, required=True)
+
+class Categoria(forms.Form):
+    class Meta:
+        model = Categoria
+        fields = ['nombre','img','descripcion']

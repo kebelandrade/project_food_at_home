@@ -36,8 +36,8 @@ def save_categoria(request):
         nueva_categoria = Categoria()
         nueva_categoria.nombre = request.POST.get('nombre', None)
         file = request.FILES['img']
-        fs = FileSystemStorage(location='/media/photos')
-        filename = fs.save(nueva_categoria.img, file)
+        fs = FileSystemStorage(location='imgage')
+        # filename = fs.save(nueva_categoria.img, file)
         nueva_categoria.descripcion = request.POST.get('descripcion', None)
         nueva_categoria.full_clean()
         nueva_categoria.save()
