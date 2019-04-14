@@ -182,6 +182,12 @@ class Categoria(models.Model):
     descripcion = models.CharField(max_length=40, default="")
 
 
+class CategoriaRestaurante(models.Model):
+    id = models.AutoField(primary_key=True)
+    id_restaurante = models.ForeignKey(Restaurante, on_delete=models.PROTECT)
+    id_categoria = models.ForeignKey(Categoria, on_delete=models.PROTECT)
+
+
 class Plato(models.Model):
     id = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=30, error_messages={
@@ -237,3 +243,7 @@ class Promocion(models.Model):
     id = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=50)
     descripcion = models.CharField(max_length=250)
+
+
+
+
