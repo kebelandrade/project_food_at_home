@@ -13,8 +13,6 @@ def inicio_sesion(request):
         data = login_user.cleaned_data
         usuario = data.get("nombreUsuario")
         password = data.get("password")
-        print(usuario)
-        print(password)
         acceso = authenticate(username=usuario, password=password)
         if acceso is not None:
             login(request, acceso)
@@ -52,4 +50,3 @@ def usuario_nuevo(request):
         db_register.full_clean()
         db_register.save()
     return render(request, 'login/crear.html', variables)
-

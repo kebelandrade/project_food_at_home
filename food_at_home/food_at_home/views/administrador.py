@@ -9,6 +9,8 @@ from django.template import *
 from ..models import Empleado
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
+from ..form import formCategoria
+from django.contrib import messages
 
 
 def index(request):
@@ -29,22 +31,25 @@ def gestion_ciudades(request):
 
 
 def save_categoria(request):
-    errores = []
+
+    mensaje = []
     exito = True
-    img = []
     try:
-        nueva_categoria = Categoria()
-        nueva_categoria.nombre = request.POST.get('nombre', None)
-        file = request.FILES['img']
-        fs = FileSystemStorage(location='imgage')
-        # filename = fs.save(nueva_categoria.img, file)
-        nueva_categoria.descripcion = request.POST.get('descripcion', None)
-        nueva_categoria.full_clean()
-        nueva_categoria.save()
+        if request.method == 'POST':
+        # form = formCategoria(request.POST, request.FILES)
+            categorias = Categoria()
+            categorias.nombre = request.POST.get('nombre', None)
+            categorias.descripcion = request.POST.get('descripcion', None)
+            categorias.img = request.FILES['img']
+            # categorias.full_clean()
+            categorias.save()
+            exito = True
     except ValidationError as e:
-        errores = e.messages
+        mensaje = e.messages
         exito = False
-    return JsonResponse({
-        'exito': exito,
-        'errores': errores,
-    })
+    if exito == True:
+        messages.success(request, 'La categoria se ha creado correctamente')
+        # return HttpResponse('administrador/Restaurantes.html')
+        return render(request,'administrador/Restaurantes.html')
+    elif exito == False:
+        return HttpResponse('no')

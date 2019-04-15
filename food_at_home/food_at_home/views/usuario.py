@@ -4,10 +4,11 @@ from ..models import Usuario
 from django.core import serializers
 from django.shortcuts import render
 from django.shortcuts import render_to_response
+from django.contrib import messages
 
-
-def login(request):
-    return render(request, 'login/login.html')
+#
+# def login(request):
+#     return render(request, 'login/login.html')
 
 
 def form(request):
@@ -51,6 +52,7 @@ def guardar_user(req):
     # return render(data, 'index.')
     errores = []
     exito = True
+    valor = 2;
     try:
         nuevo_usuario = Usuario()
         nuevo_usuario.nombre = req.POST.get('nombre', None)
@@ -59,24 +61,28 @@ def guardar_user(req):
         nuevo_usuario.password = req.POST.get('contrasena', None)
         nuevo_usuario.telefono = req.POST.get('telefono', None)
         nuevo_usuario.email = req.POST.get('email', None)
+        nuevo_usuario.tipoUsuario = valor
         nuevo_usuario.full_clean()
         nuevo_usuario.save()
     except ValidationError as e:
         errores = e.messages
         exito = False
-    return JsonResponse({
-        'exito': exito,
-        'errores': errores
-    })
 
+    if exito == True:
+        return render(req,'login/agradecimiento.html')
+    elif exito == False:
+        return JsonResponse({
+            'exito': exito,
+            'errores': errores
+        })
 
 def configuracion(request):
     return render(request, 'cliente/configuracion_cliente.html')
 
 
 def usuario_nuevo(request):
-    new_usr = Usuario()
-    return render_to_response(request, 'login/crear.html', {'new': new_usr})
+    # new_usr = Usuario()
+    return render(request, 'login/Usuario_Nuevo.html')
 
 
 def crear_usuario(req):
@@ -121,15 +127,9 @@ def actualizar_usuario(req, id):
     })
 
 
-def ver_usuario(request):
-    if 'nombre' in request.GET:
-        usuario = serializers.serialize("json",
-                                     Usuario.objects.filter(
-                                         nombre__icontains=request.GET['nombre']
-                                     ))
-    else:
-        usuario = serializers.serialize("json", Usuario.objects.all())
-    return HttpResponse(usuario, content_type='application/json')
+def user(request):
+    return render(request, 'cliente/inicio_usuario_cliente.html')
+
 
 
 def eliminar_usuario(req):

@@ -19,6 +19,7 @@ from .views.usuario import *
 from .views.empleado import *
 from .views.restaurante import *
 from .views.index import *
+from .views.cliente import *
 # from .views.login import *
 from django.conf.urls import url
 from .views.administrador import *
@@ -38,16 +39,21 @@ urlpatterns = [
     path('administrador/gestion-restaurante', gestion_restaurante, name='gestionRestaurante'),
     path('administrador/gestion-Ciudades', gestion_ciudades, name='gestionCiudades'),
     path('administrador/savecategoria', save_categoria, name="saveCategoria"),
+    path('administrador/verrestaurante/<int:id>', verRes),
     # path('verificar', verificar, name="verificar"),
-    path('login/crear.html', usuario_nuevo), # esta url muestra el formualario para crear el usuario
-    path('cliente/inicio_usuario_cliente.html', iniciousuario),
+    path('login/crear.html', usuario_nuevo, name="Usernew"), # esta url muestra el formualario para crear el usuario
+    path('save_usuario', guardar_user, name='save'),
+    path('cliente/inicio_usuario_cliente.html', user, name="inicio_usuario"),
+    path('cliente/categoria', cliente_cat, name="cliente_cat"),
+    path('cliente/restaurante', cliente_rest, name="cliente_rest"),
+    path('cliente/ciudad', cliente_ciudad, name="cliente_ciudad"),
     path('cliente/configuracion_cliente.html', configuracion),
     path('administrador/root.html', root),
     # path('administrador/Empleado.html', empleado),
     # Usuario
     path('usuario/crear', crear_usuario),
     path('usuario/actualizar/<int:id>', actualizar_usuario),
-    path('usuario/ver_usuario/<int:id>', ver_usuario),
+    # path('usuario/ver_usuario/<int:id>', ver_usuario),
     path('usuario/eliminar_usuario/<int:id>', eliminar_usuario),
     # Empleados
     path('administrador/Empleado.html', gestion_empleado),
@@ -59,7 +65,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('formulario.html', form, name='formulario'),
-    path('save_usuario', guardar_user, name='save'),
     # path('guardar_user', guardar_user),
     # url(r'^guardar_user/', guardar_user),
 ]

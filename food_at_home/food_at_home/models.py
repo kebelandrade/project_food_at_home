@@ -179,7 +179,7 @@ class Categoria(models.Model):
         'null': 'Por favor, proporcione un nombre.'
     }, validators=[validar_alfa])
     img = models.ImageField(upload_to='images')
-    descripcion = models.CharField(max_length=40, default="")
+    descripcion = models.CharField(max_length=50, default="")
 
 
 class CategoriaRestaurante(models.Model):

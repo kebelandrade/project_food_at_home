@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <title>Food at Home</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script> -->
     <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="shortcut icon" href="{% static 'img/icon.png' %}">
@@ -24,6 +25,10 @@
   <div class="row" id="seccion-seccion2">
   </div>
 </section>
+
+
+
+
 {% block footer%}
 {% include "componentes/footer.html"%}
 {%endblock%}
@@ -32,6 +37,13 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="{% static 'json/recientes.js '%}"></script>
+
+<div class="modal fade" id="modalVerRestaurante" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    {% block verRestaurante %}
+    {% include "modals/verRestaurantes.html" %}
+    {% endblock %}
+</div>
+
 <script>
         // $(document).ready(function(){
         //     $("#myInput").on("keyup", function() {

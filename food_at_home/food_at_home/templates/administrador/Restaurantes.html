@@ -6,6 +6,13 @@
 {% block workspace %}
 
 <a type="button" class="btn btn-light" data-toggle="modal"  data-target="#modalNewCategoria">Nueva Categoria</a>
+{% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-success" role="alert">
+      {{ message }}
+    </div>
+    {% endfor %}
+{% endif %}
 
 <div class="modal fade" id="modalNewCategoria" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     {% block newCategoria %}

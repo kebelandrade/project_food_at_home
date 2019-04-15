@@ -26,7 +26,7 @@
                     Sesión
                 </a>
                 <div class="dropdown-menu navbar-dark bg-dark" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item nav-link icon-enter" href="login.html" id="op">   registro</a>
+                    <a class="dropdown-item nav-link icon-enter" href="#" id="op">   registro</a>
                     <a class="dropdown-item nav-link icon-wrench" href="#" id="op">   Ayuda</a>
                 </div>
             </li>
@@ -34,7 +34,7 @@
     </div>
 </nav>
 <section id="secciones">
-    <form action="" method="post" id="form">
+    <form action="{% url "save" %}" method="post" id="form">
         {% csrf_token %}
         <div class="form-group">
             <div class="mx-auto icon-user" id="logo">
@@ -44,31 +44,31 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="Nombre">Nombre</label>
-                <input type="text" class="form-control" id="Nombre" placeholder="Nombre">
+                <input type="text" class="form-control" id="Nombre" name="nombre" placeholder="Nombre">
             </div>
             <div class="form-group col-md-6">
                 <label for="Apellido">Apellido</label>
-                <input type="text" class="form-control" id="Apellido" placeholder="Apellido">
+                <input type="text" class="form-control" id="Apellido" name="apellido" placeholder="Apellido">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="NomUsuario">Nombre de Usuario</label>
-                <input type="text" class="form-control" id="NomUsuario" placeholder="EjemploFH">
+                <input type="text" class="form-control" id="NomUsuario" name="usuario" placeholder="EjemploFH">
             </div>
             <div class="form-group col-md-6">
                 <label for="Telefono">Telefono</label>
-                <input type="tel" class="form-control" id="Telefono" placeholder="+504 8962-5980">
+                <input type="tel" class="form-control" id="Telefono" name="telefono" placeholder="+504 8962-5980">
             </div>
         </div>
         <div class="form-row">
             <label for="correo">Correo Electronico</label>
-            <input type="email" class="form-control" id="correo" placeholder="Ejemplo@ejemplo.com">
+            <input type="email" class="form-control" id="correo" name="email" placeholder="Ejemplo@ejemplo.com">
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="Contra">Contraseña</label>
-                <input type="password" class="form-control" id="Contra" placeholder="Contraseña">
+                <input type="password" class="form-control" id="Contra" name="contrasena" placeholder="Contraseña">
             </div>
             <div class="form-group col-md-6">
                 <label for="VerContra">Verificar contraseña</label>
@@ -76,7 +76,7 @@
             </div>
         </div>
         <br>
-        <a href="login.html" class="btn btn-dark icon-user-plus">  Registrar</a>
+        <input type="submit" name="" class="btn btn-dark icon-user-plus"  value="Registrar">
     </form>
 </section>
 <footer id="pie">

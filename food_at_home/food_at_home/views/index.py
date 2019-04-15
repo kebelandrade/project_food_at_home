@@ -19,10 +19,15 @@ def inicio(request):
 
 
 def categorias(request):
-    cats = categorias()
+    cats = Categoria()
     cats = serializers.serialize("json", Categoria.objects.all())
-    res = HttpResponse(categorias, content_type="application/json")
+    res = HttpResponse(cats, content_type="application/json")
     return res
+
+def verRes(request, id):
+    #return HttpResponse(id)
+    restaurantes = serializers.serialize('json', Restaurante.objects.filter(categoriarestaurante__id_categoria=id))
+    return HttpResponse(restaurantes, content_type='application/json')
 
 
 def login(request):
