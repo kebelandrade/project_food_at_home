@@ -23,6 +23,8 @@ from .views.index import *
 from django.conf.urls import url
 from .views.administrador import *
 # willaims
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
 
@@ -61,3 +63,5 @@ urlpatterns = [
     # path('guardar_user', guardar_user),
     # url(r'^guardar_user/', guardar_user),
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
