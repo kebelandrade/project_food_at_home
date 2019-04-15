@@ -15,7 +15,7 @@ class Login(forms.Form):
     nombreUsuario = forms.CharField(widget=forms.TextInput, required=True)
     password = forms.CharField(widget=forms.TextInput, required=True)
 
-class Categoria(forms.Form):
-    class Meta:
-        model = Categoria
-        fields = ['nombre','img','descripcion']
+class formCategoria(forms.Form):
+    # nombre = forms.CharField(widget=forms.TextInput, required=True)
+    # descripcion = forms.CharField(widget=forms.TextInput, required=True)
+    img = forms.ImageField()

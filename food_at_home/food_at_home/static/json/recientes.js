@@ -4,7 +4,6 @@ then(function(res){
   console.log(res.data)
   for(var i=0; i< res.data.length; i++){
     html +=`
-
         <div class="col-sm" >
             <div class="card text-center" style="width: 18rem; margin-top: 50px">
             <img style="height:100px; width:100px; background-color: #4e555b; margin: 20px" src="#"
