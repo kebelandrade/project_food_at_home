@@ -1,7 +1,7 @@
 axios.get('categorias').
 then(function(res){
   let html = "";
-  console.log(res.data)
+  console.log(res.data);
   for(var i=0; i< res.data.length; i++){
     html +=`
         <div class="col-sm" >
@@ -17,17 +17,17 @@ then(function(res){
           </div>
     `
   }
-  var elemento = document.getElementById('seccion-seccion2')
-  elemento.innerHTML=html
+  var elemento = document.getElementById('seccion-seccion2');
+  elemento.innerHTML=html;
 
   // agregar event listeners
-  var botones = elemento.getElementsByClassName('btn-ver-res')
+  var botones = elemento.getElementsByClassName('btn-ver-res');
   for(let i = 0; i < botones.length; i++) {
     botones[i].addEventListener('click', function() {
       axios.get('administrador/verrestaurante/' + botones[i].dataset.id ).
       then(function(res){
         let html = "";
-        console.log(res.data)
+        console.log(res.data);
         for(var i=0; i< res.data.length; i++){
           html +=`
           <tr >
@@ -35,10 +35,10 @@ then(function(res){
           </tr>
           `
         }
-      var elemento = document.getElementById('table-res')
+      var elemento = document.getElementById('table-res');
       elemento.innerHTML=html
       })
     })
   }
 
-})
+});

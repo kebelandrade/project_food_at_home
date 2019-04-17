@@ -210,7 +210,7 @@ class Plato(models.Model):
         MinValueValidator(0.01, message="El precio no puede ser menor a cero")
     ])
     img = models.ImageField(upload_to='image', null=True)
-    id_restaurante = models.ForeignKey(Restaurante, on_delete=models.PROTECT)
+    id_restaurante = models.ForeignKey(Restaurante, on_delete=models.PROTECT, null=True)
 
 
 class BodyPedido(models.Model):

@@ -1,5 +1,4 @@
 from django import forms
-from .models import Categoria
 
 
 class Newusr(forms.Form):
@@ -15,7 +14,8 @@ class Login(forms.Form):
     nombreUsuario = forms.CharField(widget=forms.TextInput, required=True)
     password = forms.CharField(widget=forms.TextInput, required=True)
 
-class formCategoria(forms.Form):
+
+class FormCategoria(forms.Form):
     # nombre = forms.CharField(widget=forms.TextInput, required=True)
     # descripcion = forms.CharField(widget=forms.TextInput, required=True)
     img = forms.ImageField()

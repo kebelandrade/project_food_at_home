@@ -9,7 +9,7 @@ from django.template import *
 from ..models import Empleado
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
-from ..form import formCategoria
+# from ..form import formCategoria
 from django.contrib import messages
 
 
