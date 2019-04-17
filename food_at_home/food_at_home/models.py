@@ -209,7 +209,8 @@ class Plato(models.Model):
     precio = models.DecimalField(max_digits=6, decimal_places=2, validators=[
         MinValueValidator(0.01, message="El precio no puede ser menor a cero")
     ])
-    img = models.FileField(max_length=100)
+    img = models.ImageField(upload_to='image', null=True)
+    id_restaurante = models.ForeignKey(Restaurante, on_delete=models.PROTECT)
 
 
 class BodyPedido(models.Model):
