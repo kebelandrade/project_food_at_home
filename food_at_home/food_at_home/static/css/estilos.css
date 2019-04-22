@@ -316,3 +316,203 @@ body{
     margin: 0;
     padding: 0;
 }
+
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+/*Portada*/
+.container-portada{
+    width: 100%;
+    height: 673px;
+    position: relative;
+    background-image: url(../img/portada.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: movimiento 20s infinite linear alternate;
+}
+
+@keyframes movimiento{
+    from{
+        background-position: bottom left;
+    }to{
+         background-position: top right;
+     }
+}
+
+
+.capa-gradient{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: #000000;
+    opacity: 0.5;
+}
+
+.container-details{
+    width: 100%;
+    max-width: 1200px;
+    position: relative;
+    margin: auto;
+}
+
+
+.details{
+    width: 100%;
+    max-width: 800px;
+    position: relative;
+    top: 250px;
+    color: white;
+}
+
+.details h1{
+    font-size: 40px;
+    font-weight: 100;
+    margin-left: 10px;
+}
+
+.details p{
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: 100;
+    margin-left: 10px;
+}
+
+.details button{
+    padding: 10px 20px;
+    font-size: 16px;
+    background: none;
+    border-style: none;
+    border: 1px solid white;
+    color: white;
+    margin-top: 20px;
+    transition: background 300ms;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.details button:hover{
+    background: white;
+    color: black;
+}
+
+
+/*Articulo*/
+article{
+    width: 100%;
+    max-width: 800px;
+    margin-top: 20px;
+    padding-right: 20px;
+}
+
+article h1{
+    font-size: 40px;
+    font-weight: 100;
+    margin-left: 10px;
+}
+
+article hr{
+    max-width: 500px;
+    height: 4px;
+    border-style: none;
+    background: -webkit-linear-gradient(left, black, #0672d0);
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+article p{
+    font-size: 20px;
+    margin-top: 20px;
+    font-weight: 100;
+    margin-left: 10px;
+}
+#categoria{
+    width: 100%;
+    min-height: 700px;
+    height: 100%;
+}
+.contenido{
+    width: 100%;
+    min-height: 620px;
+    height: 620px;
+    margin-top: 80px;
+    overflow-y: scroll;
+}
+.mini{
+    width: 100%;
+    min-height: 20px;
+    height: 100%;
+    background-color: #272727;
+}
+
+#promociones{
+    width: 100%;
+    min-height: 700px;
+    height: 100%;
+}
+
+.details #logo{
+    width: 50%;
+    height: 60%;
+}
+
+@media screen and (max-width: 500px){
+    .details{
+        top: 60px;
+    }
+    .details p{
+        font-size: 18px;
+    }
+    .details #logo{
+        width: 50%;
+        height: 60%;
+    }
+    .details #dicho{
+        font-size: xx-large;
+    }
+    .container-portada {
+        width: 100%;
+        height: 250px;
+    }
+    .navbar-nav .btn{
+        width: 30%;
+        height: 100%;
+    }
+    .navbar #brand{
+        width: 40%;
+    }
+    #mapa{
+        width: 100%;
+        height: 50%;
+    }
+    #cont-cart{
+        width: 150px;
+        padding: 0;
+        margin: 0;
+        display: block;
+    }
+    #cont-cart #cart{
+        width: 90%;
+        height: 90px;
+    }
+
+}
+
+/*--------arreglos al navbar-----------*/
+.navbar-primary{
+    background-color: transparent;
+}
+
+::-webkit-scrollbar{
+    width: 10px;
+    background-color: #F5F5F5;
+}
+::-webkit-scrollbar-track{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+}
+::-webkit-scrollbar-thumb{
+    background-color: #303030;
+    background-image: -webkit-linear-gradient(90deg,rgba(255, 255, 255, .2) 25%,transparent 25%,transparent 50%,rgba(255, 255, 255, .2) 50%,rgba(255, 255, 255, .2) 75%,transparent 75%,transparent)
+}
