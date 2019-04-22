@@ -1,12 +1,13 @@
 from django.shortcuts import render
 from django.shortcuts import render_to_response
-from ..models import Usuario, Restaurante, Categoria
+from ..models import Usuario, Restaurante, Categoria, Ciudad
 from django.http import HttpResponse, JsonResponse
 from django.core.exceptions import ValidationError
 from django.core import serializers
 from django.template.response import *
 from django.template import *
 from django.shortcuts import redirect
+from django.contrib import messages
 
 
 def root(request):
@@ -14,14 +15,19 @@ def root(request):
 
 
 def inicio(request):
-    return render(request, 'Index2.html')
+    ciudad = Ciudad.objects.all()
+    return TemplateResponse(request, 'Index2.html', {'ciudad': ciudad})
 
 
 def categorias(request):
-    cats = Categoria()
     cats = serializers.serialize("json", Categoria.objects.all())
     res = HttpResponse(cats, content_type="application/json")
     return res
+
+def allrestaurante(request):
+    restaurante = serializers.serialize("json", Restaurante.objects.filter(estado='1'))
+    resta = HttpResponse(restaurante, content_type="application/json")
+    return resta
 
 def verRes(request, id):
     #return HttpResponse(id)
@@ -35,49 +41,67 @@ def login(request):
     exito = True
 
     correo = request.POST.get('correo')
-    password = request.POST.get('contra')
+    password = request.POST.get('password')
     validar = request.POST.get('validar')
 
     if request.method == 'POST':
-        usuario = Usuario.objects.all().filter(email=correo,password=password)
+        usuario = Usuario.objects.get(email=correo,password=password)
         exito = True
     else:
         exito = False
 
-    if not exito:
-        return render(request, 'login/login.html')
-    elif exito:
-        response = redirect('administrador/index')
-        return response
 
+    if exito == False:
+        return render(request, 'Index2.html')
+    elif exito == True:
+        if usuario.tipoUsuario == 1:
+            response = redirect('administrador/root.html')
+            return response
+        elif usuario.tipoUsuario == 2:
+            response = redirect('cliente/inicio_usuario_cliente.html')
+            return response
+def Inicio2(request):
+    id = request.POST.get('selectCiudad')
+    query = serializers.serialize("json",Restaurante.objects.filter(direccionrestaurante__ciudad = id))
+    rest = HttpResponse(query, content_type='application/json')
+    return rest
 
-# def verificar(req):
-#     errores = []
-#     exito = True
-#     correo = req.POST.get('correo')
-#     password = req.POST.get('contra')
-#
-#
-#     try:
-#         usuario = Usuario.objects.filter(['email','password'])
-#
-#
-#         # correo2 = usuario['email']
-#         # if usuario.email == correo and usuario.password == password:
-#         #     if tipo_usuario == 1:
-#         #         exito = True
-#         #         pagina = 'administrador/empleado.html'
-#     except Exception as e:
-#         errores = e.messages
-#         exito = False
-#         pagina = 'login/login.html'
-#
-#     if exito == True:
-#         return render(req,'login/login.html')
-#
-#     elif exito == False:
-#         return JsonResponse({
-#             'exito': exito,
-#             'errores': errores,
-#             'pagina': pagina
-#             })
+def inicio3(request, id):
+    query = serializers.serialize("json",Restaurante.objects.filter(direccionrestaurante__ciudad = id))
+    rest = HttpResponse(query, content_type='application/json')
+    return rest
+
+def espacio(request):
+    exito = True
+    try:
+        if request.method == 'POST':
+            usuario = Usuario()
+            restaurante = Restaurante()
+            usuario.nombre = request.POST.get('nombre', None)
+            usuario.apellidos = request.POST.get('apellido', None)
+            usuario.nombreUsuario = request.POST.get('usuario', None)
+            usuario.password = request.POST.get('contrasena', None)
+            usuario.telefono = request.POST.get('telefono', None)
+            usuario.email = request.POST.get('email',None)
+            usuario.tipoUsuario = request.POST.get('tipoU', None)
+            usuario.save()
+
+            id_usuario = Usuario.objects.all().last()
+
+            restaurante.nombre = request.POST.get('restaurante', None)
+            restaurante.telefono = request.POST.get('tel', None)
+            restaurante.estado = request.POST.get('estado', None)
+            restaurante.calificacion = request.POST.get('calificacion', None)
+            restaurante.img= request.FILES['img']
+            restaurante.usuario_id = id_usuario.id
+            restaurante.save()
+            exito = True
+    except error as e:
+        exito = False
+
+    if exito == True:
+        messages.success(request, 'La solicitud de tu restuarente se esta procesando, te llamaremos a tu numero celular cuando se acepte la solicitud')
+        return redirect('/')
+    elif exito == False:
+        messages.error(request, 'La solicitud de tu restuarente fallo, revisa los campos del formulario nuevamente')
+        return redirect('/')

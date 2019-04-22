@@ -1,89 +1,45 @@
 {% load static %}
-<!-- willaism -->
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Food at Home</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script> -->
-    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="shortcut icon" href="{% static 'img/icon.png' %}">
+  {% block head%}
+  {% include "componentes/head.html"%}
+  {%endblock%}
 </head>
 <body>
-{% block nav%}
-{% include "componentes/nav.html"%}
+<!-- este es el block de la portada -->
+
+<!-- este es el block del navegador -->
+{% block navcliente%}
+{% include "cliente/navcliente.html"%}
 {%endblock%}
-
-<div class="d-flex justify-content-center" style="padding-top:20px">
-  <a href="#seccion-cliente-categoria" class="btn btn-danger"> Categorias</a>
-  <a href="#seccion-cliente-restaurante" class="btn btn-danger">Restaurante</a>
-  <a href="#seccion-cliente-item-ciudades" class="btn btn-danger">Ciudad</a>
-</div>
-<!-- <section id="secciones1">
-{% block section1%}
-{% include "cliente/sectionrestaurante.html"%}
-{% endblock %}
-</section> -->
-<section id="seccione2" style="padding-bottom:30px">
-  <hr class="m-0">
-  <h3>Categorias</h3>
-  <hr class="m-0">
-  <div class="row" id="seccion-cliente-categoria">
-  </div>
-  <hr class="m-0">
-  <h3>restaurantes</h3>
-  <hr class="m-0">
-  <div class="row" id="seccion-cliente-restaurante">
-  </div>
-  <hr class="m-0">
-  <h3>Ciudades</h3>
-<div class="col" id="seccion-cliente-item-ciudades">
-
-</div>
-<div class="" id="probando">
-
-</div>
-</section>
-
-
-
-
-{% block footer%}
+{% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-success" role="alert">
+      {{ message }}
+    </div>
+    {% endfor %}
+{% endif %}
+<!-- este es el block de la categoria -->
+{% block sectionRestaurantesClientes %}
+{% include "cliente/restaurantes.html" %}
+{% endblock%}
+<!-- este es el block de la promociones -->
+<!-- este es el block de los modales -->
+{% block modals%}
 {% include "componentes/footer.html"%}
 {%endblock%}
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="{% static 'json/index_user.js '%}"></script>
-
-<div class="modal fade" id="modalVerRestaurante" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    {% block verRestaurante %}
-    {% include "../modals/verRestaurantes.html" %}
-    {% endblock %}
-</div>
-
-<script>
-        // $(document).ready(function(){
-        //     $("#myInput").on("keyup", function() {
-        //         var value = $(this).val().toLowerCase();
-        //         $("#seccion-seccion2 ").filter(function() {
-        //             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-        //         });
-        //     });
-        // });
-        $(document).ready(function(){
-          $("#buscador").on("keyup", function(){
-            console.log("funciona");
-            var value = $(this).val().toLowerCase();
-            $("#seccione2 .col-sm").filter(function() {
-              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-            });
-          });
-        });
-</script>
+<!-- este es el block del footer -->
+{% block footer%}
+{% include "componentes/modals.html"%}
+{%endblock%}
+<!-- este es el block del script -->
+<script src="{% static 'js/jquery-3.3.1.slim.min.js' %}" ></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}" ></script>
+<script src="{% static 'js/jquery-latest.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
 
 </body>
 </html>
