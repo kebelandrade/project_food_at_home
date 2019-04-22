@@ -1,0 +1,60 @@
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="titulo">Registro de nuevo usuario</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+      <div class="modal-body">
+
+        <form action="{% url "save" %}" method="post" id="form" style="width:80%">
+          {% csrf_token %}
+          <div class="row">
+            <div class="form-group col">
+              <label for="Nombres">Nombres</label>
+              <input type="text" class="form-control" id="Nombres" name="nombre">
+            </div>
+            <div class="form-group col">
+              <label for="Apellidos">Apellidos</label>
+              <input type="text" class="form-control" id="Apellidos" name="apellido">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col">
+                <label for="Telefono">Telefono</label>
+                <input type="tel" class="form-control" id="Telefono" name="telefono" placeholder="8962-5980">
+            </div>
+            <div class="form-group col">
+                <label for="usuario">Nombre de Usuario</label>
+                <input type="text" class="form-control" id="usuario" name="usuario">
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col">
+                <label for="correo">Correo Electronico</label>
+                <input type="email" class="form-control" id="correo" name="email" placeholder="Ejemplo@ejemplo.com">
+            </div>
+            <div class="form-group col">
+                <label for="ccorreo">Confirme Correo Electronico</label>
+                <input type="email" class="form-control" id="ccorreo" placeholder="Ejemplo@ejemplo.com">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col">
+                <label for="Contra">Contraseña</label>
+                <input type="password" class="form-control" id="Contra" name="contrasena" placeholder="Contraseña">
+            </div>
+            <div class="form-group col">
+                <label for="VerContra">Verificar contraseña</label>
+                <input type="password" class="form-control" id="VerContra" placeholder="Verificar Contraseña">
+            </div>
+          </div>
+          <input type="submit" name="" class="btn btn-dark icon-user-plus"  value="Registrar">
+        </form>
+
+      </div>
+  </div>
+</div>

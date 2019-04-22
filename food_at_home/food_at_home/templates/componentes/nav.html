@@ -1,58 +1,22 @@
 {% load static %}
-<div class="navbar navbar-expand-lg navbar-dark bg-dark d-flex justify-content-center sticky-top">
-    <div class="p-2 flex-grow-1 bd-highlight">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <a class="navbar-brand" href="#">
-                <img src="{% static 'img/icon.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
-                Food at Home
-            </a>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-
-                </ul>
-            </div>
-            <button class="btn btn-dark" style="background-color: none ; border: white">
-                    <input class="form-control" id="buscador" type="text" placeholder="Buscar..."></button>
-        </nav>
-    </div>
-    <div class="p-2 bd-highlight">
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link rounded-sm" href="{% url "login" %}" >Iniciar Sesion<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link btn btn-dark border border-light" href="{% url "Usernew" %}">Registrate</a>
-            </li>
-        </ul>
-    </div>
-</div>
-
-
-
-
-
-<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-    <a class="navbar-brand" href="Index.html">Food at Home</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg sticky-top">
+    <img id="brand" src="{% static 'img/fah.png' %}" width="10%" height="100%" alt="">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link icon-home" href="{% url 'index' %}">   Inicio<span class="sr-only">(current)</span></a>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+                <a class="nav-link" id="cate">Categorías</a>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle icon-list" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Sesión
-                </a>
-                <div class="dropdown-menu navbar-dark bg-dark" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item nav-link icon-enter" href="{% url "login" %}" id="op">   registro</a>
-                    <a class="dropdown-item nav-link icon-wrench" href="administrador/Empleado.html" id="op">   Ayuda</a>
-                </div>
+            <li class="nav-item">
+                <a class="nav-link" id="promo">Promociones</a>
             </li>
         </ul>
+        <div class="form-inline my-2 my-lg-0">
+            <button class="btn btn-outline-warning my-3 my-sm-0" type="submit">Iniciar Sesión</button>
+            <span style="color: transparent;">-</span>
+            <button class="btn btn-outline-light my-3 my-sm-0" type="submit" data-toggle="modal" data-target="#modalRegistrar">Registrarse</button>
+        </div>
     </div>
-</nav> -->
+</nav>
