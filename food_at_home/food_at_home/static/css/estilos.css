@@ -34,163 +34,6 @@ body{
     color: #000;
 }
 
-#Restaurante-pizza{
-    margin: auto;
-    height: 500px;
-    background-image: url("../img/pizza.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: #fff;
-    position: relative;
-    box-shadow: 0px 0px 16px #888;
-
-}
-#Restaurante-pizza:before{
-    content: '';
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 500px;
-    opacity: .7;
-    background-color: #000;
-    position: absolute;
-    border-radius: 5px;
-}
-
-#Restaurante-pizza h1, p, div, hr, button{
-    position: relative;
-}
-
-#Restaurante-hamburguesa{
-    margin: auto;
-    height: 500px;
-    background-image: url("../img/hamburguesa.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: #fff;
-    position: relative;
-    box-shadow: 0px 0px 16px #888;
-
-}
-#Restaurante-hamburguesa:before{
-    content: '';
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 500px;
-    opacity: .7;
-    background-color: #000;
-    position: absolute;
-    border-radius: 5px;
-}
-
-#Restaurante-hamburguesa h1, p, div, hr, button{
-    position: relative;
-}
-
-#Restaurante-pollo{
-    margin: auto;
-    height: 500px;
-    background-image: url("../img/pollo.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: #fff;
-    position: relative;
-    box-shadow: 0px 0px 16px #888;
-
-}
-#Restaurante-pollo:before{
-    content: '';
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 500px;
-    opacity: .7;
-    background-color: #000;
-    position: absolute;
-    border-radius: 5px;
-}
-
-#Restaurante-pollo h1, p, div, hr, button{
-    position: relative;
-}
-
-#Restaurante-sandwich{
-    margin: auto;
-    height: 500px;
-    background-image: url("../img/sandwich.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: #fff;
-    position: relative;
-    box-shadow: 0px 0px 16px #888;
-
-}
-#Restaurante-sandwich:before{
-    content: '';
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 500px;
-    opacity: .7;
-    background-color: #000;
-    position: absolute;
-    border-radius: 5px;
-
-}
-
-#Restaurante-sandwich h1, p, div, hr, button{
-    position: relative;
-}
-#Restaurante-sopa{
-    margin: auto;
-    height: 500px;
-    background-image: url("../img/sopa.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: #fff;
-    position: relative;
-    box-shadow: 0px 0px 16px #888;
-
-}
-#Restaurante-sopa:before{
-    content: '';
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 500px;
-    opacity: .7;
-    background-color: #000;
-    position: absolute;
-    border-radius: 5px;
-}
-
-#Restaurante-sopa h1, p, div, hr, button{
-    position: relative;
-}
-
-#Restaurante-comedor{
-    margin: auto;
-    height: 500px;
-    background-image: url("../img/buffet.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: #fff;
-    position: relative;
-    box-shadow: 0px 0px 16px #888;
-
-}
-#Restaurante-comedor:before{
-    content: '';
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 500px;
-    opacity: .7;
-    background-color: #000;
-    position: absolute;
-    border-radius: 5px;
-}
 
 #Restaurante-comedor h1, p, div, hr, button{
     position: relative;
@@ -333,13 +176,13 @@ body{
     animation: movimiento 20s infinite linear alternate;
 }
 
-@keyframes movimiento{
+/* @keyframes movimiento{
     from{
         background-position: bottom left;
     }to{
          background-position: top right;
      }
-}
+} */
 
 
 .capa-gradient{

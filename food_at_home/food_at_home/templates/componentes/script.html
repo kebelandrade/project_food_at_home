@@ -1,0 +1,27 @@
+{% load static %}
+<script src="{% static 'js/jquery-3.3.1.slim.min.js' %}" ></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}" ></script>
+<script src="{% static 'js/jquery-latest.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="{% static 'json/recientes.js '%}"></script>
+<script>
+    const config = {
+        id: "dicho",
+        texto: "Ordena tu comida con unos cuantos clicks!"
+    }
+    const iniciar = new MaquinaEscribir(config);
+    iniciar.iniciarMaquina();
+</script>
+<script>
+        $(document).ready(function(){
+          $("#buscador").on("keyup", function(){
+            console.log("funciona");
+            var value = $(this).val().toLowerCase();
+            $("#seccion-seccion2 .card").filter(function() {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+          });
+        });
+</script>
