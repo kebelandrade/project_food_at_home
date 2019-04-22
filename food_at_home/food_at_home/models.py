@@ -44,6 +44,7 @@ class Usuario(models.Model):
         'blank': 'No puede ir en blanco el Teléfono.',
         'null': 'Por favor, proporcione un número de teléfono.'
     })
+    estado = models.BooleanField(default=True)
 
 
 class DireccionUsuario(models.Model):
@@ -153,7 +154,7 @@ class Empleado(models.Model):
     def clean(self):
         if not len(self.identidad) == 13:
             raise ValidationError("La identidad debe ser de 13 dígitos")
-    estado = models.BooleanField()
+    estado = models.BooleanField(default=True)
 
 
 class Pedido(models.Model):
