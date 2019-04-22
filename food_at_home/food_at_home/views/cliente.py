@@ -35,3 +35,6 @@ def cliente_queryCiudad(request, id):
 
 def cliente_restaurante_menu(request, id):
     pass
+
+def vermenu(request, id):
+    pass

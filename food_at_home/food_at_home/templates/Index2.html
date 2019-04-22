@@ -48,43 +48,13 @@
     <div class="d-flex justify-content-center flex-column bd-highlight mb-3">
         <div class="p-2 bd-highlight d-flex justify-content-center bg bg-secondary text-light"><h1><strong>Categorías</strong></h1></div>
         <div class="p-2 bd-highlight d-flex justify-content-center">
-            <input class="form-control mr-sm-4" style="width: 80%" type="search" placeholder="Buscar" aria-label="Search">
+            <input class="form-control mr-sm-4" style="width: 80%" type="search" placeholder="Buscar" id="buscador" aria-label="Search">
         </div>
         <hr>
     </div>
-    <div class="contenido d-flex flex-wrap d-flex justify-content-center">
-        <div class="card" style="width: 18rem; margin: 20px 20px">
-            <img src="{% static 'img/icon.png' %}" class="card-img-top rounded-circle">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-warning">Go somewhere</a>
-            </div>
-        </div>
-        <div class="card" style="width: 18rem; margin: 20px 20px">
-            <img src="{% static 'img/icon.png' %}" class="card-img-top rounded-circle">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-warning">Go somewhere</a>
-            </div>
-        </div>
-        <div class="card" style="width: 18rem; margin: 20px 20px">
-            <img src="{% static 'img/icon.png' %}" class="card-img-top rounded-circle">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-warning">Go somewhere</a>
-            </div>
-        </div>
-        <div class="card" style="width: 18rem; margin: 20px 20px">
-            <img src="{% static 'img/icon.png' %}" class="card-img-top rounded-circle">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-warning">Go somewhere</a>
-            </div>
-        </div>
+    <!-- aca muestra las cards -->
+    <div class="contenido d-flex flex-wrap d-flex justify-content-center" id="seccion-seccion2">
+
     </div>
 </section>
 <section id="promociones">
@@ -166,11 +136,13 @@
     </div>
 </footer>
 
-<script src="{% static 'js/jquery-3.3.1.slim.min.js' %}" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="{% static 'js/popper.min.js' %}" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="{% static 'js/bootstrap.min.js' %}" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="{% static 'js/jquery-3.3.1.slim.min.js' %}" ></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}" ></script>
 <script src="{% static 'js/jquery-latest.js' %}"></script>
 <script src="{% static 'js/main.js' %}"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="{% static 'json/recientes.js '%}"></script>
 <script>
     const config = {
         id: "dicho",
@@ -178,6 +150,25 @@
     }
     const iniciar = new MaquinaEscribir(config);
     iniciar.iniciarMaquina();
+</script>
+<script>
+        // $(document).ready(function(){
+        //     $("#myInput").on("keyup", function() {
+        //         var value = $(this).val().toLowerCase();
+        //         $("#seccion-seccion2 ").filter(function() {
+        //             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        //         });
+        //     });
+        // });
+        $(document).ready(function(){
+          $("#buscador").on("keyup", function(){
+            console.log("funciona");
+            var value = $(this).val().toLowerCase();
+            $("#seccion-seccion2 .card").filter(function() {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+          });
+        });
 </script>
 </body>
 </html>
