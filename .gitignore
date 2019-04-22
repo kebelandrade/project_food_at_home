@@ -1,2 +1,4 @@
 .idea/
 venv/
+food_at_home/food_at_home/migrations
+food_at_home/food_at_home/__pycache__
