@@ -31,8 +31,12 @@ urlpatterns = [
 
     # Index
     path('', inicio, name='index'),
+    path('inicio', Inicio2, name='inicio2'),
+    path('inicio/<int:id>', inicio3),
     path('login', login, name='login'),
     path('categorias', categorias),
+    path('todos-res', allrestaurante),
+    path('espacio', espacio, name="espacio"),
     # administrador
     path('administrador/index', index, name='admiIndex'),
     path('administrador/gestion-usuarios', gestion_usuarios, name='gestionUsuarios'),
@@ -40,6 +44,8 @@ urlpatterns = [
     path('administrador/gestion-Ciudades', gestion_ciudades, name='gestionCiudades'),
     path('administrador/savecategoria', save_categoria, name="saveCategoria"),
     path('administrador/verrestaurante/<int:id>', verRes),
+    path('menu/<int:id>', menus),
+    path('administrador/solicitudes', solicitudes, name="solicitudes"),
     # path('verificar', verificar, name="verificar"),
     path('login/crear.html', usuario_nuevo, name="Usernew"), # esta url muestra el formualario para crear el usuario
     path('save_usuario', guardar_user, name='save'),

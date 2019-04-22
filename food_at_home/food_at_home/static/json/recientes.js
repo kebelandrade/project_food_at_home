@@ -15,7 +15,7 @@ then(function(res){
 
     `
   }
-  var elemento = document.getElementById('seccion-seccion2');
+  var elemento = document.getElementById('cats');
   elemento.innerHTML=html;
 
   // agregar event listeners
@@ -41,6 +41,26 @@ then(function(res){
   }
 
 });
+axios.get('todos-res').
+then(function(resta){
+  let html = "";
+  // console.log(res.data)
+  for(var i=0; i< resta.data.length; i++){
+    html +=`
+    <div class="card" style="width: 18rem; margin: 20px 20px; height:25rem; ">
+        <img src="media/${resta.data[i].fields.img}" class="card-img-top rounded-circle mx-auto d-block" style="height:200px; width:200px; margin-top:10px;">
+        <div class="card-body">
+            <h5 class="card-title">${resta.data[i].fields.nombre}</h5>
+            <p class="card-text">${resta.data[i].fields.descripcion}</p>
+            <a href="menu/${resta.data[i].pk}" class="btn btn-warning btn-ver-res">Ver Menu</a>
+        </div>
+    </div>
+    `
+  }
+  var elemento = document.getElementById('restaurante')
+  elemento.innerHTML=html
+
+})
 // <div class="card" style="width: 18rem; margin: 20px 20px ">
 //     <img src="media/${res.data[i].fields.img}" class="card-img-top rounded-circle mx-auto d-block" style="height:100px; width:100px;">
 //     <div class="card-body">

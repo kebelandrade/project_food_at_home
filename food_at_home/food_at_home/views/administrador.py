@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import render_to_response
-from ..models import Usuario, Categoria
+from ..models import Usuario, Categoria, Restaurante
 from django.http import HttpResponse, JsonResponse
 from django.core.exceptions import ValidationError
 from django.core import serializers
@@ -18,20 +18,20 @@ def index(request):
     password = request.POST.get('contra')
     error = 0
     # if request.method == 'POST':
-    usuarios = Usuario.objects.all()
-    if usuarios.email == email and usuarios.password == password:
-        if usuarios.tipoUsuario == 1:
-            return render(request, "administrador/root.html")
-        elif usuarios.tipoUsuario == 2:
-            return render(request, "cliente/inicio_usuario_cliente.html")
-    else:
-        messages.success(request, 'El correo o la contrasena son incorrectas')
-        return render("login/login.html")
+    usuarios = Usuario.objects.filter(email=email,password=password)
+    # if usuarios.email == email and usuarios.password == password:
+    #     if usuarios.tipoUsuario == 1:
+    #         return render(request, "administrador/root.html")
+    #     elif usuarios.tipoUsuario == 2:
+    #         return render(request, "cliente/inicio_usuario_cliente.html")
+    # else:
+    #     messages.success(request, 'El correo o la contrasena son incorrectas')
+    #     return render("login/login.html")
     # else:
     #     return render(request,"login/login.html")
 
 
-    # return render(request, "administrador/root.html")
+    return HttpResponse(usuarios)
 
 
 
@@ -71,3 +71,7 @@ def save_categoria(request):
         return render(request,'administrador/Restaurantes.html')
     elif exito == False:
         return HttpResponse('no')
+
+def solicitudes(request):
+    restaurante = Restaurante.objects.filter(estado='0')
+    return TemplateResponse(request, 'administrador/solicitudes.html',{'restaurantes':restaurante})
