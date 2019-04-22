@@ -25,7 +25,7 @@ $("#cate").click(function() {
 });
 $("#promo").click(function() {
     $('html, body').animate({
-        scrollTop: $("#promosiones").offset().top
+        scrollTop: $("#promociones").offset().top
     }, 2000);
 });
 $("#brand").click(function() {
