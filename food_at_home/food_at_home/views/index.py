@@ -14,8 +14,7 @@ def root(request):
 
 
 def inicio(request):
-
-    return render(request, 'Index.html')
+    return render(request, 'Index2.html')
 
 
 def categorias(request):
