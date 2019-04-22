@@ -9,12 +9,30 @@ from django.template import *
 from ..models import Empleado
 from django.conf import settings
 from django.core.files.storage import FileSystemStorage
-from ..form import formCategoria
+# from ..form import formCategoria
 from django.contrib import messages
 
 
 def index(request):
-    return render(request, "administrador/root.html")
+    email = request.POST.get('correo')
+    password = request.POST.get('contra')
+    error = 0
+    # if request.method == 'POST':
+    usuarios = Usuario.objects.all()
+    if usuarios.email == email and usuarios.password == password:
+        if usuarios.tipoUsuario == 1:
+            return render(request, "administrador/root.html")
+        elif usuarios.tipoUsuario == 2:
+            return render(request, "cliente/inicio_usuario_cliente.html")
+    else:
+        messages.success(request, 'El correo o la contrasena son incorrectas')
+        return render("login/login.html")
+    # else:
+    #     return render(request,"login/login.html")
+
+
+    # return render(request, "administrador/root.html")
+
 
 
 def gestion_usuarios(request):

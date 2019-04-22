@@ -90,6 +90,11 @@ class Restaurante(models.Model):
         MinValueValidator(1, "El valor debe ser mayor a 1."),
         MaxValueValidator(5, "El valor máximo es de 5.")
     ])
+    img = models.ImageField(upload_to='image', null=True)
+    descripcion = models.CharField(max_length=50, null=True, error_messages={
+        'blank': 'No puede ir en blanco la descripción del restaurante.',
+        'max_length': 'No puede ir más de 50 caracteres en descripcion.'
+    })
     usuario = models.ForeignKey(Usuario, on_delete=models.PROTECT)
 
 
@@ -179,7 +184,7 @@ class Categoria(models.Model):
         'null': 'Por favor, proporcione un nombre.'
     }, validators=[validar_alfa])
     img = models.ImageField(upload_to='images')
-    descripcion = models.CharField(max_length=50, default="")
+    descripcion = models.CharField(max_length=40, null=True)
 
 
 class CategoriaRestaurante(models.Model):
@@ -204,7 +209,8 @@ class Plato(models.Model):
     precio = models.DecimalField(max_digits=6, decimal_places=2, validators=[
         MinValueValidator(0.01, message="El precio no puede ser menor a cero")
     ])
-    img = models.FileField(max_length=100)
+    img = models.ImageField(upload_to='image', null=True)
+    id_restaurante = models.ForeignKey(Restaurante, on_delete=models.PROTECT, null=True)
 
 
 class BodyPedido(models.Model):

@@ -47,6 +47,9 @@ urlpatterns = [
     path('cliente/categoria', cliente_cat, name="cliente_cat"),
     path('cliente/restaurante', cliente_rest, name="cliente_rest"),
     path('cliente/ciudad', cliente_ciudad, name="cliente_ciudad"),
+    path('cliente/query-ciudad/<int:id>', cliente_queryCiudad, name="cliente_queryCiudad"),
+    path('cliente/restaurante/menu/<int:id>', cliente_restaurante_menu)
+
     path('cliente/configuracion_cliente.html', configuracion),
     path('administrador/root.html', root),
     # path('administrador/Empleado.html', empleado),

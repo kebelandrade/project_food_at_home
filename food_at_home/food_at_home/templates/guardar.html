@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Guardar</title>
+</head>
+<body>
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ categoria.as_p }}
+    <input type="submit" value="Guardar">
+</form>
+</body>
+</html>
