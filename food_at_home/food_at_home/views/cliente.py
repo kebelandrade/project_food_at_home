@@ -1,6 +1,6 @@
 from django.http import HttpResponse, JsonResponse
 from django.core.exceptions import ValidationError
-from ..models import Categoria, Restaurante, Ciudad, DireccionRestaurante
+from ..models import Categoria, Restaurante, Ciudad, DireccionRestaurante,Plato
 from django.core import serializers
 
 
@@ -36,5 +36,11 @@ def cliente_queryCiudad(request, id):
 def cliente_restaurante_menu(request, id):
     pass
 
+
 def vermenu(request, id):
     pass
+
+def menus(request, id):
+    menu  = serializers.serialize("json",Plato.objects.filter(id_restaurante = id))
+    men = HttpResponse(menu, content_type='application/json')
+    return men

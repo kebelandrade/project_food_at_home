@@ -1,6 +1,7 @@
 from django.http import HttpResponse, JsonResponse
 from django.core.exceptions import ValidationError
-from ..models import Usuario
+from ..models import *
+from django.template.response import *
 from django.core import serializers
 from django.shortcuts import render
 from django.shortcuts import render_to_response
@@ -128,7 +129,9 @@ def actualizar_usuario(req, id):
 
 
 def user(request):
-    return render(request, 'cliente/inicio_usuario_cliente.html')
+    ciudades = Ciudad.objects.all()
+    restaurante = Restaurante.objects.all()
+    return TemplateResponse(request, 'cliente/inicio_usuario_cliente.html', {'ciudades':ciudades, 'restaurante':restaurante})
 
 
 

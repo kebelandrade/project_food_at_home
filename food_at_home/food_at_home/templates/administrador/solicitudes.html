@@ -1,0 +1,55 @@
+{% extends 'administrador/root.html' %}
+{% load static %}
+
+{% block titulo %} Gestión de los Empleados{% endblock %}
+
+{% block workspace %}
+
+<div class="d-flex flex-column bd-highlight mb-3">
+  <div class="p-2 bd-highlight d-flex bd-highlight">
+        <div class="p-2 flex-grow-1 bd-highlight">
+            <h1>Solicitudes pendientes de usuarios y restaurantes</h1>
+        </div>
+        <div class="p-2 bd-highlight">
+
+        </div>
+  </div>
+  <div class="p-2 bd-highlight sticky-top" style="overflow-y: scroll; height: 500px">
+      <table class="table table-sm table-dark">
+          <thead>
+            <tr>
+
+              <th scope="col">Nombre de Restaurante</th>
+              <th scope="col">Telefono</th>
+              <th scope="col">Estado</th>
+              <th scope="col">Calificacion</th>
+              <th scope="col">Descripcion</th>
+              <th scope="col">img</th>
+              <th scope="col">Nombre del usuario</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- williams -->
+
+            {% for res in restaurantes %}
+            <tr>
+              <td>{{ res.nombre}}</td>
+              <td>{{ res.telefono}}</td>
+              <!-- <td>{{ empleado.telefono}}</td> -->
+              {% if res.estado == 1 %}
+                <td><span class="badge badge-light"></span>Activo</td>
+              {% else %}
+                <td><span class="badge badge-light"></span>Inactivo</td>
+              {% endif %}
+              <td>{{res.calificacion}}</td>
+              <td>{{res.descripcion}}</td>
+              <td><img src="../media/{{res.img}}" style="width:30px; height:30px;" alt=""></td>
+            </tr>
+              {% endfor %}
+
+          </tbody>
+      </table>
+  </div>
+</div>
+
+{% endblock%}

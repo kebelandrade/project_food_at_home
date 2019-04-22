@@ -16,6 +16,13 @@
 {% block nav%}
 {% include "componentes/nav.html"%}
 {%endblock%}
+{% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-success" role="alert">
+      {{ message }}
+    </div>
+    {% endfor %}
+{% endif %}
 <!-- este es el block de la categoria -->
 {% block sectionCategoria %}
 {% include "componentes/sectionCategoria.html" %}
