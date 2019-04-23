@@ -69,13 +69,14 @@ def guardar_user(req):
         errores = e.messages
         exito = False
 
-    if exito == True:
+    if exito:
         return render(req,'login/agradecimiento.html')
-    elif exito == False:
+    elif not exito:
         return JsonResponse({
             'exito': exito,
             'errores': errores
         })
+
 
 def configuracion(request):
     return render(request, 'cliente/configuracion_cliente.html')
@@ -133,7 +134,6 @@ def user(request):
     restaurante = Restaurante.objects.all()
     direccion = DireccionRestaurante.objects.values('ciudad_id', 'restaurante_id').distinct()
     return TemplateResponse(request, 'cliente/inicio_usuario_cliente.html', {'ciudades':ciudades, 'restaurante':restaurante, 'direccion': direccion})
-
 
 
 def eliminar_usuario(req):
