@@ -53,7 +53,7 @@ urlpatterns = [
     path('cliente/categoria', cliente_cat, name="cliente_cat"),
     path('cliente/restaurante', cliente_rest, name="cliente_rest"),
     path('cliente/ciudad', cliente_ciudad, name="cliente_ciudad"),
-    path('cliente/query-ciudad/<int:id>', cliente_queryCiudad, name="cliente_queryCiudad"),
+    path('cliente/query-ciudad/<int:id>', cliente_queryciudad, name="cliente_queryCiudad"),
     path('cliente/restaurante/menu/<int:id>', cliente_restaurante_menu),
     path('cliente/vermenu/<int:id>', vermenu),
 
@@ -78,6 +78,7 @@ urlpatterns = [
     path('formulario.html', form, name='formulario'),
     # path('guardar_user', guardar_user),
     # url(r'^guardar_user/', guardar_user),
+    # HolA mUNDO
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

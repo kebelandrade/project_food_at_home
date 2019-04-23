@@ -18,7 +18,7 @@ def inicio(request):
     ciudad = Ciudad.objects.all()
     return TemplateResponse(request, 'Index2.html', {'ciudad': ciudad})
 
-
+# Good Job
 def categorias(request):
     cats = serializers.serialize("json", Categoria.objects.all())
     res = HttpResponse(cats, content_type="application/json")
