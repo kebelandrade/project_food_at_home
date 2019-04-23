@@ -1,3 +1,4 @@
+/* Validación con jQuery en el formulario de modalRegistro.html */
 $(function () {
         $("#Nombres").keyup(function () {
             var This = $("#Nombres");
@@ -6,6 +7,7 @@ $(function () {
             var valido = expre.test(user);
             if (user == "" || user == null) {
                 This.attr('style', 'border:none; box-shadow:0px 0px 9px -1px rgba(255,49,56,0.96)');
+                return false;
             } else {
                 This.attr('style', 'border:none; box-shadow:0px 0px 9px -1px rgba(145,245,42,0.96)');
             }
@@ -15,6 +17,7 @@ $(function () {
             } else {
                 This.attr(
                     'style', 'border:none; box-shadow:0px 0px 9px -1px rgba(255,49,56,0.96)');
+                return false;
             }
         });
 
@@ -25,6 +28,7 @@ $(function () {
             var valido = expre.test(apellido);
             if (apellido == "" || apellido == null) {
                 This.attr('style', 'border:none; box-shadow:0px 0px 9px -1px rgba(255,49,56,0.96)');
+                return false;
             } else {
                 This.attr('style', 'border:none; box-shadow:0px 0px 9px -1px rgba(145,245,42,0.96)');
             }
@@ -33,6 +37,7 @@ $(function () {
                 This.attr('style', 'border:none; box-shadow:0px 0px 9px -1px rgba(145,245,42,0.96)');
             } else {
                 This.attr('style', 'border:none; box-shadow:0px 0px 9px -1px rgba(255,49,56,0.96)');
+                return false;
             }
         });
 
@@ -43,12 +48,14 @@ $(function () {
             var valido = expre.test(tel);
             if (tel == "" || tel == null) {
                 This.attr('style', 'border:none; box-shadow:0px 0px 9px -1px rgba(255,49,56,0.96)');
+                return false;
             } else {
                 This.attr('style', 'border:none; box-shadow:0px 0px 9px -1px rgba(145,245,42,0.96)');
             }
 
-            if (tel.length > 9 || tel.length < 9) {
+            if (tel.length > 8 || tel.length < 8) {
                 This.attr('style', 'border:none; box-shadow:0px 0px 9px -1px rgba(255,49,56,0.96)');
+                return false;
             } else {
                 This.attr('style', 'border:none; box-shadow:0px 0px 9px -1px rgba(145,245,42,0.96)');
             }
@@ -57,6 +64,7 @@ $(function () {
                 This.attr('style', 'border:none; box-shadow:0px 0px 9px -1px rgba(145,245,42,0.96)');
             } else {
                 This.attr('style', 'border:none; box-shadow:0px 0px 9px -1px rgba(255,49,56,0.96)');
+                return false;
             }
         });
 
@@ -65,6 +73,7 @@ $(function () {
             var user = $("#Usuario").val();
             if (user == "" || user == null) {
                 This.attr('style', 'border:none; box-shadow:0px 0px 9px -1px rgba(255,49,56,0.96)');
+                return false;
             } else {
                 This.attr('style', 'border:none; box-shadow:0px 0px 9px -1px rgba(145,245,42,0.96)');
             }
@@ -77,6 +86,7 @@ $(function () {
             var valido = expre.test(correo);
             if (correo == "" || correo == null) {
                 This.attr('style', 'border:none; box-shadow:0px 0px 9px -1px rgba(255,49,56,0.96)');
+                return false;
             } else {
                 This.attr('style', 'border:none; box-shadow:0px 0px 9px -1px rgba(145,245,42,0.96)');
             }
@@ -85,6 +95,7 @@ $(function () {
                 This.attr('style', 'border:none; box-shadow:0px 0px 9px -1px rgba(145,245,42,0.96)');
             } else {
                 This.attr('style', 'border:none; box-shadow:0px 0px 9px -1px rgba(255,49,56,0.96)');
+                return false;
             }
         });
 
@@ -94,12 +105,14 @@ $(function () {
             var correo2 = $("#Correo2").val();
             if (correo2 == "" || correo2 == null) {
                 This.attr('style', 'border:none; box-shadow:0px 0px 9px -1px rgba(255,49,56,0.96)');
+                return false;
             } else {
                 This.attr('style', 'border:none; box-shadow:0px 0px 9px -1px rgba(145,245,42,0.96)');
             }
 
             if (correo1 != correo2){
                 This.attr('style', 'border:none; box-shadow:0px 0px 9px -1px rgba(255,49,56,0.96)');
+                return false;
             } else {
                 This.attr('style', 'border:none; box-shadow:0px 0px 9px -1px rgba(145,245,42,0.96)');
             }
@@ -111,6 +124,7 @@ $(function () {
            var contra = $("#Contra").val();
            if (contra == "" || contra == null) {
                This.attr('style', 'border:none; box-shadow:0px 0px 9px -1px rgba(255,49,56,0.96)');
+               return false;
             } else {
                This.attr('style', 'border:none; box-shadow:0px 0px 9px -1px rgba(145,245,42,0.96)');
             }
@@ -123,12 +137,14 @@ $(function () {
 
             if (contra2 == "" || contra2 == null) {
                 This.attr('style', 'border:none; box-shadow:0px 0px 9px -1px rgba(255,49,56,0.96)');
+                return false;
             } else {
                 This.attr('style', 'border:none; box-shadow:0px 0px 9px -1px rgba(145,245,42,0.96)');
             }
 
             if (contra1 != contra2){
                 This.attr('style', 'border:none; box-shadow:0px 0px 9px -1px rgba(255,49,56,0.96)');
+                return false;a
             } else {
                 This.attr('style', 'border:none; box-shadow:0px 0px 9px -1px rgba(145,245,42,0.96)');
             }
@@ -137,3 +153,4 @@ $(function () {
 
 
 /*--------------------------------------------------------------------------------------------------------------------------------------*/
+/* Validación con jQuery en el formulario de nuevoEspacio.html */

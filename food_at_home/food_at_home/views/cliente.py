@@ -29,7 +29,7 @@ def cliente_queryciudad(request, id):
     ciudad = Ciudad()
     direccion = DireccionRestaurante()
     # query = Restaurante()
-    query = serializers.serialize("json",Restaurante.objects.filter(direccionrestaurante__ciudad = id))
+    query = serializers.serialize("json", Restaurante.objects.filter(direccionrestaurante__ciudad = id))
     rest = HttpResponse(query, content_type='application/json')
     return rest
 
