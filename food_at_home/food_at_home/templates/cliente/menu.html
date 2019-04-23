@@ -5,21 +5,20 @@
   <div class="col-2">
     <h7>Otros restaurantes en la misma zona</h7>
     <ul class="nav flex-column">
-      {% for c in ciudad %}
-      {% for r in res%}
-      <li class="nav-item row">
-        <!-- <img class="rounded-circle col" src="../../../media/{{r.img}}" style="!import width: 50px; height:10px;" alt=""> -->
-        <a class="nav-link col" href="../../menu/{{ r.id }}/{{c.id}}">{{r.nombre}}</a>
-      </li>
-      {% endfor %}
-      {% endfor %}
-
+        {% for c in ciudad %}
+            {% for r in res%}
+                <li class="nav-item row">
+                    <a class="nav-link col" href="../../menu/{{ r.id }}/{{c.id}}">{{r.nombre}}</a>
+                </li>
+            {% endfor %}
+        {% endfor %}
+    </ul>
   </div>
   {% for res in restaurante%}
   <div class="col">
     <div class="card" style="width: 100%; height:700px ">
       <h1>Menu</h1>
-      <img src="../../../media/{{res.img}}" class="card-img-top rounded-circle mx-auto d-block" style="width: 200px; height:200px" alt="...">
+      <img src="/../../../media/{{res.img}}" class="card-img-top rounded-circle mx-auto d-block" style="width: 200px; height:200px" alt="...">
       <h1>{{res.nombre}}</h1>
       <div class="card-body">
         {% for plato in menu%}
@@ -33,10 +32,17 @@
         </div>
         {%endfor%}
       </div>
-      <a href="{% url "inicio_usuario" %}">Volver a la pagina principal</a>
+{#    {% for user in usuario %}#}
+{#      <a href="{% url 'cliente/inicio_usuario_cliente.html/'{{ user.nombreUsuario }} %}">Volver a la pagina principal</a>#}
+{#    {% endfor %}#}
     </div>
+    {% block pedido%}
+    {% include "cliente/pedido.html" %}
+    {% endblock %}
   </div>
   {%endfor%}
 </div>
+
+
 
 {% endblock %}

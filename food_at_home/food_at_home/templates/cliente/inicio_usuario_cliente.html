@@ -29,21 +29,23 @@
         <hr>
     </div>
     <div class="contenido d-flex flex-wrap d-flex justify-content-center" >
-      {% for ciudad in ciudades %}
-          <h4>{{ciudad.nombre}}</h4>
-          {% for rest in restaurante %}
-            {% for dir in direccion %}
-              {% if dir.ciudad_id == ciudad.id and dir.restaurante_id == rest.id %}
-                <div class="card" style="width: 18rem; margin: 20px 20px; height:25rem; ">
-                    <img src="../media/{{rest.img}}" class="card-img-top rounded-circle mx-auto d-block" style="height:200px; width:200px; margin-top:10px;">
-                    <div class="card-body">
-                        <h5 class="card-title">{{rest.nombre}}</h5>
-                        <p class="card-text">{{rest.descripcion}}</p>
-                        <a href="menu/{{ rest.id }}/{{ciudad.id}}" class="btn btn-warning btn-ver-res">Ver Menu</a>
+      {% for user in usuario %}
+          {% for ciudad in ciudades %}
+              <h4>{{ciudad.nombre}}</h4>
+              {% for rest in restaurante %}
+                {% for dir in direccion %}
+                  {% if dir.ciudad_id == ciudad.id and dir.restaurante_id == rest.id %}
+                    <div class="card" style="width: 18rem; margin: 20px 20px; height:25rem; ">
+                        <img src="/../media/{{rest.img}}" class="card-img-top rounded-circle mx-auto d-block" style="height:200px; width:200px; margin-top:10px;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{rest.nombre}}</h5>
+                            <p class="card-text">{{rest.descripcion}}</p>
+                            <a href="../{{ user.nombreUsuario }}/menu/{{ rest.id }}/{{ciudad.id}}" class="btn btn-warning btn-ver-res">Ver Menu</a>
+                        </div>
                     </div>
-                </div>
-              {% endif %}
-            {% endfor %}
+                  {% endif %}
+                {% endfor %}
+              {% endfor %}
           {% endfor %}
       {% endfor %}
     </div>
@@ -58,12 +60,14 @@
 <!-- {% block footer%}
 {% include "componentes/modals.html"%}
 {%endblock%} -->
+
 <!-- este es el block del script -->
 <script src="{% static 'js/jquery-3.3.1.slim.min.js' %}" ></script>
 <script src="{% static 'js/popper.min.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}" ></script>
 <script src="{% static 'js/jquery-latest.js' %}"></script>
 <script src="{% static 'js/main.js' %}"></script>
+
 
 </body>
 </html>

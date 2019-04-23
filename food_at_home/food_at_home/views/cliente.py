@@ -1,6 +1,6 @@
 from django.http import HttpResponse, JsonResponse
 from django.core.exceptions import ValidationError
-from ..models import Categoria, Restaurante, Ciudad, DireccionRestaurante,Plato
+from ..models import *
 from django.core import serializers
 from django.template.response import *
 
@@ -41,9 +41,14 @@ def cliente_restaurante_menu(request, id):
 def vermenu(request, id):
     pass
 
-def menus(request, id, idc):
+def menus(request, id, idc, name):
     menu  = Plato.objects.filter(id_restaurante = id)
     res = Restaurante.objects.filter(direccionrestaurante__ciudad = idc).distinct()
     restaurante = Restaurante.objects.filter(id = id)
     ciudad = Ciudad.objects.filter(id = idc)
-    return TemplateResponse(request, 'cliente/menu.html',{'menu':menu, 'restaurante':restaurante, 'res':res,'ciudad':ciudad})
+    transporte = Transporte.objects.all()
+    usuario = Usuario.objects.filter(nombreUsuario = name)
+    return TemplateResponse(request, 'cliente/menu.html',{'menu':menu, 'restaurante':restaurante,
+                                                          'res':res,'ciudad':ciudad,
+                                                          'transporte': transporte,
+                                                          'usuario': usuario})

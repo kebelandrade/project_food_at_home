@@ -49,7 +49,7 @@ def login(request):
         exito = True
     else:
         exito = False
-
+#
 
     if exito == False:
         return render(request, 'Index2.html')
@@ -58,8 +58,11 @@ def login(request):
             response = redirect('administrador/root.html')
             return response
         elif usuario.tipoUsuario == 2:
-            response = redirect('cliente/inicio_usuario_cliente.html')
+            name = usuario.nombreUsuario
+            response = redirect('cliente/inicio_usuario_cliente.html/'+name)
             return response
+
+            
 def Inicio2(request):
     id = request.POST.get('selectCiudad')
     query = serializers.serialize("json",Restaurante.objects.filter(direccionrestaurante__ciudad = id))
