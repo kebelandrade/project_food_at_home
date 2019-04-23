@@ -13,7 +13,8 @@ $(function () {
             if (valido) {
                 This.attr('style', 'border:none; box-shadow:0px 0px 9px -1px rgba(145,245,42,0.96)');
             } else {
-                This.attr('style', 'border:none; box-shadow:0px 0px 9px -1px rgba(255,49,56,0.96)');
+                This.attr(
+                    'style', 'border:none; box-shadow:0px 0px 9px -1px rgba(255,49,56,0.96)');
             }
         });
 
@@ -133,3 +134,6 @@ $(function () {
             }
         });
     });
+
+
+/*--------------------------------------------------------------------------------------------------------------------------------------*/
