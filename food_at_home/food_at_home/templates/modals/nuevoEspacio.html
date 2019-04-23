@@ -1,3 +1,9 @@
+{% load static %}
+
+<script src="{% static 'js/../../static/js/jquery-3.4.0.min.js' %}" type="text/javascript"></script>
+
+<script src="{% static 'js/../../static/js/validacion_formulario.js' %}" type="text/javascript"></script>
+
 <div class="modal-dialog modal-lg">
   <div class="modal-content">
     <div class="modal-header">
@@ -29,18 +35,18 @@
                 <input type="tel" class="form-control" id="Telefono" name="telefono" placeholder="8962-5980">
             </div>
             <div class="form-group col">
-                <label for="usuario">Nombre de Usuario</label>
-                <input type="text" class="form-control" id="usuario" name="usuario">
+                <label for="Usuario">Nombre de Usuario</label>
+                <input type="text" class="form-control" id="Usuario" name="usuario">
             </div>
           </div>
           <div class="row">
             <div class="form-group col">
-                <label for="correo">Correo Electronico</label>
-                <input type="email" class="form-control" id="correo" name="email" placeholder="Ejemplo@ejemplo.com">
+                <label for="Correo">Correo Electronico</label>
+                <input type="email" class="form-control" id="Correo" name="email" placeholder="Ejemplo@ejemplo.com">
             </div>
             <div class="form-group col">
-                <label for="ccorreo">Confirme Correo Electronico</label>
-                <input type="email" class="form-control" id="ccorreo" placeholder="Ejemplo@ejemplo.com">
+                <label for="Correo2">Confirme Correo Electronico</label>
+                <input type="email" class="form-control" id="Correo2" placeholder="Ejemplo@ejemplo.com">
             </div>
           </div>
 
@@ -60,22 +66,22 @@
           <hr class="m-0">
           <div class="row">
             <div class="form-group col">
-                <label >Nombre del restaurante</label>
-                <input type="text" class="form-control"  name="restaurante" placeholder="Restaurante Ejemplo">
+                <label for="Nombre-Restaurante">Nombre del restaurante</label>
+                <input type="text" class="form-control" id="Nombre-Restaurante" name="restaurante" placeholder="Restaurante Ejemplo">
             </div>
             <div class="form-group col">
-                <label >Telefono del contacto del restaurante</label>
-                <input type="text" class="form-control" name="tel" placeholder="99988801">
+                <label for="Telefono-Restaurante">Telefono del contacto del restaurante</label>
+                <input type="text" class="form-control" id="Telefono-Restaurante" name="tel" placeholder="99988801">
             </div>
           </div>
           <div class="row">
             <div class="form-group col">
-                <label >Descripcion corta del restaurante</label>
-                <input type="text" class="form-control"  name="descripcion" placeholder="Las mejores hamburguesas de la costa">
+                <label for="Descripcion-Restaurante">Descripcion corta del restaurante</label>
+                <input type="text" class="form-control" id="Descripcion-Restaurante" name="descripcion" placeholder="Las mejores hamburguesas de la costa">
             </div>
             <div class="form-group col">
-                <label >Imagen o logo del restaurante</label>
-                <input type="file" name="img" class="form-control">
+                <label for="Imagen-Restaurante">Imagen o logo del restaurante</label>
+                <input type="file" name="img" id="Imagen-Restaurante" class="form-control">
             </div>
             <input type="text" hidden name="estado" value="0">
             <input type="text" name="calificacion" hidden value="0">
