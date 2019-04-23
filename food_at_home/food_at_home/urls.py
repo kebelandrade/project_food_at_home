@@ -44,7 +44,7 @@ urlpatterns = [
     path('administrador/gestion-Ciudades', gestion_ciudades, name='gestionCiudades'),
     path('administrador/savecategoria', save_categoria, name="saveCategoria"),
     path('administrador/verrestaurante/<int:id>', verRes),
-    path('menu/<int:id>', menus),
+    path('cliente/menu/<int:id>/<int:idc>', menus),
     path('administrador/solicitudes', solicitudes, name="solicitudes"),
     # path('verificar', verificar, name="verificar"),
     path('login/crear.html', usuario_nuevo, name="Usernew"), # esta url muestra el formualario para crear el usuario
