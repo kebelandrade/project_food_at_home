@@ -24,7 +24,7 @@ def cliente_ciudad(request):
     return res
 
 
-def cliente_queryCiudad(request, id):
+def cliente_queryciudad(request, id):
     restaurante = Restaurante()
     ciudad = Ciudad()
     direccion = DireccionRestaurante()
