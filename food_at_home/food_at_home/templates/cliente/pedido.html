@@ -1,0 +1,40 @@
+{% load static %}
+<p>
+  <a class="btn btn-primary" id="collapsePedi" data-toggle="collapse" href="#collapsePedido" role="button" aria-expanded="false" aria-controls="collapseExample">
+    Ver Pedido
+  </a>
+</p>
+<div class="collapse" id="collapsePedido">
+  <div class="card card-body">
+    <form class="" action="#" method="post">
+      <div class="row">
+        <div class="form-group col">
+          <label for="">Fecha</label>
+          <h6 id="date"></h6>
+        </div>
+        <div class="form-group col">
+          <label for="">Total</label>
+          <h6 id="total">00.00 Lps</h6>
+        </div>
+        <div class="form-group col">
+          <label for="">Tipo de Transporte</label>
+          <select class="form-control" id="selectCiudad">
+            {% for trans in transporte %}
+              <option value="{{ trans.id }}">{{ trans.nombre}}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<script>
+  n =  new Date();
+//Año
+  y = n.getFullYear();
+//Mes
+  m = n.getMonth() + 1;
+//Día
+  d = n.getDate();
+  document.getElementById("date").innerHTML = d + "/" + m + "/" + y;
+</script>

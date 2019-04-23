@@ -129,11 +129,15 @@ def actualizar_usuario(req, id):
     })
 
 
-def user(request):
+def user(request, name):
+    usuario = Usuario.objects.filter(nombreUsuario = name)
     ciudades = Ciudad.objects.all()
     restaurante = Restaurante.objects.all()
     direccion = DireccionRestaurante.objects.values('ciudad_id', 'restaurante_id').distinct()
-    return TemplateResponse(request, 'cliente/inicio_usuario_cliente.html', {'ciudades':ciudades, 'restaurante':restaurante, 'direccion': direccion})
+    return TemplateResponse(request, 'cliente/inicio_usuario_cliente.html', {'ciudades':ciudades,
+                                                                             'restaurante':restaurante,
+                                                                             'direccion': direccion,
+                                                                             'usuario': usuario})
 
 
 def eliminar_usuario(req):
