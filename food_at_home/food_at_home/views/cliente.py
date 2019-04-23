@@ -11,11 +11,13 @@ def cliente_cat(request):
     res = HttpResponse(cats, content_type="application/json")
     return res
 
+
 def cliente_rest(request):
     rest = Restaurante()
     rest = serializers.serialize("json", Restaurante.objects.all())
     res = HttpResponse(rest, content_type="application/json")
     return res
+
 
 def cliente_ciudad(request):
     c = Ciudad()
@@ -24,7 +26,7 @@ def cliente_ciudad(request):
     return res
 
 
-def cliente_queryCiudad(request, id):
+def cliente_queryciudad(request, id):
     restaurante = Restaurante()
     ciudad = Ciudad()
     direccion = DireccionRestaurante()
@@ -41,9 +43,10 @@ def cliente_restaurante_menu(request, id):
 def vermenu(request, id):
     pass
 
+
 def menus(request, id, idc):
-    menu  = Plato.objects.filter(id_restaurante = id)
-    res = Restaurante.objects.filter(direccionrestaurante__ciudad = idc).distinct()
-    restaurante = Restaurante.objects.filter(id = id)
-    ciudad = Ciudad.objects.filter(id = idc)
+    menu = Plato.objects.filter(id_restaurante = id)
+    res = Restaurante.objects.filter(direccionrestaurante__ciudad=idc).distinct()
+    restaurante = Restaurante.objects.filter(id=id)
+    ciudad = Ciudad.objects.filter(id=idc)
     return TemplateResponse(request, 'cliente/menu.html',{'menu':menu, 'restaurante':restaurante, 'res':res,'ciudad':ciudad})
