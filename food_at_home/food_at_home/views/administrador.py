@@ -30,9 +30,7 @@ def index(request):
     # else:
     #     return render(request,"login/login.html")
 
-
     return HttpResponse(usuarios)
-
 
 
 def gestion_usuarios(request):
@@ -71,6 +69,7 @@ def save_categoria(request):
         return render(request,'administrador/Restaurantes.html')
     elif exito == False:
         return HttpResponse('no')
+
 
 def solicitudes(request):
     restaurante = Restaurante.objects.filter(estado='0')

@@ -20,7 +20,7 @@ from .views.empleado import *
 from .views.restaurante import *
 from .views.index import *
 from .views.cliente import *
-from  .views.adminrestaurante import *
+from .views.adminrestaurante import *
 # from .views.login import *
 from django.conf.urls import url
 from .views.administrador import *

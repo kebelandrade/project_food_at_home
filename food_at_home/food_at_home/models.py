@@ -167,9 +167,10 @@ class Pedido(models.Model):
         MinValueValidator(1, "El valor debe ser mayor a 1."),
         MaxValueValidator(5, "El valor máximo es de 5.")
     ])
-    precioPedido = models.DecimalField(max_digits=6,decimal_places=2, validators=[
+    precioPedido = models.IntegerField(validators=[
         MinValueValidator(0.01, message="El precio no puede ser menor a cero")
     ])
+    estado = models.CharField(max_length=1, default="")
 
     def clean(self):
         if self.fecha_pedido.timestamp() <= datetime.datetime.now().timestamp():
@@ -216,11 +217,7 @@ class Plato(models.Model):
 class BodyPedido(models.Model):
     pedido = models.ForeignKey(Pedido, on_delete=models.PROTECT)
     plato = models.ForeignKey(Plato, on_delete=models.PROTECT)
-    cantidad = models.IntegerField(error_messages={
-        'blank': 'No puede dejar vacío el campo de cantidad.',
-        'null': 'Por favor, proporcione una cantidad.'
-    })
-    precio = models.DecimalField(max_digits=6, decimal_places=2, validators=[
+    precio = models.IntegerField(validators=[
         MinValueValidator(0.01, message="El precio no puede ser menor a cero")
     ])
 
@@ -240,7 +237,7 @@ class BitacoraEmpleado(models.Model):
     id = models.AutoField(primary_key=True)
     fecha = models.DateField()
     pedido = models.ForeignKey(Pedido, on_delete=models.PROTECT)
-    precio = models.DecimalField(max_digits=6, decimal_places=2, validators=[
+    precio = models.IntegerField(validators=[
         MinValueValidator(0.01, message="El precio no puede ser menor a cero")
     ])
 
