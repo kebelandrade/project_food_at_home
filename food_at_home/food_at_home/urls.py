@@ -52,6 +52,7 @@ urlpatterns = [
     path('save_usuario', guardar_user, name='save'),
     path('cliente/inicio_usuario_cliente.html/<str:name>', user, name="inicio_usuario"),
     path('cliente/pedido/<int:id>', pedido),
+    path('cliente/save_pedido', save_pedido, name="save_pedidos"),
     path('cliente/categoria', cliente_cat, name="cliente_cat"),
     path('cliente/restaurante', cliente_rest, name="cliente_rest"),
     path('cliente/ciudad', cliente_ciudad, name="cliente_ciudad"),
