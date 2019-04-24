@@ -55,3 +55,8 @@ def menus(request, id, idc, name):
                                                           'res': res, 'ciudad': ciudad,
                                                           'transporte': transporte,
                                                           'usuario': usuario})
+
+def pedido(request, id):
+    query= serializers.serialize("json", Plato.objects.filter(id = id))
+    plato = HttpResponse(query, content_type='application/json')
+    return plato
