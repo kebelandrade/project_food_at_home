@@ -53,7 +53,7 @@ def guardar_user(req):
     # return render(data, 'index.')
     errores = []
     exito = True
-    valor = 2;
+    valor = 2
     try:
         nuevo_usuario = Usuario()
         nuevo_usuario.nombre = req.POST.get('nombre', None)

@@ -9,7 +9,7 @@
       <div class="modal-body">
 
 
-          <form action="{% url "save-plato" %}" method="post" id="form"  style="width:80%">
+          <form action="{% url "save_plato" %}" method="post" id="form"  style="width:80%">
           {% csrf_token %}
           <div class="row">
               <div class="form-group col">
@@ -45,6 +45,9 @@
             <div class="form-group col">
                 <label for="Foto-Plato">Foto</label>
                 <input type="file" name="img" id="Foto-Plato" class="form-control">
+                {% for u in usuario %}
+                    <input type="text" name="user" hidden value="{{ u.id }}">
+                {% endfor %}
             </div>
           </div>
           <input type="submit" id="bEnviar" class="btn btn-dark icon-user-plus"  value="Guardar">

@@ -8,7 +8,7 @@
       </div>
       <div class="modal-body">
 
-        <form action="{% url "save-dir" %}" method="post" id="form" style="width:80%">
+        <form action="{% url "save_dir" %}" method="post" id="form" style="width:80%">
           {% csrf_token %}
           <div class="row">
               <div class="form-group col">
@@ -31,6 +31,17 @@
               <label for="Ubicacion">Ubicación</label>
               <input type="text" class="form-control" id="Ubicacion" name="ubicacion">
             </div>
+          <div class="form-group col">
+              <label for="Latitud">Latitud</label>
+              <input type="number" class="form-control" id="Latitud" name="latitud">
+          </div>
+          <div class="form-group col">
+              <label for="Longitud">Longitud</label>
+              <input type="number" class="form-control" id="Longitud" name="longitud">
+              {% for u in usuario %}
+              <input type="text" name="user" hidden value="{{ u.id }}">
+              {% endfor %}
+          </div>
           </div>
           <input type="submit" name="" class="btn btn-dark icon-user-plus"  value="Guardar">
         </form>
