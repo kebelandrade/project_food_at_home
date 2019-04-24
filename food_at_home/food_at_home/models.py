@@ -206,7 +206,7 @@ class Plato(models.Model):
         'blank': 'No dejar vacío el campo de descripción.'
     })
     categoria = models.ForeignKey(Categoria, on_delete=models.PROTECT)
-    precio = models.DecimalField(max_digits=6, decimal_places=2, validators=[
+    precio = models.IntegerField(validators=[
         MinValueValidator(0.01, message="El precio no puede ser menor a cero")
     ])
     img = models.ImageField(upload_to='image', null=True)

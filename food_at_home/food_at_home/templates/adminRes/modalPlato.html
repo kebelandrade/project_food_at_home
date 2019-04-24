@@ -1,0 +1,60 @@
+ <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Plato</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+
+          <form action="{% url "save-plato" %}" method="post" id="form"  style="width:80%">
+          {% csrf_token %}
+          <div class="row">
+              <div class="form-group col">
+                  <label for="restaurante-opc">Restaurante</label>
+                  <select name="rs" id="restaurante-opc">
+                      {% for r in res %}
+                      <option value="{{ r.id }}">{{ r.nombre }}</option>
+                      {% endfor %}
+                  </select>
+              </div>
+          <div class="form-group col">
+                  <label for="categoria-opc">Categoria</label>
+                  <select name="cats" id="categoria-opc">
+                      {% for c in categoria %}
+                      <option value="{{ c.id }}">{{ c.nombre }}</option>
+                      {% endfor %}
+                  </select>
+              </div>
+            <div class="form-group col">
+              <label for="Nombre-Plato">Nombre</label>
+              <input type="text" class="form-control" id="Nombre-Plato" name="nombre" required>
+            </div>
+            <div class="form-group col">
+              <label for="Descripcion-Plato">Descripción</label>
+              <input type="text" class="form-control" id="Descripcion-Plato" name="descripcion" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col">
+                <label for="Precio-Plato">Precio</label>
+                <input type="text" class="form-control" id="Precio-Plato" name="precio" placeholder="0.00" required>
+            </div>
+            <div class="form-group col">
+                <label for="Foto-Plato">Foto</label>
+                <input type="file" name="img" id="Foto-Plato" class="form-control">
+            </div>
+          </div>
+          <input type="submit" id="bEnviar" class="btn btn-dark icon-user-plus"  value="Guardar">
+        </form>
+      </div>
+
+
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
