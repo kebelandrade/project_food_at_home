@@ -8,13 +8,21 @@
   <div class="card card-body">
     <form class="" action="#" method="post">
       <div class="row">
-        <div class="form-group col">
+        <div class="form-group col-1">
           <label for="">Fecha</label>
           <h6 id="date"></h6>
         </div>
-        <div class="form-group col">
+        <div class="form-group col-1">
+          <label for="">Usuario</label>
+            {% for user in usuario %}
+                <label for="" style="width: 100%">{{ user.nombreUsuario }}</label>
+                <input type="text" hidden name="usuario" value="{{ user.id }}">
+            {% endfor %}
+        </div>
+      <div class="form-group col-1">
           <label for="">Total</label>
-          <h6 id="total">00.00 Lps</h6>
+          <input id="total" name="total" readonly type="text" value="00" style="width: 60%">
+          <label for="">Lps</label>
         </div>
         <div class="form-group col">
           <label for="">Tipo de Transporte</label>
@@ -24,7 +32,35 @@
             {% endfor %}
           </select>
         </div>
+      <div class="form-group col">
+          <label for="">Elija una direccion</label>
+          <select class="form-control" id="selectCiudad">
+          {% for user in usuario%}
+            {% for dir in direccion %}
+                {% if dir.usuario_id == user.id %}
+                    <option value="{{ dir.id }}">{{ dir.nombre }} - {{ dir.direccion }}</option>
+                {% endif %}
+            {% endfor %}
+          {% endfor %}
+          </select>
+        </div>
       </div>
+    <div class="row">
+        <div class="card card-body" >
+            <table>
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                </tr>
+                </thead>
+                <tbody id="a_pedido">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
     </form>
   </div>
 </div>

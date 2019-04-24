@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block head%}
+        {% include "componentes/head.html"%}
+    {%endblock%}
+</head>
+<body>
+{% block navadminR %}
+{% include "adminRes/nav.html" %}
+{% endblock %}
+
+{% block bodyadminRes %}
+    <section>
+<!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalDireccion">
+        Agregar Direccion
+    </button>
+
+    <div class="modal fade" id="modalDireccion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    {% block modalDireccion %}
+        {% include "adminRes/modalDireccion.html" %}
+    {% endblock %}
+    </div>
+    </section>
+{% endblock %}
+
+
+
+
+
+<script src="{% static 'js/jquery-3.3.1.slim.min.js' %}" ></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}" ></script>
+<script src="{% static 'js/jquery-latest.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</body>
+</html>

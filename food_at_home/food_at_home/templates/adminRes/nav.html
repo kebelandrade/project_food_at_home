@@ -1,0 +1,24 @@
+<ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Active</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+      {% for name in usuario %}
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">{{ name.nombre }}</a>
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">{{ name.id }}</a>
+      {% endfor %}
+        {% for r in res  %}
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">{{ r.nombre }}</a>
+        {% endfor %}
+  {% for city in ciudad %}
+      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">{{ city.nombre }}</a>
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">{{ city.id }}</a>
+  {% endfor %}
+  </li>
+</ul>

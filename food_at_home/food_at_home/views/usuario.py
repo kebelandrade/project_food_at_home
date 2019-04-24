@@ -134,8 +134,8 @@ def user(request, name):
     ciudades = Ciudad.objects.all()
     restaurante = Restaurante.objects.all()
     direccion = DireccionRestaurante.objects.values('ciudad_id', 'restaurante_id').distinct()
-    return TemplateResponse(request, 'cliente/inicio_usuario_cliente.html', {'ciudades':ciudades,
-                                                                             'restaurante':restaurante,
+    return TemplateResponse(request, 'cliente/inicio_usuario_cliente.html', {'ciudades': ciudades,
+                                                                             'restaurante': restaurante,
                                                                              'direccion': direccion,
                                                                              'usuario': usuario})
 

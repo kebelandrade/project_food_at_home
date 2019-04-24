@@ -20,6 +20,7 @@ from .views.empleado import *
 from .views.restaurante import *
 from .views.index import *
 from .views.cliente import *
+from  .views.adminrestaurante import *
 # from .views.login import *
 from django.conf.urls import url
 from .views.administrador import *
@@ -50,12 +51,18 @@ urlpatterns = [
     path('login/crear.html', usuario_nuevo, name="Usernew"), # esta url muestra el formualario para crear el usuario
     path('save_usuario', guardar_user, name='save'),
     path('cliente/inicio_usuario_cliente.html/<str:name>', user, name="inicio_usuario"),
+    path('cliente/pedido/<int:id>', pedido),
     path('cliente/categoria', cliente_cat, name="cliente_cat"),
     path('cliente/restaurante', cliente_rest, name="cliente_rest"),
     path('cliente/ciudad', cliente_ciudad, name="cliente_ciudad"),
     path('cliente/query-ciudad/<int:id>', cliente_queryciudad, name="cliente_queryCiudad"),
     path('cliente/restaurante/menu/<int:id>', cliente_restaurante_menu),
     path('cliente/vermenu/<int:id>', vermenu),
+
+
+    #seccion de administrador de restaurante
+    path('administrador-restaurante/<str:name>', inicio_admin_res, name="inicio_admin_res"),
+    path('administrador-restaurante/guardar-direccion', save_direccion, name="save_direccion"),
 
 
     path('cliente/configuracion_cliente.html', configuracion),
