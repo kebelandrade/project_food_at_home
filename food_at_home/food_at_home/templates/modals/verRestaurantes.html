@@ -28,7 +28,7 @@
       var button = $(event.relatedTarget);
       var nombre = button.data('nombre');
 
-      superNombre = nombre
+      superNombre = nombre;
       var modal = $(this);
       console.log(superNombre);
       modal.find('.modal-header #titulo').html('Restaurantes de la categoria ' +  nombre);

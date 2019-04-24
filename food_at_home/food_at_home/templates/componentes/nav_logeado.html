@@ -1,0 +1,29 @@
+{% load static %}
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg sticky-top">
+    <img id="brand" src="{% static 'img/fah.png' %}" width="10%" height="100%" alt="">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        </ul>
+        <div class="form-inline my-2 my-lg-0">
+            <ul class="nav nav-pills">
+                  <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle btn btn-warning
+" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                        <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Separated link</a>
+                        </div>
+                  </li>
+            </ul>
+{% comment %}            <button class="btn btn-outline-warning my-3 my-sm-0" type="submit">Iniciar Sesión</button>{% endcomment %}
+            <span style="color: transparent;">-</span>
+            <button class="btn btn-outline-light my-3 my-sm-0" type="submit" data-toggle="modal" data-target="#modalRegistrar">Cerrar Sesión</button>
+        </div>
+    </div>
+</nav>

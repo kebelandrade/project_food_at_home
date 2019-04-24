@@ -14,40 +14,46 @@
 {% block navcliente%}
 {% include "cliente/navcliente.html"%}
 {%endblock%}
-{% if messages %}
-    {% for message in messages %}
-    <div class="alert alert-success" role="alert">
-      {{ message }}
-    </div>
-    {% endfor %}
-{% endif %}
+
 <!-- este es el block de la categoria -->
 <!-- Hola Willy -->
 {% block sRes %}
-<section >
+<section>
     <div class="d-flex justify-content-center flex-column bd-highlight mb-3">
         <div class="p-2 bd-highlight d-flex justify-content-center bg bg-secondary text-light"><h1><strong>Restaurantes</strong></h1></div>
         <hr>
     </div>
     <div class="contenido d-flex flex-wrap d-flex justify-content-center" >
-      {% for user in usuario %}
-          {% for ciudad in ciudades %}
-              <h4>{{ciudad.nombre}}</h4>
-              {% for rest in restaurante %}
-                {% for dir in direccion %}
-                  {% if dir.ciudad_id == ciudad.id and dir.restaurante_id == rest.id %}
-                    <div class="card" style="width: 18rem; margin: 20px 20px; height:25rem; ">
-                        <img src="/../media/{{rest.img}}" class="card-img-top rounded-circle mx-auto d-block" style="height:200px; width:200px; margin-top:10px;">
-                        <div class="card-body">
-                            <h5 class="card-title">{{rest.nombre}}</h5>
-                            <p class="card-text">{{rest.descripcion}}</p>
-                            <a href="../{{ user.nombreUsuario }}/menu/{{ rest.id }}/{{ciudad.id}}" class="btn btn-warning btn-ver-res">Ver Menu</a>
-                        </div>
+      {% for ciudad in ciudades %}
+          <div class="container">
+                <div class="row bg-secondary">
+                    <div class="col">
                     </div>
-                  {% endif %}
-                {% endfor %}
-              {% endfor %}
-          {% endfor %}
+                    <div class="col-6 text-center">
+                         <h4 class="text-light">{{ciudad.nombre}}</h4>
+                    </div>
+                    <div class="col">
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    {% for rest in restaurante %}
+                        {% for dir in direccion %}
+                          {% if dir.ciudad_id == ciudad.id and dir.restaurante_id == rest.id %}
+                              <div class="col-3" style="margin: 10px">
+                                <div class="card" style="width: 18rem; margin: 20px 20px; height:25rem; ">
+                                    <img src="/../media/{{rest.img}}" class="card-img-top rounded-circle mx-auto d-block" style="height:200px; width:200px; margin-top:10px;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{rest.nombre}}</h5>
+                                        <p class="card-text">{{rest.descripcion}}</p>
+                                        <a href="menu/{{ rest.id }}/{{ciudad.id}}" class="btn btn-warning btn-ver-res">Ver Menu</a>
+                                    </div>
+                                </div>
+                              </div>
+                          {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+          </div>
       {% endfor %}
     </div>
 </section>
@@ -58,10 +64,9 @@
 {% include "componentes/footer.html"%}
 {%endblock%}
 <!-- este es el block del footer -->
-<!-- {% block footer%}
+ {% block footer%}
 {% include "componentes/modals.html"%}
-{%endblock%} -->
-
+{%endblock%}
 <!-- este es el block del script -->
 <script src="{% static 'js/jquery-3.3.1.slim.min.js' %}" ></script>
 <script src="{% static 'js/popper.min.js' %}"></script>
@@ -70,7 +75,6 @@
 <script src="{% static 'js/main.js' %}"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="{% static 'json/pedido.js' %}"></script>
-
 
 </body>
 </html>
