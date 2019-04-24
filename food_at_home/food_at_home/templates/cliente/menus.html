@@ -1,36 +1,61 @@
-{% extends 'cliente/inicio_usuario_cliente.html' %}
-{% load static %}
-{% block sRes %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Food at Home</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/icon.png">
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg sticky-top">
+    <img id="brand" src="img/fah.png" width="10%" height="100%" alt="">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+                <a class="nav-link" id="cate"></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="promo"></a>
+            </li>
+        </ul>
+        <div class="form-inline my-2 my-lg-0">
+            <button class="btn btn-outline-light my-3 my-sm-0" type="submit">Configuración de Direcciones</button>
+            <span style="color: transparent;">-</span>
+            <button class="btn btn-outline-warning my-3 my-sm-0" type="submit">Pedidos</button>
+            <span style="color: transparent;">-</span>
+            <button class="btn btn-outline-light my-3 my-sm-0" type="submit">Cerrar Sesión</button>
+        </div>
+    </div>
+</nav>
 <section id="menu">
     <div class="container-fluid">
         <div class="row">
             <div class="col-2 bg-secondary" id="lista-restaurantes">
-            <ul class="nav flex-column bg-secondary">
-                <hr class="bg-dark border-light">
-                <li class="text-center">
-                    <h4 class="text-light sticky-top">Más Restaurantes</h4>
-                </li>
-                <hr class="bg-dark border-light">
-                <li class="nav-item">
-                    {% for c in ciudad %}
-                        {% for r in res%}
-                            <li class="nav-item row">
-                                <a class="nav-link col text-light" href="../../menu/{{ r.id }}/{{c.id}}"><span class="icon-radio-checked2"></span> {{r.nombre}}</a>
-                            </li>
-                        {% endfor %}
-                    {% endfor %}
-                </li>
-            </ul>
+                <ul class="nav flex-column bg-secondary">
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="#">Active</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                </ul>
             </div>
             <div class="col-7" id="menu-restaurantes">
                 <div class="container-fluid">
-                    {% for res in restaurante%}
-                        <div class="row align-items-center">
-                            <div class="col-6 col-md-4"><button class="btn btn-warning text-light my-3 my-sm-0" type="submit">Iniciar Sesión</button>
-                            </div>
-                            <div class="col-6 col-md-4 justify-content-center"><h1>{{res.nombre}}</h1></div>
-                            <div class="col-6 col-md-4"></div>
+                    <div class="row align-items-center">
+                        <div class="col-6 col-md-4"><button class="btn btn-warning text-light my-3 my-sm-0" type="submit">Iniciar Sesión</button>
                         </div>
+                        <div class="col-6 col-md-4 justify-content-center"><h1>Pizza Hut</h1></div>
+                        <div class="col-6 col-md-4"></div>
+                    </div>
                     <hr>
                     <div class="row align-items-center">
                         <h3 style="margin-left: 6px">Menu</h3>
@@ -43,16 +68,13 @@
                     </div>
                     <hr>
                     <div id="cont-platillos">
-                    {% for plato in menu%}
-                        <div class="row" style="margin: 4px">
-                            <div class="col-6 col-md-2">{{plato.nombre}}</div>
-                            <div class="col-6 col-md-6">{{plato.descripcion}}</div>
-                            <div class="col-6 col-md-3">L.{{plato.precio}}</div>
+                        <div class="row">
+                            <div class="col-6 col-md-2">Pizza Hawaiina</div>
+                            <div class="col-6 col-md-6">Pizza con trozitos de pina</div>
+                            <div class="col-6 col-md-3">L.200.00</div>
                             <div class="col-6 col-md-1"><button class="btn btn-warning"><span class="icon-plus text-light"></span></button></div>
                         </div>
-                    {% endfor %}
                     </div>
-                    {% endfor %}
                 </div>
             </div>
             <div class="col-3 justify-content-center" id="factura">
@@ -127,4 +149,14 @@
         </div>
     </div>
 </section>
-{% endblock %}
+<footer class="align-content-center bg-dark text-light">
+    <div class="footer-copyright text-center py-3">Food at Home Derechos Reservados &copy; 2019
+    </div>
+</footer>
+<script src="js/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="js/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="js/jquery-latest.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

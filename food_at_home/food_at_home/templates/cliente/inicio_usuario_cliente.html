@@ -18,12 +18,13 @@
 <!-- este es el block de la categoria -->
 <!-- Hola Willy -->
 {% block sRes %}
-<section>
+<section id="restaurantes">
     <div class="d-flex justify-content-center flex-column bd-highlight mb-3">
         <div class="p-2 bd-highlight d-flex justify-content-center bg bg-secondary text-light"><h1><strong>Restaurantes</strong></h1></div>
         <hr>
     </div>
-    <div class="contenido d-flex flex-wrap d-flex justify-content-center" >
+    <div class="container-fluid contenido-rest d-flex flex-wrap d-flex justify-content-center" >
+    {% for user in usuario %}
       {% for ciudad in ciudades %}
           <div class="container">
                 <div class="row bg-secondary">
@@ -35,17 +36,18 @@
                     <div class="col">
                     </div>
                 </div>
+                <hr>
                 <div class="row justify-content-center">
                     {% for rest in restaurante %}
                         {% for dir in direccion %}
                           {% if dir.ciudad_id == ciudad.id and dir.restaurante_id == rest.id %}
                               <div class="col-3" style="margin: 10px">
-                                <div class="card" style="width: 18rem; margin: 20px 20px; height:25rem; ">
+                                <div class="card text-center" style="width: 18rem; margin: 20px 20px; height:25rem; ">
                                     <img src="/../media/{{rest.img}}" class="card-img-top rounded-circle mx-auto d-block" style="height:200px; width:200px; margin-top:10px;">
                                     <div class="card-body">
                                         <h5 class="card-title">{{rest.nombre}}</h5>
                                         <p class="card-text">{{rest.descripcion}}</p>
-                                        <a href="menu/{{ rest.id }}/{{ciudad.id}}" class="btn btn-warning btn-ver-res">Ver Menu</a>
+                                        <a href="../{{ user.nombreUsuario }}/menu/{{ rest.id }}/{{ciudad.id}}" class="btn btn-warning btn-ver-res text-light"><span class="icon-list text-light"></span> Menu</a>
                                     </div>
                                 </div>
                               </div>
@@ -55,13 +57,14 @@
                 </div>
           </div>
       {% endfor %}
+    {% endfor %}
     </div>
 </section>
 {% endblock %}
 <!-- este es el block de la promociones -->
 <!-- este es el block de los modales -->
 {% block modals%}
-{% include "componentes/footer.html"%}
+{% include "componentes/footerlog.html"%}
 {%endblock%}
 <!-- este es el block del footer -->
  {% block footer%}
