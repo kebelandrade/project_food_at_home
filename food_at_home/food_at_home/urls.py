@@ -60,9 +60,10 @@ urlpatterns = [
     path('cliente/vermenu/<int:id>', vermenu),
 
 
-    #seccion de administrador de restaurante
+    # seccion de administrador de restaurante
     path('administrador-restaurante/<str:name>', inicio_admin_res, name="inicio_admin_res"),
-    path('administrador-restaurante/guardar-direccion', save_direccion, name="save_direccion"),
+    path('administrador-restaurante/guardar-direccion', save_direccion, name="save-dir"),
+    path('administrador-restaurante/guardar-plato', save_plato, name="save-plato"),
 
 
     path('cliente/configuracion_cliente.html', configuracion),

@@ -24,7 +24,19 @@
         {% include "adminRes/modalDireccion.html" %}
     {% endblock %}
     </div>
+    </section> <br>
+
+    <section>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPlato">
+            Agregar Plato al Restaurante
+        </button>
+    <div class="modal fade" id="modalPlato" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    {% block modalPlato %}
+        {% include "adminRes/modalPlato.html" %}
+    {% endblock %}
+    </div>
     </section>
+
 {% endblock %}
 
 

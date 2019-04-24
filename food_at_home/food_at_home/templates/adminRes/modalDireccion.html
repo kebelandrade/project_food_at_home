@@ -1,18 +1,43 @@
-
-  <div class="modal-dialog" role="document">
+ <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Dirección de Restaurante</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        ...
+
+        <form action="{% url "save-dir" %}" method="post" id="form" style="width:80%">
+          {% csrf_token %}
+          <div class="row">
+              <div class="form-group col">
+                  <label for="restaurante-opc">Restaurante</label>
+                  <select name="rs" id="restaurante-opc">
+                      {% for r in res %}
+                      <option value="{{ r.id }}">{{ r.nombre }}</option>
+                      {% endfor %}
+                  </select>
+              </div>
+            <div class="form-group col">
+                <label for="ciudad-opc">Ciudad</label>
+                  <select name="ciudad" id="ciudad-opc">
+                      {% for c in ciudad %}
+                      <option value="{{ c.id }}">{{ c.nombre }}</option>
+                      {% endfor %}
+                  </select>
+            </div>
+            <div class="form-group col">
+              <label for="Ubicacion">Ubicación</label>
+              <input type="text" class="form-control" id="Ubicacion" name="ubicacion">
+            </div>
+          </div>
+          <input type="submit" name="" class="btn btn-dark icon-user-plus"  value="Guardar">
+        </form>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
