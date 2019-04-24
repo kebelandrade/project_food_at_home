@@ -24,7 +24,7 @@ def cliente_ciudad(request):
     return res
 
 
-def cliente_queryCiudad(request, id):
+def cliente_queryciudad(request, id):
     restaurante = Restaurante()
     ciudad = Ciudad()
     direccion = DireccionRestaurante()
@@ -42,7 +42,8 @@ def vermenu(request, id):
     pass
 
 def menus(request, id, idc, name):
-    menu  = Plato.objects.filter(id_restaurante = id)
+    menu = Plato.objects.filter(id_restaurante = id)
+    direccion = DireccionUsuario.objects.all()
     res = Restaurante.objects.filter(direccionrestaurante__ciudad = idc).distinct()
     restaurante = Restaurante.objects.filter(id = id)
     ciudad = Ciudad.objects.filter(id = idc)
@@ -51,4 +52,11 @@ def menus(request, id, idc, name):
     return TemplateResponse(request, 'cliente/menu.html',{'menu':menu, 'restaurante':restaurante,
                                                           'res':res,'ciudad':ciudad,
                                                           'transporte': transporte,
-                                                          'usuario': usuario})
+                                                          'usuario': usuario,
+                                                          'direccion':direccion})
+
+def pedido(request, id):
+    query= serializers.serialize("json", Plato.objects.filter(id = id))
+    plato = HttpResponse(query, content_type='application/json')
+    return plato
+

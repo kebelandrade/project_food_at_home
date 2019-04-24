@@ -61,6 +61,10 @@ def login(request):
             name = usuario.nombreUsuario
             response = redirect('cliente/inicio_usuario_cliente.html/'+name)
             return response
+        elif usuario.tipoUsuario == 3:
+            name = usuario.nombreUsuario
+            response = redirect('administrador-restaurante/'+name)
+            return response
 
             
 def Inicio2(request):

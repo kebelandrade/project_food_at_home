@@ -22,14 +22,15 @@
       <h1>{{res.nombre}}</h1>
       <div class="card-body">
         {% for plato in menu%}
-        <div class="conteiner row">
-            <h4 class="col-3">{{plato.nombre}}</h4>
-            <h6 class="col-4">{{plato.descripcion}}</h6>
-            <h4 class="col-2">L.{{plato.precio}}</h4>
-          <div class="card col">
-        <!-- Hola Willy --->
-          </div>
+            <div class="conteiner row">
+                <h4 class="col-3">{{plato.nombre}}</h4>
+                <h6 class="col-4">{{plato.descripcion}}</h6>
+                <h4 class="col-2">L.{{plato.precio}}</h4>
+            <div class="card col">
+                <button value="{{ plato.id }}" onclick="pedido({{ plato.id }})">anadir</button>
+            </div>
         </div>
+
         {%endfor%}
       </div>
 {#    {% for user in usuario %}#}
