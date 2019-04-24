@@ -18,18 +18,20 @@ def inicio(request):
     ciudad = Ciudad.objects.all()
     return TemplateResponse(request, 'Index2.html', {'ciudad': ciudad})
 
-# Good Job
+
 def categorias(request):
     cats = serializers.serialize("json", Categoria.objects.all())
     res = HttpResponse(cats, content_type="application/json")
     return res
+
 
 def allrestaurante(request):
     restaurante = serializers.serialize("json", Restaurante.objects.filter(estado='1'))
     resta = HttpResponse(restaurante, content_type="application/json")
     return resta
 
-def verRes(request, id):
+
+def ver_res(request, id):
     #return HttpResponse(id)
     restaurantes = serializers.serialize('json', Restaurante.objects.filter(categoriarestaurante__id_categoria=id))
     return HttpResponse(restaurantes, content_type='application/json')
@@ -67,19 +69,22 @@ def login(request):
             return response
 
             
-def Inicio2(request):
+def inicio2(request):
     id = request.POST.get('selectCiudad')
     query = serializers.serialize("json",Restaurante.objects.filter(direccionrestaurante__ciudad = id))
     rest = HttpResponse(query, content_type='application/json')
     return rest
+
 
 def inicio3(request, id):
     query = serializers.serialize("json",Restaurante.objects.filter(direccionrestaurante__ciudad = id))
     rest = HttpResponse(query, content_type='application/json')
     return rest
 
+
 def espacio(request):
     exito = True
+    error = []
     try:
         if request.method == 'POST':
             usuario = Usuario()

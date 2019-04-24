@@ -56,13 +56,14 @@ def menus(request, id, idc, name):
     return TemplateResponse(request, 'cliente/menu.html',{'menu': menu, 'restaurante': restaurante,
                                                           'res': res, 'ciudad': ciudad,
                                                           'transporte': transporte,
-                                                          'usuario': usuario,
-                                                            'direccion':direccion})
+                                                          'usuario': usuario, 'direccion': direccion})
+
 
 def pedido(request, id):
-    query= serializers.serialize("json", Plato.objects.filter(id = id))
+    query = serializers.serialize("json", Plato.objects.filter(id = id))
     plato = HttpResponse(query, content_type='application/json')
     return plato
+
 
 def save_pedido(request):
     now = datetime.datetime.now()
@@ -75,7 +76,7 @@ def save_pedido(request):
             # pedido.calificacion = request.POST.get('calificacion', None)
             # pedido.precioPedido = request.POST.get('total', None)
             # pedido.direccion_id = request.POST.get('select_direccion', None)
-            # pedido.empleado_id = request.POST.get('empleado', None)
+            # pedido.empleado_id = request.POST.get('emplead   o', None)
             # pedido.transporte_id = request.POST.get('select_transporte', None)
             # pedido.usuario_id = request.POST.get('usuario', None)
             # pedido.save()

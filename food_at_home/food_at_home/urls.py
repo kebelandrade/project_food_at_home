@@ -32,7 +32,7 @@ urlpatterns = [
 
     # Index
     path('', inicio, name='index'),
-    path('inicio', Inicio2, name='inicio2'),
+    path('inicio', inicio2, name='inicio2'),
     path('inicio/<int:id>', inicio3),
     path('login', login, name='login'),
     path('categorias', categorias),
@@ -44,7 +44,7 @@ urlpatterns = [
     path('administrador/gestion-restaurante', gestion_restaurante, name='gestionRestaurante'),
     path('administrador/gestion-Ciudades', gestion_ciudades, name='gestionCiudades'),
     path('administrador/savecategoria', save_categoria, name="saveCategoria"),
-    path('administrador/verrestaurante/<int:id>', verRes),
+    path('administrador/verrestaurante/<int:id>', ver_res),
     path('cliente/<str:name>/menu/<int:id>/<int:idc>', menus),
     path('administrador/solicitudes', solicitudes, name="solicitudes"),
     # path('verificar', verificar, name="verificar"),
@@ -63,8 +63,8 @@ urlpatterns = [
 
     # seccion de administrador de restaurante
     path('administrador-restaurante/<str:name>', inicio_admin_res, name="inicio_admin_res"),
-    path('administrador-restaurante/guardar-direccion', save_direccion, name="save-dir"),
-    path('administrador-restaurante/guardar-plato', save_plato, name="save-plato"),
+    path('administrador-direccion/guardar-direccion', save_direccion, name="save_dir"),
+    path('administrador-plato/guardar-plato', save_plato, name="save_plato"),
 
 
     path('cliente/configuracion_cliente.html', configuracion),
