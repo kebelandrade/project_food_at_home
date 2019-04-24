@@ -1,1 +1,33 @@
-<!-- Hola -->
+<div class="col-7" id="menu-restaurantes">
+                <div class="container-fluid">
+                    {% for res in restaurante%}
+                        <div class="row align-items-center">
+                            <div class="col-6 col-md-4"><button class="btn btn-warning text-light my-3 my-sm-0" type="submit">Iniciar Sesión</button>
+                            </div>
+                            <div class="col-6 col-md-4 justify-content-center"><h1>{{res.nombre}}</h1></div>
+                            <div class="col-6 col-md-4"></div>
+                        </div>
+                    <hr>
+                    <div class="row align-items-center">
+                        <h3 style="margin-left: 6px">Menu</h3>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-6 col-md-2">Nombre</div>
+                        <div class="col-6 col-md-6">Descripsión</div>
+                        <div class="col-6 col-md-3">Precio</div>
+                        <div class="col-6 col-md-1"></div>
+                    </div>
+                    <hr>
+                    <div id="cont-platillos">
+                    {% for plato in menu%}
+                        <div class="row" style="margin: 4px">
+                            <div class="col-6 col-md-2">{{plato.nombre}}</div>
+                            <div class="col-6 col-md-6">{{plato.descripcion}}</div>
+                            <div class="col-6 col-md-3">L.{{plato.precio}}</div>
+                            <div class="col-6 col-md-1"><button class="btn btn-warning" onclick="pedido({{ plato.id }})"><span class="icon-plus text-light"></span></button></div>
+                        </div>
+                    {% endfor %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>

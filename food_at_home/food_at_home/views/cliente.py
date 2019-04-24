@@ -3,6 +3,7 @@ from django.core.exceptions import ValidationError
 from ..models import *
 from django.core import serializers
 from django.template.response import *
+import datetime
 
 
 def cliente_cat(request):
@@ -51,12 +52,42 @@ def menus(request, id, idc, name):
     ciudad = Ciudad.objects.filter(id=idc)
     transporte = Transporte.objects.all()
     usuario = Usuario.objects.filter(nombreUsuario = name)
+    direccion = DireccionUsuario.objects.all()
     return TemplateResponse(request, 'cliente/menu.html',{'menu': menu, 'restaurante': restaurante,
                                                           'res': res, 'ciudad': ciudad,
                                                           'transporte': transporte,
-                                                          'usuario': usuario})
+                                                          'usuario': usuario,
+                                                            'direccion':direccion})
 
 def pedido(request, id):
     query= serializers.serialize("json", Plato.objects.filter(id = id))
     plato = HttpResponse(query, content_type='application/json')
     return plato
+
+def save_pedido(request):
+    now = datetime.datetime.now()
+    try:
+        if request.method == 'POST':
+            longitud = int(request.POST.get('longitud'))
+            int(longitud)
+            # pedido = Pedido()
+            # pedido.fecha_pedido = now
+            # pedido.calificacion = request.POST.get('calificacion', None)
+            # pedido.precioPedido = request.POST.get('total', None)
+            # pedido.direccion_id = request.POST.get('select_direccion', None)
+            # pedido.empleado_id = request.POST.get('empleado', None)
+            # pedido.transporte_id = request.POST.get('select_transporte', None)
+            # pedido.usuario_id = request.POST.get('usuario', None)
+            # pedido.save()
+
+            id_pedido = Pedido.objects.all().last()
+            body = BodyPedido()
+            for long in range(longitud - 1):
+                body.precio = request.POST.get('precio-'+str(long), None)
+                body.pedido_id = id_pedido.id
+                body.plato_id = request.POST.get('id_plato-'+str(long), None)
+                body.save()
+
+    except ValidationError as e:
+        mensaje = e.messages
+        exito = False

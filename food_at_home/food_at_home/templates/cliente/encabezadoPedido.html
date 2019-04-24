@@ -1,0 +1,49 @@
+<div class="container-fluid" id="papel">
+                    <div class="row align-items-center bg-warning text-light" id="titulo-factura">
+                        <div class="col-6 col-md-4"></div>
+                        <div class="col-6 col-md-4 justify-content-center"><h1>Total</h1></div>
+                        <div class="col-6 col-md-4"></div>
+                    </div>
+                        <hr>
+                            <div class="row justify-content-center">
+                                <div class="col-6 col-md-6" id="date"></div>
+                                <div class="col-6 col-md-3">
+                                {% for user in usuario %}
+{#                                    usuario#}
+                                    <input type="text" hidden name="usuario" value="{{ user.id }}">
+{#                                    calificacion#}
+                                    <input type="text" hidden name="calificacion" value="5">
+{#                                    empleado#}
+                                    <input type="text" hidden name="empleado" value="3">
+                                    {{ user.nombreUsuario }}
+                                {% endfor %}
+                                </div>
+                                <div class="col-6 col-md-3"></div>
+                            </div>
+                             <div class="row justify-content-center">
+                                <div class="col" >
+{#                                transporte#}
+                                    <select class="form-control" id="selectTrsnpotte" name="select_transporte">
+                                        <option value="#">--Seleccione transporte</option>
+                                        {% for trans in transporte %}
+                                          <option value="{{ trans.id }}">{{ trans.nombre}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                             <div class="row justify-content-center">
+                                <div class="col" >
+{#                                direccion#}
+                                    <select class="form-control" name="select_direccion" id="selectCiudad">
+                                        <option value="">---Seleccion una direccion</option>
+                                      {% for user in usuario%}
+                                        {% for dir in direccion %}
+                                            {% if dir.usuario_id == user.id %}
+                                                <option value="{{ dir.id }}">{{ dir.nombre }} - {{ dir.direccion }}</option>
+                                            {% endif %}
+                                        {% endfor %}
+                                      {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        <hr>

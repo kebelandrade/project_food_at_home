@@ -1,0 +1,18 @@
+<div class="col-2 bg-secondary" id="lista-restaurantes">
+            <ul class="nav flex-column bg-secondary">
+                <hr class="bg-dark border-light">
+                <li class="text-center">
+                    <h4 class="text-light sticky-top">Más Restaurantes</h4>
+                </li>
+                <hr class="bg-dark border-light">
+                <li class="nav-item">
+                    {% for c in ciudad %}
+                        {% for r in res%}
+                            <li class="nav-item row">
+                                <a class="nav-link col text-light" href="../../menu/{{ r.id }}/{{c.id}}"><span class="icon-radio-checked2"></span> {{r.nombre}}</a>
+                            </li>
+                        {% endfor %}
+                    {% endfor %}
+                </li>
+            </ul>
+</div>

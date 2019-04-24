@@ -1,0 +1,11 @@
+<div class="col-3 justify-content-center" id="factura">
+                <form action="{% url "save_pedidos" %}"  method="post">
+                {% csrf_token %}
+                    {% block encabezadopedido %}
+                        {% include "cliente/encabezadoPedido.html" %}
+                    {% endblock %}
+                    {% block bodyencabezado %}
+                        {% include "cliente/bodyPedido.html" %}
+                    {% endblock %}
+                </form>
+            </div>

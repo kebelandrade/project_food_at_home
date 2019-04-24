@@ -4,127 +4,28 @@
 <section id="menu">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-2 bg-secondary" id="lista-restaurantes">
-            <ul class="nav flex-column bg-secondary">
-                <hr class="bg-dark border-light">
-                <li class="text-center">
-                    <h4 class="text-light sticky-top">Más Restaurantes</h4>
-                </li>
-                <hr class="bg-dark border-light">
-                <li class="nav-item">
-                    {% for c in ciudad %}
-                        {% for r in res%}
-                            <li class="nav-item row">
-                                <a class="nav-link col text-light" href="../../menu/{{ r.id }}/{{c.id}}"><span class="icon-radio-checked2"></span> {{r.nombre}}</a>
-                            </li>
-                        {% endfor %}
-                    {% endfor %}
-                </li>
-            </ul>
-            </div>
-            <div class="col-7" id="menu-restaurantes">
-                <div class="container-fluid">
-                    {% for res in restaurante%}
-                        <div class="row align-items-center">
-                            <div class="col-6 col-md-4"><button class="btn btn-warning text-light my-3 my-sm-0" type="submit">Iniciar Sesión</button>
-                            </div>
-                            <div class="col-6 col-md-4 justify-content-center"><h1>{{res.nombre}}</h1></div>
-                            <div class="col-6 col-md-4"></div>
-                        </div>
-                    <hr>
-                    <div class="row align-items-center">
-                        <h3 style="margin-left: 6px">Menu</h3>
-                    </div>
-                    <div class="row justify-content-center">
-                        <div class="col-6 col-md-2">Nombre</div>
-                        <div class="col-6 col-md-6">Descripsión</div>
-                        <div class="col-6 col-md-3">Precio</div>
-                        <div class="col-6 col-md-1"></div>
-                    </div>
-                    <hr>
-                    <div id="cont-platillos">
-                    {% for plato in menu%}
-                        <div class="row" style="margin: 4px">
-                            <div class="col-6 col-md-2">{{plato.nombre}}</div>
-                            <div class="col-6 col-md-6">{{plato.descripcion}}</div>
-                            <div class="col-6 col-md-3">L.{{plato.precio}}</div>
-                            <div class="col-6 col-md-1"><button class="btn btn-warning"><span class="icon-plus text-light"></span></button></div>
-                        </div>
-                    {% endfor %}
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
-            <div class="col-3 justify-content-center" id="factura">
-                <div class="container-fluid" id="papel">
-                    <div class="row align-items-center bg-warning text-light" id="titulo-factura">
-                        <div class="col-6 col-md-4"></div>
-                        <div class="col-6 col-md-4 justify-content-center"><h1>Total</h1></div>
-                        <div class="col-6 col-md-4"></div>
-                    </div>
-                    <hr>
-                    <div class="row justify-content-center">
-                        <div class="col-6 col-md-6">Descripsión</div>
-                        <div class="col-6 col-md-3">Precio</div>
-                        <div class="col-6 col-md-3"></div>
-                    </div>
-                    <hr>
-                    <div id="cont-recibo">
-                        <div class="row">
-                            <div class="col-6 col-md-6">Pizza con trozitos de pina</div>
-                            <div class="col-6 col-md-3">L.200.00</div>
-                            <div class="col-6 col-md-3"><button class="btn btn-warning"><span class="icon-cross text-light"></span></button></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6 col-md-6">Pizza con trozitos de pina</div>
-                            <div class="col-6 col-md-3">L.200.00</div>
-                            <div class="col-6 col-md-3"><button class="btn btn-warning"><span class="icon-cross text-light"></span></button></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6 col-md-6">Pizza con trozitos de pina</div>
-                            <div class="col-6 col-md-3">L.200.00</div>
-                            <div class="col-6 col-md-3"><button class="btn btn-warning"><span class="icon-cross text-light"></span></button></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6 col-md-6">Pizza con trozitos de pina</div>
-                            <div class="col-6 col-md-3">L.200.00</div>
-                            <div class="col-6 col-md-3"><button class="btn btn-warning"><span class="icon-cross text-light"></span></button></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6 col-md-6">Pizza con trozitos de pina</div>
-                            <div class="col-6 col-md-3">L.200.00</div>
-                            <div class="col-6 col-md-3"><button class="btn btn-warning"><span class="icon-cross text-light"></span></button></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6 col-md-6">Pizza con trozitos de pina</div>
-                            <div class="col-6 col-md-3">L.200.00</div>
-                            <div class="col-6 col-md-3"><button class="btn btn-warning"><span class="icon-cross text-light"></span></button></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6 col-md-6">Pizza con trozitos de pina</div>
-                            <div class="col-6 col-md-3">L.200.00</div>
-                            <div class="col-6 col-md-3"><button class="btn btn-warning"><span class="icon-cross text-light"></span></button></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6 col-md-6">Pizza con trozitos de pina</div>
-                            <div class="col-6 col-md-3">L.200.00</div>
-                            <div class="col-6 col-md-3"><button class="btn btn-warning"><span class="icon-cross text-light"></span></button></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-6 col-md-6">Pizza con trozitos de pina</div>
-                            <div class="col-6 col-md-3">L.200.00</div>
-                            <div class="col-6 col-md-3"><button class="btn btn-warning"><span class="icon-cross text-light"></span></button></div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col-6 col-md-6">Total</div>
-                        <div class="col-6 col-md-3">L.200.00</div>
-                        <div class="col-6 col-md-1"><button class="btn btn-warning text-light">Pagar</button></div>
-                    </div>
-                </div>
-            </div>
+            {% block navPEdido %}
+                {% include "cliente/navPedido.html" %}
+            {% endblock %}
+            {% block sectionREStauranteC %}
+                {% include "cliente/sectionrestaurante.html" %}
+            {% endblock %}
+            {% block sectionPEDidoC %}
+                {% include "cliente/sectionPedido.html" %}
+            {% endblock %}
+
+
         </div>
     </div>
 </section>
+    <script>
+  n =  new Date();
+//Año
+  y = n.getFullYear();
+//Mes
+  m = n.getMonth() + 1;
+//Día
+  d = n.getDate();
+  document.getElementById("date").innerHTML = d + "/" + m + "/" + y;
+</script>
 {% endblock %}

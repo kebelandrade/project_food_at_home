@@ -216,10 +216,6 @@ class Plato(models.Model):
 class BodyPedido(models.Model):
     pedido = models.ForeignKey(Pedido, on_delete=models.PROTECT)
     plato = models.ForeignKey(Plato, on_delete=models.PROTECT)
-    cantidad = models.IntegerField(error_messages={
-        'blank': 'No puede dejar vacío el campo de cantidad.',
-        'null': 'Por favor, proporcione una cantidad.'
-    })
     precio = models.DecimalField(max_digits=6, decimal_places=2, validators=[
         MinValueValidator(0.01, message="El precio no puede ser menor a cero")
     ])
