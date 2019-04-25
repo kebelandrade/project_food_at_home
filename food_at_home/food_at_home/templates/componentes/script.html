@@ -19,7 +19,7 @@
           $("#buscador").on("keyup", function(){
             console.log("funciona");
             var value = $(this).val().toLowerCase();
-            $("#seccion-seccion2 .card").filter(function() {
+            $("#restaurante .card").filter(function() {
               $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
             });
           });

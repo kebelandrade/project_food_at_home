@@ -59,6 +59,7 @@ urlpatterns = [
     path('cliente/query-ciudad/<int:id>', cliente_queryciudad, name="cliente_queryCiudad"),
     path('cliente/restaurante/menu/<int:id>', cliente_restaurante_menu),
     path('cliente/vermenu/<int:id>', vermenu),
+    path('cliente/<int:id>/pedidos', verResta, name="verResta"),
 
 
     # seccion de administrador de restaurante
