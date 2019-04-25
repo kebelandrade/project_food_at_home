@@ -7,7 +7,7 @@
         <p>
             <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapsePedido{{ pedidos.id }}" aria-expanded="false" aria-controls="collapseExample">
                 <span style="font-size: 20px">#</span> {{ pedidos.id }}  - <span style="font-size: 20px">Fecha:</span>{{ pedidos.fecha_pedido }}-
-                <span style="font-size: 20px">Total Pagado:</span>{{ pedidos.precioPedido }}Lps.  -   {% for r in restaurante %} <span style="font-size: 20px">Restaurante</span> {{ r.nombre }} {% endfor %}
+                <span style="font-size: 20px">Total Pagado:</span>{{ pedidos.precioPedido }}Lps.  -
             </button>
         </p>
         <div class="collapse" id="collapsePedido{{ pedidos.id }}">
@@ -18,21 +18,32 @@
                         <td>Nombre del plato</td>
                         <td>Descripcion</td>
                         <td>Precio</td>
+                        <td>Resraurante</td>
                     </tr>
                     </thead>
                     <tbody>
-                        {% for plato in platos %}
-                            <th>{{ plato.nombre }}</th>
-                            <th>{{ plato.descripcion }}</th>
-                            <th>{{ plato.precio }}</th>
-                        {% endfor %}
+                        {% for bod in body %}
+                        {% if bod.pedido_id == pedidos.id %}
+                            {% for plato in platos %}
+                                {% if plato.id == bod.plato_id %}
+                                    {% for res in restaurante %}
+                                        {% if res.id == plato.id_restaurante_id %}
+                                            <tr>
+                                                <th>{{ plato.nombre }}</th>
+                                                <th>{{ plato.descripcion }}</th>
+                                                <th>{{ plato.precio }}</th>
+                                                <th>{{ res.nombre }}</th>
+                                            </tr>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                    {% endfor %}
                     </tbody>
                 </table>
             </div>
         </div>
-    {% endfor %}
-{% for user in usuario %}
-        <h1>{{ user.nombreUsuario }}</h1>
     {% endfor %}
 </section>
 
