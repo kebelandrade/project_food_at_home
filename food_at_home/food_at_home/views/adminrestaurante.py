@@ -21,10 +21,10 @@ def inicio_admin_res(request, name):
 def save_direccion(request):
     exito = True
     errores = []
+    usuario = request.POST.get("user", None)
+    user = Usuario.objects.get(id=usuario)
     try:
         if request.method == 'POST':
-            usuario = request.POST.get("user", None)
-            user = Usuario.objects.get(id=usuario)
             dir_res = DireccionRestaurante()
             dir_res.restaurante_id = request.POST.get("rs", None)
             dir_res.ciudad_id = request.POST.get("ciudad", None)

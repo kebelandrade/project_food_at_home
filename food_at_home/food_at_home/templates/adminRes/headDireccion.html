@@ -1,0 +1,36 @@
+{% load static %}
+        <div class="col-6 columna">
+            <div class="row justify-content-center limite">
+                <div class="col-5 align-self-center"><h1 style="margin-left: 10px">Direcciones</h1></div>
+                <div class="col-3 align-self-center">
+                    <div class="row justify-content-md-center">
+                         <button type="button" class="btn btn-warning text-light" data-toggle="modal" data-target="#modalDireccion">
+                             Agregar Direccion
+                         </button>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row listas">
+                <table class="table table-sm table-dark">
+                    <thead>
+                      <tr  class="sticky-top">
+                        <th scope="col">#</th>
+                        <th scope="col">Restaurante</th>
+                        <th scope="col">Ciudad</th>
+                        <th scope="col">Ubicación</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {% for d in direcciones %}
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                      </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>

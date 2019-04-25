@@ -21,23 +21,24 @@
 {% endif %}
 
 {% block bodyadminRes %}
+    <div class="row" id="espaciado">
+        {% block headDireccion %}
+            {% include "adminRes/headDireccion.html" %}
+        {% endblock %}
+        {% block headPlato %}
+            {% include "adminRes/headPlatos.html" %}
+        {% endblock %}
+    </div>
     <section>
 <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalDireccion">
-        Agregar Direccion
-    </button>
-
     <div class="modal fade" id="modalDireccion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     {% block modalDireccion %}
         {% include "adminRes/modalDireccion.html" %}
     {% endblock %}
     </div>
-    </section> <br>
+    </section>
 
     <section>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPlato">
-            Agregar Plato al Restaurante
-        </button>
     <div class="modal fade" id="modalPlato" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     {% block modalPlato %}
         {% include "adminRes/modalPlato.html" %}
@@ -47,6 +48,9 @@
 
 {% endblock %}
 
+{% block footer %}
+    {% include "adminRes/footer.html" %}
+{% endblock %}
 
 
 

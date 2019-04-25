@@ -1,0 +1,36 @@
+{% load static %}
+        <div class="col-6 columna justify-content-md-center">
+            <div class="row justify-content-center limite">
+                <div class="col-5"><h1 style="margin-left: 10px">Platos</h1></div>
+                <div class="col-3 align-self-center">
+                    <div class="row justify-content-md-center">
+                        <button type="button" class="btn btn-warning text-light" data-toggle="modal" data-target="#modalPlato">
+                            Agregar Plato
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row listas">
+                <table class="table table-sm table-dark">
+                    <thead>
+                      <tr  class="sticky-top">
+                        <th scope="col">#</th>
+                        <th scope="col">Restaurante</th>
+                        <th scope="col">Categoria</th>
+                        <th scope="col">Nombre</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {% for p in platos %}
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                      </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
