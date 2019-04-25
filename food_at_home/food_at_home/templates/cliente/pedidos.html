@@ -1,0 +1,39 @@
+{% extends 'cliente/inicio_usuario_cliente.html' %}
+{% load static %}
+{% block sRes %}
+<section id="menu">
+
+    {% for pedidos in pedido %}
+        <p>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapsePedido{{ pedidos.id }}" aria-expanded="false" aria-controls="collapseExample">
+                <span style="font-size: 20px">#</span> {{ pedidos.id }}  - <span style="font-size: 20px">Fecha:</span>{{ pedidos.fecha_pedido }}-
+                <span style="font-size: 20px">Total Pagado:</span>{{ pedidos.precioPedido }}Lps.  -   {% for r in restaurante %} <span style="font-size: 20px">Restaurante</span> {{ r.nombre }} {% endfor %}
+            </button>
+        </p>
+        <div class="collapse" id="collapsePedido{{ pedidos.id }}">
+            <div class="card card-body">
+                <table>
+                    <thead>
+                    <tr>
+                        <td>Nombre del plato</td>
+                        <td>Descripcion</td>
+                        <td>Precio</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for plato in platos %}
+                            <th>{{ plato.nombre }}</th>
+                            <th>{{ plato.descripcion }}</th>
+                            <th>{{ plato.precio }}</th>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    {% endfor %}
+{% for user in usuario %}
+        <h1>{{ user.nombreUsuario }}</h1>
+    {% endfor %}
+</section>
+
+{% endblock %}

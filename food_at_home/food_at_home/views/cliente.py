@@ -4,6 +4,8 @@ from ..models import *
 from django.core import serializers
 from django.template.response import *
 import datetime
+from django.shortcuts import redirect
+
 
 
 def cliente_cat(request):
@@ -66,28 +68,55 @@ def pedido(request, id):
 
 def save_pedido(request):
     now = datetime.datetime.now()
+    exito = True
+    usuario = int(request.POST.get('usuario', None))
+    id = usuario
     try:
-        if request.method == 'POST':
-            longitud = int(request.POST.get('longitud'))
-            int(longitud)
-            # pedido = Pedido()
-            # pedido.fecha_pedido = now
-            # pedido.calificacion = request.POST.get('calificacion', None)
-            # pedido.precioPedido = request.POST.get('total', None)
-            # pedido.direccion_id = request.POST.get('select_direccion', None)
-            # pedido.empleado_id = request.POST.get('empleado', None)
-            # pedido.transporte_id = request.POST.get('select_transporte', None)
-            # pedido.usuario_id = request.POST.get('usuario', None)
-            # pedido.save()
-
-            id_pedido = Pedido.objects.all().last()
-            body = BodyPedido()
-            for long in range(longitud - 1):
-                body.precio = request.POST.get('precio-'+str(long), None)
-                body.pedido_id = id_pedido.id
-                body.plato_id = request.POST.get('id_plato-'+str(long), None)
-                body.save()
-
+        pass
+        # if request.method == 'POST':
+        #     longitud = int(request.POST.get('longitud'))
+        #     int(longitud)
+        #     pedido = Pedido()
+        #     pedido.fecha_pedido = now
+        #     pedido.calificacion = request.POST.get('calificacion', None)
+        #     pedido.precioPedido = request.POST.get('total', None)
+        #     pedido.direccion_id = request.POST.get('select_direccion', None)
+        #     pedido.empleado_id = request.POST.get('empleado', None)
+        #     pedido.transporte_id = request.POST.get('select_transporte', None)
+        #     pedido.usuario_id = request.POST.get('usuario', None)
+        #     pedido.estado = "0"
+        #     pedido.save()
+        #
+        #     id_pedido = Pedido.objects.all().last()
+        #
+        #     for long in range(longitud):
+        #         body = BodyPedido()
+        #         body.precio = request.POST.get('precio-'+str(long), None)
+        #         body.pedido_id = id_pedido.id
+        #         body.plato_id = request.POST.get('id_plato-'+str(long), None)
+        #         body.save()
     except ValidationError as e:
-        mensaje = e.messages
         exito = False
+
+    if exito == True:
+
+        response = redirect('/cliente/'+str(id)+'/pedidos')
+        return response
+    elif exito == False:
+        pass
+
+
+def verResta(request, id):
+    usuario = Usuario.objects.filter(id=id)
+    pedidos = Pedido.objects.filter(usuario_id = id)
+    get_pedido = Pedido.objects.filter(usuario_id = id) 
+    # get_body = BodyPedido.objects.get(pedido_id = get_pedido.id)
+    # get_plato = Plato.objects.get(id = get_body.plato_id)
+    # restaurante = Restaurante.objects.filter(id = get_plato.id_restaurante_id)
+    # plato = Plato.objects.filter(id = get_body.plato_id)
+
+    return TemplateResponse(request,'cliente/pedidos.html',{'usuario':usuario,
+                                                            'pedido': pedidos
+                                                            # 'restaurante': restaurante,
+                                                            # 'platos': plato})
+                                                            })
